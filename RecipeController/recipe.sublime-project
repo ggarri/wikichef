@@ -1,0 +1,435 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
+			"settings":
+			{
+				"buffer_size": 10878,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/admin.py",
+			"settings":
+			{
+				"buffer_size": 977,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
+			"settings":
+			{
+				"buffer_size": 7049,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/mytemplates/recipes/search.html",
+			"settings":
+			{
+				"buffer_size": 1244,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/mytemplates/recipes/details.html",
+			"settings":
+			{
+				"buffer_size": 1087,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/mytemplates/recipes/upload.html",
+			"settings":
+			{
+				"buffer_size": 1800,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/urls.py",
+			"settings":
+			{
+				"buffer_size": 840,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392,
+		"selected_items":
+		[
+		],
+		"width": 392
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/search.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/details.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/upload.html",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/urls.py",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/models.py",
+		"/home/ggarri/Universidad/Project/NLG/%",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/admin.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/index.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/rank.html",
+		"/home/ggarri/Universidad/Project/wikichef/settings.py",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/admin.pyc",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/delete.html",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/urls.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/admin.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/main/admin.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/main/models.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/dashboard.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/settings.py",
+		"/home/ggarri/Universidad/Project/wikichef/recipeManaging/admin.py",
+		"/home/ggarri/Universidad/Project/wikichef/magicManaging/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/magicManaging/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/recipeManaging/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/recipeManaging/__init__.py"
+	],
+	"find_in_files":
+	{
+		"include_history":
+		[
+		],
+		"location_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"MagicIng",
+			"addIngredient",
+			"MagicIngre",
+			"Score",
+			"User",
+			"etDistanceTitle",
+			"getLabel",
+			"magicButton",
+			"step",
+			"UNIT_MEASUREMENT",
+			"isStep",
+			"MBC",
+			"ingredient",
+			"ingredient_id",
+			"Amount.cre",
+			"list_combinations",
+			"combination_selected",
+			"MC_selectedMBs",
+			"#var",
+			"@var",
+			"step",
+			"listS",
+			"listSteps",
+			"amount",
+			"save",
+			"updateScore",
+			"scoreAverage",
+			"avera",
+			"avare",
+			"average",
+			"extra_description",
+			"list_buttons",
+			"next",
+			"user",
+			"id_user",
+			"def __unicode__(self):\n		return self.list_buttons.get",
+			"class StepInline(admin.TabularInline):\n    model = MagicCombination\n",
+			"recipe",
+			"lenght"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"MC_selected",
+			"combination_selected",
+			":param",
+			"description",
+			"listButtons",
+			"set",
+			"length"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
+					"settings":
+					{
+						"buffer_size": 10878,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2887,
+								2887
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 1152,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/admin.py",
+					"settings":
+					{
+						"buffer_size": 977,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								441,
+								441
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
+					"settings":
+					{
+						"buffer_size": 7049,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4570,
+								4570
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 1584,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/ggarri/Project/wikichef/mytemplates/recipes/search.html",
+					"settings":
+					{
+						"buffer_size": 1244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								437,
+								437
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/ggarri/Project/wikichef/mytemplates/recipes/details.html",
+					"settings":
+					{
+						"buffer_size": 1087,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/ggarri/Project/wikichef/mytemplates/recipes/upload.html",
+					"settings":
+					{
+						"buffer_size": 1800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								294,
+								258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/urls.py",
+					"settings":
+					{
+						"buffer_size": 840,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 500,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/ggarri/Universidad/Project/wikichef/MagicController/magic.sublime-project"
+			]
+		],
+		"width": 380
+	},
+	"show_minimap": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 165,
+	"status_bar_visible": true
+}

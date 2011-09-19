@@ -1,0 +1,437 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
+			"settings":
+			{
+				"buffer_size": 5034,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/XGDic/views.py",
+			"settings":
+			{
+				"buffer_size": 565,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/XGDic/xbing.py",
+			"settings":
+			{
+				"buffer_size": 773,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/XGDic/xgoogle.py",
+			"settings":
+			{
+				"buffer_size": 1293,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/stuff/APITranslate/google.py",
+			"settings":
+			{
+				"buffer_size": 5492,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ggarri/Project/stuff/APITranslate/BingTranslate.py",
+		"/home/ggarri/Project/wikichef/NLG/template.txt",
+		"/home/ggarri/Project/stuff/APITranslate/google.py",
+		"/home/ggarri/Project/exampleDjango/mysite/polls/views.py",
+		"/home/ggarri/Project/exampleDjango/mysite/polls/urls.py",
+		"/home/ggarri/Project/stuff/APITranslate/microsofttranslator-0.3/__init__.py",
+		"/home/ggarri/Project/wikichef/XGDic/detech.txt",
+		"/home/ggarri/Project/wikichef/NLG/models.py",
+		"/home/ggarri/wikichef/MagicController/models.py",
+		"/home/ggarri/wikichef/XGDic/detech.txt",
+		"/home/ggarri/wikichef/XGDic/googleT.py",
+		"/home/ggarri/wikichef/XGDic/models.py",
+		"/home/ggarri/Project/wikichef/settings.py",
+		"/home/ggarri/wikichef/settings.py",
+		"/home/ggarri/wikichef/NLG/generator.py",
+		"/home/ggarri/wikichef/NLG/models.py",
+		"/home/ggarri/wikichef/MagicController/views.py",
+		"/home/ggarri/wikichef/xgoogle/translate.py",
+		"/home/ggarri/wikichef/XGoogle/models.py",
+		"/home/ggarri/wikichef/NLG/GTranslate/gtranslate.py",
+		"/home/ggarri/wikichef/NLG/py-googletranslate.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/admin.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/searchMC.html",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/urls.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/insertMB.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/searchMB.html",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/details.html",
+		"/home/ggarri/Universidad/Project/SecurityCopy/MagicController/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/index.html",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/generate.py",
+		"/home/ggarri/Universidad/Project/generateStep/generate.py",
+		"/home/ggarri/Universidad/Project/generateStep/base.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/insertMC.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/search.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/magic/insert.html",
+		"/home/ggarri/Universidad/Project/wikichef/settings.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/css/style.css",
+		"/home/ggarri/Universidad/Project/wikichef/urls.py",
+		"/home/ggarri/Universidad/Project/wikichef/manage.py",
+		"/home/ggarri/Universidad/Project/wikichef/urls.pyc"
+	],
+	"find_in_files":
+	{
+		"include_history":
+		[
+		],
+		"location_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"APIErro",
+			"print",
+			"exception",
+			"sentence",
+			"oliveOil",
+			"__tupleWordLanguages",
+			"print",
+			"__all__",
+			"setting",
+			"values",
+			"print",
+			"checkBut",
+			"getOb",
+			"generate",
+			"order",
+			"category",
+			"order",
+			"Order",
+			"step",
+			"generate",
+			"__tosi",
+			"generate",
+			"__exe",
+			"__browser",
+			"__browserMB",
+			"isStep",
+			"isTe",
+			"isStep",
+			"temporal",
+			"previousStep",
+			"MagicButton.create",
+			"spread",
+			"MBC",
+			"beginCo",
+			"beginCombination",
+			"endMBC",
+			"MB_selected",
+			"spread",
+			"clearSessionMC",
+			"buttons_selected",
+			"MC_selectedMBs",
+			"combination_MBs_selected",
+			"MB/search",
+			"getAllMagicCombination",
+			"insertMC.html",
+			"search.html",
+			"insert.html",
+			"list_combinations",
+			"spread",
+			"list_combinations",
+			"combinatios",
+			"session['buttons']",
+			"Label.cre",
+			"Label.create",
+			"create",
+			"getPos",
+			"MagicCombination",
+			"MagicCombination.crea",
+			"MagicCombination",
+			"label.get",
+			"label.getLabel",
+			"015",
+			"spread",
+			"['EN'",
+			"msg",
+			"MagicCombination.__chainArrayString",
+			"MagicCombination.__",
+			"__combination",
+			"012",
+			"session",
+			"CONTEXT",
+			"request",
+			"processor",
+			"state",
+			"meaning_EN",
+			"label.order_se",
+			"TEMPLATE_CONTEXT_PROCESSOR",
+			".I",
+			".i",
+			"langua",
+			"posi",
+			"getLabel",
+			"title",
+			"nStep"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"olive oil",
+			"translateToTuple",
+			"isStepi",
+			"isTemporal",
+			"isStep",
+			"beginMC",
+			"endMB",
+			"endMC",
+			"MBC_selected",
+			"MB_selected",
+			"MC_selected",
+			"MC_selectedMBs",
+			"searchMC.html",
+			"searchMB.html",
+			"insertMB.html",
+			"combination_MBs_selected",
+			"msg_error",
+			"chainArrayString"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
+					"settings":
+					{
+						"buffer_size": 5034,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								324,
+								324
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 144,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ggarri/Project/wikichef/XGDic/views.py",
+					"settings":
+					{
+						"buffer_size": 565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								565,
+								565
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/ggarri/Project/wikichef/XGDic/xbing.py",
+					"settings":
+					{
+						"buffer_size": 773,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								548,
+								529
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/ggarri/Project/wikichef/XGDic/xgoogle.py",
+					"settings":
+					{
+						"buffer_size": 1293,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1185,
+								1185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 240,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/ggarri/Project/stuff/APITranslate/google.py",
+					"settings":
+					{
+						"buffer_size": 5492,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1945,
+								1952
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0,
+						"translation.y": 576,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 500,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/ggarri/Universidad/Project/exampleDjango/example.sublime-project"
+			]
+		],
+		"width": 380
+	},
+	"show_minimap": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 153,
+	"status_bar_visible": true
+}

@@ -1,0 +1,16 @@
+<h1> INSERT NEW MAGIC COMBINATIONS </h1>
+{% if request.session.msg_error %} 	<p><font color="red"> {{ request.session.msg_error }} </font> </p> {% endif %}
+{% if request.session.msg_info %} 	<p><font color="green"> {{request.session.msg_info }} </font> </p> {% endif %}
+
+
+{% if request.session.list_str %}
+	<form action="/magic/MC/add" method="post" >
+	<p> Which is the correct combinations ? : </p>
+	<ul>
+	{% for combination in request.session.list_str %}
+			<li>{{ forloop.counter }}<input type="radio" id="combination" name="combination" value="{{ forloop.counter }}" /> {{ combination }} </li>
+	{% endfor %}
+	</ul>
+	<p> <input type="submit" value="Send"/> </p>
+	</form>
+{% endif %}

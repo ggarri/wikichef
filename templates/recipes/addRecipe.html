@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block menuSelected %}
+<script type='text/javascript'>
+$('#linkNewRecipe').addClass('buttonmenu2');
+</script>
+{%endblock%}
+
+{%block js %}
+<script type='text/javascript' src='{{MEDIA_URL}}js/boxFloat.js'> </script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/newRecipe.js"></script>
+{%endblock%}
+
+{% block style %}
+<link rel='stylesheet' href='{{MEDIA_URL}}css/styleForms.css' type='text/css' media='screen'> 
+{% endblock%}
+
+{% block title %}
+<section id='title'>
+  <header>
+    <h1> 
+    {% if title %} {{title}}
+    {% else%} New Recipe
+    {%endif%}
+    </h1>
+  </header>
+</section>
+{% endblock %}
+
+
+
+    
+{% block blockTop %}
+<section class='blockTop'>
+    <section id='box_step' class='box'>
+        <header class='box_header'>
+          <p> Previous Steps </p>
+        </header>
+        <nav class='box_float'>
+          <ul>
+            <li class='box_mb'>
+              <canvas class='mb minus'></canvas>
+              <p class='tag'>Delete</p>
+              <aside>Delete last Step</aside>
+            </li>
+          </ul>
+        </nav>
+    </section>
+</section>
+{%endblock%}
+
+{% block blockMiddle %}
+<section  class='blockCenter' >
+    <section class='box1_3'>
+      <section id='box_action'  class='box'>
+        <header class='box_header'>
+          <p> Actions </p>
+        </header>
+        <nav class='box_float'>
+          <ul>
+          {% if MB_A %}
+            {% for A in MB_A %}
+              <li class='box_mb' id='{{A.pk}}'>
+              <canvas class='mb stream' style="background:url('{{MEDIA_URL}}{{A.icon}}');"></canvas>
+              <p class='tag' contenteditable='true'>
+            {% if request.session.lan == 'en' %}{{ A.getLabels.en }}{%endif%}
+            {% if request.session.lan == 'es' %}{{ A.getLabels.es }}{%endif%}
+            {% if request.session.lan == 'de' %}{{ A.getLabels.de }}{%endif%}
+            {% if request.session.lan == 'fr' %}{{ A.getLabels.fr }}{%endif%}
+              </p>
+            {% endfor %}
+          {% endif %}
+            <li class='box_mb'>
+              <canvas class='mb add'></canvas>
+              <p class='tag'>New</p>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </section>
+
+
+    <section id='box_dinamic' class='box1_3' role="document" aria-live="assertive" aria-atomic="true" >
+        <section id='recipeForm' class='box_form'>
+          {%include "recipes/recipeForm.html"%}
+        </section>
+        <section id='interactiveBall'>
+          {%include "recipes/interactiveBall.html"%}
+        </section>
+        <section id='mbForm' class='box_form'>
+          {%include "recipes/mbForm.html"%}
+        </section>
+        <section id='actionForm' class='box_form'>
+          {%include "recipes/actionForm.html"%}
+        </section>
+        <section id='stepForm' class='box_form'>
+          {%include "recipes/stepForm.html"%}
+        </section>
+        <section id='correctStepForm' class='box_form'>
+          {%include "recipes/correctStepForm.html"%}
+        </section>
+      </section>
+    <script type='text/javascript'>
+        $('#recipeForm').hide();
+        $('#interactiveBall').hide();
+        $('#mbForm').hide();
+        $('#actionForm').hide();
+        $('#stepForm').hide(); 
+        $('#correctStepForm').hide();
+    </script>
+    {% if request.session.state == 'initial' %}
+    <script type='text/javascript'>$('#recipeForm').show();</script>
+    {% endif %}{% if request.session.state == 'process' %}
+    <script type='text/javascript'>$('#interactiveBall').show();</script>
+    {% endif %}{% if request.session.state == 'addingMB' %}
+    <script type='text/javascript'>$('#mbForm').show();</script>
+    {% endif %}{% if request.session.state == 'usingAction' %}
+    <script type='text/javascript'>$('#actionForm').show();</script>
+    {% endif %}{% if request.session.state == 'uploadingStep' %}
+    <script type='text/javascript'>$('#stepForm').show();</script>
+    {% endif %}{% if request.session.state == 'selectingCorrectStep' %}
+    <script type='text/javascript'>$('#correctStepForm').show();</script>
+    {% endif %}
+
+
+    <section class='box1_3'>
+      <section id='box_utensil' class='box'>
+        <header class='box_header'>
+          <p> Utensils </p>
+        </header>
+        <nav class='box_float'>
+          <ul>
+            {% if MB_U %}
+              {% for U in MB_U %}
+                <li class='box_mb' id='{{U.pk}}'>
+                <canvas class='mb stream' style="background:url('{{MEDIA_URL}}{{U.icon}}');"></canvas>
+              <p class='tag' contenteditable='true'>
+            {% if request.session.lan == 'en' %}{{ U.getLabels.en }}{%endif%}
+            {% if request.session.lan == 'es' %}{{ U.getLabels.es }}{%endif%}
+            {% if request.session.lan == 'de' %}{{ U.getLabels.de }}{%endif%}
+            {% if request.session.lan == 'fr' %}{{ U.getLabels.fr }}{%endif%}
+              </p>
+              {% endfor %}
+            {% endif %}
+            <li class='box_mb'>
+              <canvas class='mb add'></canvas>
+              <p class='tag'>New</p>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </section>
+
+</section> <!-- END 'BLOCK CENTER' -->
+{%endblock %}
+
+{%block blockBottom%}
+<section  class='blockBottom'>
+    <section class='browser'>
+        <input id='browserIngredient' type="search" placeholder="Search Ingredient" />
+    </section>
+    <section id='box_ingredient' class='box'>
+      <header class='box_header'>
+        <p> Ingredients </p>
+      </header>
+      <nav class='box_float'>
+        <ul>
+          {% if MB_I %}
+            {% for I in MB_I %}
+              <li class='box_mb' id='{{I.pk}}'>
+              <canvas class='mb stream' style="background:url('{{MEDIA_URL}}{{I.icon}}');"></canvas>
+              <p class='tag' contenteditable='true'>
+            {% if request.session.lan == 'en' %}{{ I.getLabels.en }}{%endif%}
+            {% if request.session.lan == 'es' %}{{ I.getLabels.es }}{%endif%}
+            {% if request.session.lan == 'de' %}{{ I.getLabels.de }}{%endif%}
+            {% if request.session.lan == 'fr' %}{{ I.getLabels.fr }}{%endif%}
+              </p>
+            {% endfor %}
+          {% endif %}
+          <li class='box_mb'>
+            <canvas class='mb add'></canvas>
+            <p class='tag'>New</p>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+</section> <!-- END 'BLOCK BOTTOM'-->
+{%endblock%}
+
+{% block endForm %}
+<section class='blockUnder'>
+  <input type='button' class='cicleButton acceptButton' id='acceptRecipe' />
+  <input type='button' class='cicleButton cancelButton' id='cancelRecipe' />
+</section>
+{%endblock%}
+
+</section> <!-- END 'CONTENT' -->

@@ -1,0 +1,42 @@
+<h1> UPLOAD NEW RECIPE </h1>
+{% if request.session.msg_error %} 	<p><font color="red"> {{ request.session.msg_error }} </font> </p> {% endif %}
+{% if request.session.msg_info %} 	<p><font color="green"> {{request.session.msg_info }} </font> </p> {% endif %}
+{% include 'languageChooser.html' %}
+{% include 'clearSession.html' %}
+
+<form action="/recipes/upload" method="post">
+	{% csrf_token %}
+	<p> Title : <input type="text" name="title" value="Insert title" /> </p>
+	<p> Description : </p><p><textarea rows="3" cols="20" name="description"/> Insert description </textarea></p>
+	<p> Time : <input type="text" name="time" value="0" size="1px"/> Minutes </p>
+	<p> Person : <input type="text" name="nPers" value="0" size="1px"/> </p>
+	<p> Difficulty: </p>
+	<p>
+	<input type="radio" name="difficulty" id="HARD" value="HARD" /> HARD
+	<input type="radio" name="difficulty" id="INTERMEDATE" value="INTERMEDATE" />  INTERMEDATE
+	<input type="radio" name="difficulty" id="EASY" value="EASY" checked /> EASY 
+	</p>
+
+
+	<h3> LIST STEPS ADDED : <a href="/magic/MB/search"><input type="button"  value='ADD STEP' /></a></h3>
+	<ul>
+	{% for MC_step in MC_steps %}
+		<li>{{forloop.count}}<a href="/recipes/removeMC/{{forloop.counter}}"> {{ MC_step.1|upper }} </a></li>
+		<ul>
+		{% for I in MC_step.2 %}
+			<li> 
+				{{ I.1|upper }} <input type="text" name="amount{{MC_step.0.id}}-{{I.0.id }}" value="0" size="1px"/> 
+				{{ I.0.getUnit }}
+			</li>
+		{% endfor %}
+		</ul>
+		<p> Time Step: <input type="text" name="timeStep{{MC_step.0.id}}" value="0" size="1px"/> Minutes </p>
+		<p> Comments: <input type="textarea" name="comment{{MC_step.0.id}}" cols="20" row="3" /></p>
+	{% endfor %}
+	</ul>
+
+<p>
+<input type="submit" value="UPLOAD" />
+<a href="/recipes"> <input type="button" value="VIEW RECIPES" /></a></p>
+</form>
+

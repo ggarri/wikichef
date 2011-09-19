@@ -1,0 +1,61 @@
+{%extends "recipes/baseForm.html"%}
+
+{% block title%}
+<h1> Select which is correct </h1>
+{% endblock %}
+
+{% block contentForm%}
+<form id='formCorrectStep' action='' method=''>
+  <fieldset>
+  </p><input type='radio' id='selectCorrectStep' name='selectCorrectStep' value='-1'/>
+  Custom : <input type='text' id='customCorrectStep' name='customCorrectStep' id='Custom'  disabled='disabled'/>
+  </p>
+  </fieldset>
+{% csrf_token %}
+</form>
+
+
+<script type='text/javascript'>
+function selectCorrectStep(radio) {
+	var key = $(radio).val();
+	var custom = $('#customCorrectStep').val();
+	if (key != null){
+		$.ajax({
+			url:"save_stream_step",
+	        type:"GET",
+	        async:true,
+	        dataType: "json",
+	        data: {"key":key,'custom':custom},
+	        success: function(data) {
+	        	if (data.state){
+	        		shiftBoxDinamic('#interactiveBall');
+	        		showInfoPanel('Thanks for you colaboration.');
+	        		updateCurrentStep();
+					updateBallContainer();
+	        	}
+	        	else
+	        		showInfoPanel(data.msg);
+	        },
+		});
+	}
+	else
+		showInfoPanel('There are not selected option.');
+}
+$(function(){
+    $('#correctStepForm #acceptForm').click(function(){
+    	$('#loadingPage').fadeIn();
+        selectCorrectStep($('#formCorrectStep input[name=selectCorrectStep]:checked'));
+        $('#loadingPage').fadeOut();
+    });
+    $('#selectCorrectStep').live('change',function(){
+		if ($(this).val() == -1)
+			$('#customCorrectStep').prop('disabled',false);
+		else
+			$('#customCorrectStep').prop('disabled',true);
+    });
+    // $('#correctStepForm #cancelForm').click(function(){
+    //     shiftBoxDinamic($('#interactiveBall'));
+    // });
+})
+</script>
+{% endblock %}

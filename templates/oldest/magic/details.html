@@ -1,0 +1,19 @@
+<h1> Description of Magic Button </h1>
+
+{% if button %}
+	<h2> Name Original: {{ button }} </h2>
+    {% for lan in button.getLabels.items %}
+        <h3>{{lan.0}} :{{lan.1}}</h3>
+    {% endfor %}
+    <p> Description : {{ button.description }} </p>
+    <p> Temporal : {{ button.temporal }} </p>
+    <p> Icon Image : <img src="{{ button.icon }}" alt="Describe image" </p>
+    <p> Combinations: </p>
+    <ul>
+    {% for combination in button.magiccombination_set.all %}
+        <li><p> {{  combination }} </p></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Button is not available.</p>
+{% endif %}

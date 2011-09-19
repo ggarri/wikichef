@@ -1,0 +1,64 @@
+A 	MINCE	|	chop up	|	imgs/mince.png	|	small slices|medium slices|big slices
+A 	FRY		|	|	imgs/fry.png		|	a little oil|quite much oil
+A 	HEAT 	|	|	imgs/heat.png		|	at a low heat|at a medium heat|at a high heat
+A 	COAT	|	|	imgs/coat.png		|	NONE
+A 	BOIL	|	|	imgs/boil.png		|	NONE
+A 	DRAIN	|	|	imgs/drain.png		|	NONE
+A 	COMBINE	|	|	imgs/combine.png	|	NONE
+A 	STIR	|	|	imgs/stir.png		|	NONE
+A 	WHISK	|	|	imgs/whisk_A.png	|	NONE
+A 	BAKE	|	|	imgs/bake.png		|	NONE
+A 	SEASON	|	|	imgs/season.png		|	NONE
+A 	RINSE	|	|	imgs/rinse.png		|	NONE
+A 	COOL	|	|	imgs/cool.png		|	NONE
+A 	MIXER	|	|	imgs/mixer_A.png	|	NONE
+
+U 	OVEN	|	|	imgs/oven.png			|	in|BLANK
+U 	SPOON	|	|	imgs/spoon.png			|	with|a|BLANK
+U 	TEA SPOON	|	|	imgs/teaspoon.png	|	a
+U 	CUP		|	|	imgs/cup.png			|	a
+U 	POT		|	|	imgs/pot.png			|	in a
+U 	SAUCEPAN	|	|	imgs/saucepan.png	|	in a|with a
+U 	MIXER	|	|	imgs/mixer.png			|	with the
+U 	STRAINER|	|	imgs/strainer.png		|	with the
+U 	FRIDGE	|	|	imgs/fridge.png			|	in
+U 	KNIFE	|	|	imgs/knife.png			|	with the
+U 	FORK	|	|	imgs/fork.png			|	with a
+U 	GRATER	|	|	imgs/grater.png			|	NONE
+U 	OVEN	|	|	imgs/oven.png			|	in|BLANK
+U 	WHISK	|	|	imgs/whisk.png			|	with the
+
+I 	OLIVE OIL	| dl |	imgs/olive_oil.png	|	with|in
+I 	PEPPER	| ? |	imgs/pepper.png	|	with
+I 	MILK	| dl |	imgs/milk.png	|	in|of
+I 	WATER	| dl |	imgs/water.png	|	in
+
+I 	ONION	| u |	imgs/onion.png	|	NONE	
+I 	GARLIC	| u |	imgs/garlic.png	|	NONE
+I 	CARROT	| u |	imgs/carrot.png	|	NONE
+I 	EGG	| u |	imgs/egg.png		|	NONE
+I 	BUTTER	| gr |	imgs/butter.png	|	NONE
+I 	FLOUR	| ? |	imgs/flour.png	|	NONE
+I 	SALT	| gr |	imgs/salt.png	|	NONE
+I 	CHEESE	| gr |	imgs/cheese.png	|	NONE
+I 	APPLE	| u |	imgs/apple.png	|	NONE
+I 	CHERRY	| u |	imgs/cherry.png	|	NONE
+I 	PASTA	| kg |	imgs/pasta.png	|	NONE
+I 	TOMATO SAUCE	| gr |	imgs/sauce_tomato.png	|	NONE
+I 	TOMATO	| u |	imgs/tomato.png	|	NONE
+I 	PEAS	| kg |	imgs/peas.png	|	NONE
+I 	SAUSAGE	| u |	imgs/sausage.png	|	NONE
+I 	MINCE MEAT	| u |	imgs/mince_meat.png	|	NONE
+I 	CHICKEN MEAT	| u |	imgs/chicken.png	|	NONE
+I 	BEEF MEAT	| u |	imgs/beef.png	|	NONE
+I 	STEAK PIG MEAT	| u |	imgs/steak_pig_meat.png	|	NONE
+I 	BOILING WATER	| u |	imgs/boiling_water.png	|	NONE
+I 	SUNFLOWER OIL	| dl |	imgs/sunflower_oil.png	|	NONE
+I 	EGG PLANT	| u |	imgs/eggplant.png	|	NONE
+I 	STRAWBERRY	| u |	imgs/strawberry.png	|	NONE
+I 	MUSHROOM	| u |	imgs/mushroom.png	|	NONE
+I 	BANANA	| u |	imgs/banana.png	|	NONE
+I 	POTATO	| kg |	imgs/potato.png	|	NONE
+I 	RED PEPPER	| u |	imgs/red_pepper.png	|	NONE
+I 	GREEN PEPPER	| u |	imgs/green_pepper.png	|	NONE
+I 	CUCUMBER	| u |	imgs/cucumber.png	|	NONE

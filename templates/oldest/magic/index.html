@@ -1,0 +1,23 @@
+<h1> List of Magic Buttons </h1>
+</head>
+<body>
+{% include 'languageChooser.html' %}
+</p>
+{% if request.session.msg_error %} 	<p><font color="red"> {{ request.session.msg_error }} </font> </p> {% endif %}
+{% if request.session.msg_info %} 	<p><font color="green"> {{request.session.msg_info }} </font> </p> {% endif %}
+
+<ul>
+{% for button in list_buttons %}
+    <li>
+    <a href="/magic/MB/{{ button.id }}">
+    {% if request.session.lanCurrent == 'en' %}{{ button.getLabels.en }}{%endif%}
+    {% if request.session.lanCurrent == 'es' %}{{ button.getLabels.es }}{%endif%}
+    {% if request.session.lanCurrent == 'de' %}{{ button.getLabels.de }}{%endif%}
+    {% if request.session.lanCurrent == 'fr' %}{{ button.getLabels.fr }}{%endif%}
+    </a>
+    <a href="/magic/MB/delete/{{ button.id }}"> (delete) </a>
+    </li>
+{% endfor %}
+</ul>
+
+<a href="/magic/MB/insert"> <input type="button" value="ADD BUTTON" /></a></p>

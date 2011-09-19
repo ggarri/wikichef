@@ -1,0 +1,67 @@
+{%extends "recipes/baseForm.html"%}
+
+{% block title%}
+<h1> NEW </h1>
+{% endblock %}
+
+{% block contentForm%}
+<form id='formMB' action='set_new_mb' method='POST' enctype="multipart/form-data">
+  <fieldset>
+    <input type='hidden' name='category' id='category'/>
+    <p> Button Name </p>
+    <input  id='label' name='label' type='text' placeholder='Insert name' />
+    <p> Decription (Optinal) </p>
+    <textarea  id='description' name='description' placeholder="Insert description" ></textarea>
+    <p id='unitLabel'> Measurement Unit. </p>
+    <select id='unit' name='unit'></select>
+    <p>Icon (Optional) </p>
+    <input  type="file" name="path" id="path"/>
+  </fieldset>
+{% csrf_token %}
+</form>
+
+<script type='text/javascript'>
+$(function(){
+    if ( $('#formMB #unit option').length == 0 ){
+        $.ajax({
+            url:'get_units',
+            async:false,
+            dataType: "json",
+            data: {},
+            success: function(data){
+                var sec = $('#formMB #unit')
+                $(sec).html('');
+                
+                for (var i=0; i < data.length ; i++){
+                    obj = document.createElement('option');
+                    $(obj).attr('value',data[i].short);
+                    $(obj).html(data[i].long);
+                    // console.debug(obj,data[i].long);
+                    $(sec).append(obj);
+                }
+            }
+        });
+    }
+
+    $('#formMB #category').live('change',function(){
+        console.log('change category');
+        if ($(this).val() == 'I'){
+            $('#mbForm').find('#unit').show();
+            $('#mbForm').find('#unitLabel').show();  
+        }
+        else{
+            $('#mbForm').find('#unit').hide();
+            $('#mbForm').find('#unitLabel').hide(); 
+        }
+    });
+
+    $('#mbForm #acceptForm').click(function(){
+        $('#formMB').trigger('submit');
+    });
+    
+    $('#mbForm #cancelForm').click(function(){
+        shiftBoxDinamic($('#box_dinamic').data('last'));
+    });
+})
+</script>
+{% endblock %}

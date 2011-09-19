@@ -1,0 +1,28 @@
+<h1> RANK A RECIPE </h1>
+
+
+{% if msg %}
+	<h3> {{ msg }} </h3>
+{% endif %}
+
+<form action="/recipes/rank" method="post" >
+
+<h2> Recipes </h2>
+{% if list_recipes%}
+	{% for recipe in list_recipes %}
+		<p> <input type="radio" value="{{ recipe.id }}" id="{{ recipe.id }}" name="recipe" /> 
+		{{ recipe }} {{ recipe.scoreAverage }}</p>
+	{% endfor %}
+{% endif %}
+
+<h2> Users </h2>
+{% if list_users %}
+	{% for user in list_users %}
+		<p> <input type="radio" value="{{ user.id }}" id="{{ user.id }}" name="user" /> 
+		{{ user.nick }} </p>
+	{% endfor %}
+{% endif %}
+
+<p> Grate : <input type="text" value="5" maxlength="2" size="2" name="value" /> </p>
+<p> <input type="submit" value="Send" /> </p>
+</form>

@@ -1,0 +1,10 @@
+A 	MINCE	|	chop up	|	/imgs/mince.png	|	small slices|medium slices|big slices
+A 	FRY		|	|	/imgs/fly.png	|	a little oil|quite much oil
+A 	HEAT 	|	|	/imgs/heat.png	|	at a low heat|at a medium heat|at a high heat
+
+U 	OVEN	|	|	/imgs/oven.png	|	|in
+
+I 	OLIVE OIL	| ml |'better spanish one'	|	/imgs/olive_oil.png	|	with|in
+I 	ONION	| u	|	/imgs/onion.png	|	
+I 	GARLIC	| u	|	/imgs/garlic.png	|	
+I 	CARROT	| u	|	/imgs/carrot.png	|	

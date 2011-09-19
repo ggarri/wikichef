@@ -1,0 +1,32 @@
+<h1> SEARCH RECIPE BY INGREDIENTS </h1>
+{% if request.session.msg_error %} 	<p><font color="red"> {{ request.session.msg_error }} </font> </p> {% endif %}
+{% if request.session.msg_info %} 	<p><font color="green"> {{request.session.msg_info }} </font> </p> {% endif %}
+{% include 'languageChooser.html' %}
+
+<h2> Choose the ingredients to search recipes </h2>
+
+<form action="/recipes/search" method="post" >{% csrf_token %}
+{% for I in LI %}
+	<p><input type="checkbox" name="ingredient" id={{ I.0 }} value="{{ I.0 }}" />{{ I.1 }}</p>
+{% endfor %}
+	<p> Level of Similarity : <input type="text" maxlength="4" size="3px" name="level" value="0.8" /> </p>
+<input type="submit" value="SEARCH BY INGREDIENT" /p>
+</form>
+
+
+<h2> Fill the next field with the information to search a recipe </h2>
+<form action="/recipes/search" method="post" >
+{% csrf_token %}
+<p> <input type="text" name="pattern" /> </p>
+<p> <input type="submit" value="SEARCH BY PATTERN" /> </p>
+</form>
+
+<p> *************************************************** </p>
+
+<h3> FOUND RECIPES: </h3>
+<ol>
+{% for recipe in recipes %}
+	<li><a href="/recipes/{{ recipe.id }}"> <p>{{ recipe.title }} : {{ recipe.description }}</p> </a></li>
+{% endfor %}
+</ol>
+<a href="/recipes/search"/> BACK </a>

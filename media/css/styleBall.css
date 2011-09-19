@@ -1,0 +1,119 @@
+#information{
+  display: block;
+  margin: 0 auto;
+  height: 35%;
+  width: 95%;
+/*  border: 4px solid green;*/
+}
+
+.box_ball{
+  display: block;
+  margin: 0 auto;
+  height: 65%;
+  width: 95%;
+  /*border: 4px solid yellow;*/
+}
+
+#ball{
+  display: block;
+  margin: auto;
+}
+
+.ballNormal{
+  width: 10em;
+  height: 10em;
+  border-radius: 6em;
+  border: 4px groove rgba(170,10,30,0.1);
+  vertical-align: center;
+  /*box-shadow: 0.5em 1em 1em rgba(0, 0, 0, .3);*/
+  -webkit-animation: ballMove 5s infinite;
+  -webkit-animation-timing-function:linear ;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+
+.ballHover{
+  width: 13em;
+  height: 13em;
+  border-radius: 6.5em;
+  border: 4px groove rgba(70,10,130,0.1);
+  /*box-shadow:  -2em -1em 3em rgba(0, 0, 0, 0.2);*/
+  -webkit-animation: ballMove2 5s infinite;
+  -webkit-animation-timing-function:linear ;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+
+
+@-webkit-keyframes ballMove
+{
+  0%  {  background-color : rgba(30,10,80,0.3); }
+  25% {  background-color : rgba(50,10,50,0.2); }
+  50% {  background-color : rgba(70,10,30,0.1); }
+  75% {  background-color : rgba(50,10,50,0.2); }
+  100%{  background-color : rgba(30,10,80,0.3); }
+}
+
+@-webkit-keyframes ballMove2
+{
+  0%  {  background-color : rgba(230,70,80,0.3); }
+  25% {  background-color : rgba(210,50,50,0.2); }
+  50% {  background-color : rgba(220,70,30,0.1); }
+  75% {  background-color : rgba(210,60,50,0.2); }
+  100%{  background-color : rgba(230,70,80,0.3); }
+}
+
+
+#ballContainer{
+  display: inline-block;
+  position: absolute;
+  padding: 0.5em 0.5em 0em 0.5em;
+  overflow: hidden;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.5s;
+}
+
+#ballContainer ul{
+  display: inline-block;
+  list-style: none;
+  padding-left: 1em;
+}
+
+#ballContainer ul li{
+  display: inline;
+}
+
+
+
+
+
+.centerUpload{
+  display: block;
+  margin: 0 auto;
+  /*border: 2px solid yellow;*/
+  height : 3em;
+  width : 3em;
+}
+
+#ballButton{
+  display: inline;
+  height : 3em;
+  width : 3em;
+  border-radius: 1.5em;
+  background: url('../sources/upload.png');
+  background-size: 100% 100%;
+  -webkit-transition-property: width, height, background-image, margin;
+  -webkit-transition-duration: 0.8s;
+}
+
+#ballButton:hover{
+  background-color: rgba(70,200,70,1);
+}
+
+p#currentStep{
+  display : block;
+  margin : 0.5em auto;
+  font-size : 1em;
+  font-weight: bold;
+  text-align: center;
+}

@@ -1,0 +1,35 @@
+<h1> Add new Magic Button </h1>
+{% if request.session.msg_error %} 	<p><font color="red"> {{ request.session.msg_error }} </font> </p> {% endif %}
+{% if request.session.msg_info %} 	<p><font color="green"> {{request.session.msg_info }} </font> </p> {% endif %}
+{% include 'clearSession.html' %}
+
+<form action="/magic/MB/insert" method="POST"  enctype="multipart/form-data">
+	</p>Meaning <input type="text" name="meaning" value="Insert Mean"/></p>
+	</p>Description <input type="textarea" name="description" cols="20" row="3" /></p>
+	</p>Temporal <input type="checkbox" name="temporal" /></p>
+	</p>Icon Image <input type="file" name="path" id="path"/></p>
+	<h3> Category </h3>
+	
+	<p><input type="radio" name="category" id="category" value="I" checked>INGREDIENT
+	<select id="measurement" name="measurement">
+	{% for measure in request.session.measurement %}
+		<option value="{{ measure.0 }}"> {{ measure.1 }} </option>
+	{% endfor %}
+	</select>
+	</p>
+	<p><input type="radio" name="category" id="category" value="U">UTENSIL
+	<input type="radio" name="category" id="category" value="A">ACTION</p>
+	
+	<h3> Language </h3>	
+	<p>
+	{% for lan in request.session.lanList %}
+		<input type="radio" name="language" value="{{ lan.0 }}" 
+		{% if lan.0 == 'en'%} checked {% endif %}/>{{ lan.1|upper }}
+	{% endfor%}
+	</p>
+	{% if  request.session.lanList|length == 0%}
+		<input type="radio" name="language" value="en" checked/>English
+	{% endif %}
+<input type="submit" value="INSERT" />
+<a href="/magic/MB"><input type="button"  value='VIEW MAGIC BUTTONS' /></a>
+</form>

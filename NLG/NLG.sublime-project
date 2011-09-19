@@ -1,0 +1,384 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/ggarri/Project/wikichef/NLG/models.py",
+			"settings":
+			{
+				"buffer_size": 6650,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/NLG/generator.py",
+			"settings":
+			{
+				"buffer_size": 5077,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/NLG/template.txt",
+			"settings":
+			{
+				"buffer_size": 1041,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ggarri/Project/wikichef/RecipeController/models.py",
+		"/home/ggarri/Project/wikichef/NLG/template.txt",
+		"/home/ggarri/Universidad/Project/wikichef/NLG/models.py",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/Delicious Ham and Potato Soup.txt",
+		"/home/ggarri/Universidad/Project/wikichef/NLG/template.txt",
+		"/home/ggarri/Universidad/Project/wikichef/NLG/generator.py",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/generator.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/generate.py",
+		"/home/ggarri/Universidad/Project/wikichef/settings.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/NLG/tagger.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/NLG/generator.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/NLG/template.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/NLG/texts/Downeast Maine Pumpkin Bread.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/trainer.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/template.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/tagger.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/admin.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/admin.pyc",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/__init__.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/__init__.pyc",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/magic.sublime-project",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/models2.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/models.pyc",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/tests.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/urls.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/urls.pyc",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/MagicController/views.pyc",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/trainer untagged2.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/Complex Tagging Recipe.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/Complex Tagging Recipe2.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/test.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/trainer untagged.txt",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/example1.py",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/grammar.py",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/probeGrammar.cfg",
+		"/home/ggarri/Universidad/Project/NLG/NLTK/texts/World's Best Lasagna.txt",
+		"/home/ggarri/Universidad/Project/NLG/PyLog/syntax3.pl",
+		"/home/ggarri/Universidad/Project/NLG/PyLog/example1.py",
+		"/home/ggarri/Universidad/Project/NLG/docPlanning.py",
+		"/home/ggarri/Universidad/Project/NLG/Yapps/expr.py",
+		"/home/ggarri/Universidad/Project/NLG/Yapps/expr.g",
+		"/home/ggarri/Universidad/Project/NLG/PLY/example1.py",
+		"/home/ggarri/Universidad/Project/NLG/yieldProlog/YieldProlog/source/python/examples/YieldPrologTutorial/tutorial1.py",
+		"/home/ggarri/Universidad/Project/NLG/samplePROLOG.py",
+		"/home/ggarri/Universidad/Project/NLG/Yapps/grammar.g",
+		"/home/ggarri/Universidad/Project/NLG/Yapps/rexpr.py",
+		"/home/ggarri/Universidad/Project/NLG/expr.g",
+		"/home/ggarri/Universidad/Project/NLG/expr.py",
+		"/home/ggarri/Universidad/Project/NLG/probePROLOG.py",
+		"/home/ggarri/Universidad/Project/NLG/input",
+		"/home/ggarri/Universidad/Project/exampleDjango/mysite/polls/models.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/example1.py",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/urls.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/search.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/upload.html",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/admin.py",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/details.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/index.html",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/rank.html",
+		"/home/ggarri/Universidad/Project/wikichef/RecipeController/admin.pyc",
+		"/home/ggarri/Universidad/Project/wikichef/mytemplates/recipes/delete.html",
+		"/home/ggarri/Universidad/Project/wikichef/urls.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/main/admin.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/main/models.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/dashboard.py",
+		"/home/ggarri/Universidad/Project/exampleDjango/rbnsite/webapp/shuamore/settings.py",
+		"/home/ggarri/Universidad/Project/wikichef/recipeManaging/admin.py",
+		"/home/ggarri/Universidad/Project/wikichef/magicManaging/views.py",
+		"/home/ggarri/Universidad/Project/wikichef/magicManaging/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/recipeManaging/models.py",
+		"/home/ggarri/Universidad/Project/wikichef/recipeManaging/__init__.py"
+	],
+	"find_in_files":
+	{
+		"include_history":
+		[
+		],
+		"location_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"MagicIng",
+			"standar",
+			"print",
+			"save",
+			"The utensil en was not found for",
+			"ids",
+			"print \"T",
+			"id",
+			".cc",
+			".utensil",
+			"pk",
+			"many",
+			"standar",
+			"stringI",
+			"('|')]",
+			"segment_sentences",
+			"print",
+			".",
+			"/AM",
+			"/POS",
+			"/CC",
+			"/TEM",
+			"/TM",
+			"/,",
+			"/I",
+			"/.",
+			"/TT",
+			"/PP",
+			"/U",
+			"/DET",
+			"/V",
+			"Person",
+			"SimpleVariable",
+			"import",
+			"SyntaxError",
+			"Scanner",
+			"NoMoreTokens",
+			"SyntaxError",
+			"pylog",
+			"isStep",
+			"MBC",
+			"ingredient",
+			"ingredient_id",
+			"Amount.cre",
+			"list_combinations",
+			"combination_selected",
+			"MC_selectedMBs",
+			"#var",
+			"@var",
+			"step",
+			"listS",
+			"listSteps",
+			"amount",
+			"save",
+			"updateScore",
+			"scoreAverage",
+			"avera",
+			"avare",
+			"average",
+			"extra_description",
+			"list_buttons",
+			"next",
+			"user",
+			"id_user",
+			"def __unicode__(self):\n		return self.list_buttons.get",
+			"class StepInline(admin.TabularInline):\n    model = MagicCombination\n",
+			"recipe",
+			"lenght"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"key",
+			"ids",
+			"['CC']",
+			"['U']",
+			"listI",
+			"Exception",
+			"MC_selected",
+			"combination_selected",
+			":param",
+			"description",
+			"listButtons",
+			"set",
+			"length"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	{
+		"mount_points":
+		[
+			"/home/ggarri/Universidad/Project/wikichef/MagicController/NLG"
+		]
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/ggarri/Project/wikichef/NLG/models.py",
+					"settings":
+					{
+						"buffer_size": 6650,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1007,
+								1007
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 272,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ggarri/Project/wikichef/NLG/generator.py",
+					"settings":
+					{
+						"buffer_size": 5077,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5035,
+								5035
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 2017,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/ggarri/Project/wikichef/NLG/template.txt",
+					"settings":
+					{
+						"buffer_size": 1041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								119,
+								119
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 500,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/ggarri/Universidad/Project/wikichef/MagicController/magic.sublime-project"
+			]
+		],
+		"width": 380
+	},
+	"show_minimap": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 165,
+	"status_bar_visible": true
+}

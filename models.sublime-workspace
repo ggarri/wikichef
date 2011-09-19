@@ -1,0 +1,523 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/views.py",
+			"settings":
+			{
+				"buffer_size": 5397,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/urls.py",
+			"settings":
+			{
+				"buffer_size": 659,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
+			"settings":
+			{
+				"buffer_size": 13486,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/urls.py",
+			"settings":
+			{
+				"buffer_size": 1481,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
+			"settings":
+			{
+				"buffer_size": 11116,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
+			"settings":
+			{
+				"buffer_size": 17472,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
+			"settings":
+			{
+				"buffer_size": 4889,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/NLG/models.py",
+			"settings":
+			{
+				"buffer_size": 8724,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"console":
+	{
+		"height": 0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": true,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ggarri/Project/wikichef/RecipeController/views.py",
+		"/home/ggarri/Project/wikichef/RecipeController/urls.py",
+		"/home/ggarri/Project/wikichef/RecipeController/Browser/urls.py",
+		"/home/ggarri/Project/stuff/exampleDjango/mysite/urls.py",
+		"/home/ggarri/Project/wikichef/urls.py",
+		"/home/ggarri/Project/wikichef/RecipeController/views2.py",
+		"/home/ggarri/Project/wikichef/NLG/generator.py",
+		"/home/ggarri/Project/wikichef/settings.py",
+		"/home/ggarri/Project/wikichef/NLG/__init__.py",
+		"/home/ggarri/Project/wikichef/__init__.py",
+		"/home/ggarri/Project/wikichef/MagicController/views.py",
+		"/home/ggarri/Project/wikichef/XGDic/models.py",
+		"/home/ggarri/Project/wikichef/RecipeController/models.py",
+		"/home/ggarri/Project/wikichef/templates/base.html",
+		"/home/ggarri/Project/wikichef/templates/recipes/newRecipe.html",
+		"/home/ggarri/Project/wikichef/templates/recipes/correctStepForm.html",
+		"/home/ggarri/Project/wikichef/templates/recipes/interactiveBall.html",
+		"/home/ggarri/Project/wikichef/templates/recipes/mbForm.html",
+		"/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
+		"/home/ggarri/Project/wikichef/templates/magic/insertMB.html",
+		"/home/ggarri/Project/wikichef/media/css/styleBall.css",
+		"/home/ggarri/Project/wikichef/media/js/boxFloat.js",
+		"/home/ggarri/Project/wikichef/templates/recipes/recipeForm.html",
+		"/home/ggarri/Project/wikichef/media/js/interface.js",
+		"/home/ggarri/Project/wikichef/templates/recipes/search.html",
+		"/home/ggarri/Project/wikichef/templates/recipes/baseForm.html",
+		"/home/ggarri/Project/wikichef/MagicController/models.py",
+		"/home/ggarri/Project/wikichef/MagicController/models.pyc",
+		"/home/ggarri/Project/wikichef/media/js/ball.js",
+		"/home/ggarri/Project/wikichef/media/css/style.css",
+		"/home/ggarri/Project/wikichef/media/css/styleForms.css",
+		"/home/ggarri/Project/wikichef/templates/recipes/stepForm.html",
+		"/home/ggarri/Project/wikichef/templates/recipes/actionForm.html",
+		"/home/ggarri/Project/wikichef/templates/recipes/formsRecipe.html",
+		"/home/ggarri/Project/wikichef/media/css/ui-lightness/jquery-ui-1.8.16.custom.css"
+	],
+	"find":
+	{
+		"height": 39
+	},
+	"find_in_files":
+	{
+		"height": 0,
+		"include_history":
+		[
+		],
+		"location_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getObjec",
+			"w_pre.hide(mb.getLabels())",
+			"FILES",
+			"'streamRecipeID'",
+			"'recipeData'",
+			"FILE",
+			"recipeDa",
+			"str",
+			"ingredientSelected",
+			"icon",
+			"isStep",
+			"Recipe",
+			"session",
+			"recipe",
+			"'usedSteps'",
+			"updateState",
+			"generator",
+			"getLabels",
+			"print",
+			"update_label",
+			"save",
+			"def save",
+			"save",
+			"getLabel",
+			"T_CC",
+			"T_Utensil",
+			"T_Action",
+			"MagicAction",
+			"spread",
+			"getMBs",
+			"MBs",
+			"getMBs",
+			"spread",
+			"update",
+			"getLabels",
+			"tag",
+			"amoun",
+			"amount",
+			"isSte",
+			"isStep",
+			"FILE",
+			"getObj",
+			"initial",
+			"Creating",
+			"getOb",
+			"set_new_mb",
+			"setNewMB",
+			".js",
+			"action is need",
+			"text/plain",
+			"json",
+			"addButtonSelected",
+			"selectedb",
+			"setNewMB",
+			".mb",
+			"processMC",
+			"StreamMC",
+			"form",
+			"#cancelForm'",
+			".ui-widget",
+			".lanCurrent",
+			"'lanCurrent'"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'streamRecipe'",
+			"'streamRecipeID'",
+			"ingredientsSelected",
+			"TCC",
+			"TUtensil",
+			"TAction",
+			"application/json",
+			"processStep",
+			"processMC",
+			".lan",
+			"'lan'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/views.py",
+					"settings":
+					{
+						"buffer_size": 5397,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5194,
+								5194
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 479,
+						"translation.y": 1712,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/urls.py",
+					"settings":
+					{
+						"buffer_size": 659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								230,
+								230
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 8,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
+					"settings":
+					{
+						"buffer_size": 13486,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3653,
+								3653
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 4566,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/urls.py",
+					"settings":
+					{
+						"buffer_size": 1481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								231,
+								231
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
+					"settings":
+					{
+						"buffer_size": 11116,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								809,
+								809
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 1590,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
+					"settings":
+					{
+						"buffer_size": 17472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11433,
+								11433
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 5568,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
+					"settings":
+					{
+						"buffer_size": 4889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4492,
+								4492
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 1450,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/ggarri/Project/wikichef/NLG/models.py",
+					"settings":
+					{
+						"buffer_size": 8724,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8551,
+								8551
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 4256,
+						"zoom_level": 1
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0
+	},
+	"input":
+	{
+		"height": 0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0,
+			1
+		],
+		"rows":
+		[
+			0,
+			1
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"select_project":
+	{
+		"height": 0,
+		"selected_items":
+		[
+		],
+		"width": 0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150,
+	"status_bar_visible": true
+}

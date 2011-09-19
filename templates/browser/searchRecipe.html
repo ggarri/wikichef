@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block menuSelected %}
+<script type='text/javascript'>
+$('#linkBrowser').addClass('buttonmenu2');
+</script>
+{%endblock%}
+
+{%block js %}
+<script type='text/javascript' src='{{MEDIA_URL}}js/boxFloat.js'> </script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/browser.js"></script>
+{%endblock%}
+
+{% block style %}
+<link rel='stylesheet' href='{{MEDIA_URL}}css/styleBrowser.css' type='text/css' media='screen'>
+{% endblock%}
+
+
+{% block title %}
+<section id='title'>
+  <header> <h1>Searching Recipes</h1> </header>
+</section>
+{% endblock %}
+
+
+{% block blockTop %}
+<section class='blockTop'>
+    <section id='box_ingredient_selected' class='box'>
+        <header class='box_header'>
+          <p> Ingredients Selected </p>
+        </header>
+        <nav class='box_float'>
+          <ul>
+          <li class='box_mb'>
+              <canvas class='mb minus'></canvas>
+              <p class='tag'>Empty</p>
+          </li>
+          </ul>
+        </nav>
+    </section>
+</section>
+{%endblock%}
+
+{% block blockMiddle %}
+<section  class='blockCenter' >
+   <section class='center_whole_box' id='listRecipes'>
+     <nav class='box_float'>
+        <ul>
+        </ul>
+      </nav>
+  </section>
+  <section id='levelSimilarity' class='box_slider'>
+      <label> Level Similarity </label>
+      <input class='slider_text' type="number" maxlength='3' disabled="disabled"/>
+      <aside class="slider" ></aside>
+  </section>
+</section>
+{% endblock %}
+
+{%block blockBottom%}
+<section  class='blockBottom'>
+    <section class='browser'>
+        <input id='browserIngredient' type="search" placeholder="Search Ingredient" />
+    </section>
+    <section id='box_ingredient' class='box'>
+      <header class='box_header'>
+        <p> Ingredients </p>
+      </header>
+      <nav class='box_float'>
+        <ul>
+          {% if MB_I %}
+            {% for I in MB_I %}
+              <li class='box_mb' id='{{I.pk}}'>
+              <canvas class='mb stream' style="background:url('{{MEDIA_URL}}{{I.icon}}');"></canvas>
+              <p class='tag'>
+            {% if request.session.lan == 'en' %}{{ I.getLabels.en }}{%endif%}
+            {% if request.session.lan == 'es' %}{{ I.getLabels.es }}{%endif%}
+            {% if request.session.lan == 'de' %}{{ I.getLabels.de }}{%endif%}
+            {% if request.session.lan == 'fr' %}{{ I.getLabels.fr }}{%endif%}
+              </p>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </nav>
+    </section>
+
+</section> <!-- END 'BLOCK BOTTOM'-->
+{%endblock%}
+
+{% block overPanel %} 
+<section class='overPanel'>
+{% include "browser/templateRecipe.html" %}
+</section>
+{%endblock%}

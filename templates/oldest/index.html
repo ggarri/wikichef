@@ -1,0 +1,17 @@
+<h1> List of Recipes </h1>
+
+{% if request.session.msg_error %} 	<p><font color="red"> {{ request.session.msg_error }} </font> </p> {% endif %}
+{% if request.session.msg_info %} 	<p><font color="green"> {{request.session.msg_info }} </font> </p> {% endif %}
+
+{% if list_recipes %}
+    <ol>
+    {% for recipe in list_recipes %}
+        <li>
+        <strong><a href="/recipes/{{ recipe.id }}">{{ recipe }}</a></strong>
+        <a href="/recipes/delete/{{ recipe.id }}"> (delete) </a>
+        </li>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+<p><a href="/recipes/upload"> <input type="submit" value="UPLOAD RECIPES" /></a></p>

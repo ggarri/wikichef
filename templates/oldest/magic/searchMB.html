@@ -1,0 +1,49 @@
+<h1> SEARCHING : MAGIC BUTTON</h1>
+{% if request.session.msg_error %} 	<p><font color="red"> {{ request.session.msg_error }} </font> </p> {% endif %}
+{% if request.session.msg_info %} 	<p><font color="green"> {{request.session.msg_info }} </font> </p> {% endif %}
+{% include 'languageChooser.html' %}
+{% include 'clearSession.html' %}
+
+
+<form action="/magic/MB/search" method="post" >
+{% csrf_token %}
+<p> SEARCHING PATTERN : <input type="text" name="pattern" /> </p>
+
+
+
+<div id="left"><p>
+<input type="radio" id="category" name="category" value="all" checked> ALL
+<input type="radio" id="category" name="category" value="I"> INGREDIENT
+<input type="radio" id="category" name="category" value="U"> UTENSIL
+<input type="radio" id="category" name="category" value="A"> ACTION
+</p><p> <input type="submit" value="SEARCH" /> </p>
+</form>
+
+
+<p> ************************************** </p>
+<h3> Found Buttons were : </h3>
+<ul>
+{% for button in buttons %}
+	<li><a href="/magic/MC/addMB/{{ button.0 }}" /> {{ button.1|upper }}</a></li>
+{% endfor %}
+</ul>
+
+<p> ************************************** </p>
+<h3> STEPS SELECTED </h3>
+<ul>
+{% for step in  selectedSteps%}
+	<li><a href="/magic/MC/addMC/{{ step.0 }}" /> {{ step.1|upper }}</a></li>
+{% endfor %}
+</ul>
+
+<p> ************************************** </p>
+<h3> CURRENT RESULTS : </h3>
+<form action="/magic/MC/generate" method="post" >{% csrf_token %}
+	<p> Current STEP : 
+	<ul>
+	{% for sentence in sentencesMC%}
+		<p><input type="radio" id="mc_key" name="mc_key" value="{{ sentence }}" checked> {{ sentence|upper }}</p>
+	{% endfor %}
+	</ul>
+	<p> <input type="submit" value="ACCEPT" /><a href="/recipes/upload"><input type="button"  value='BACK' /></a></p>
+</form>

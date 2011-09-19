@@ -1,0 +1,91 @@
+{%extends "recipes/baseForm.html"%}
+
+{%block title%}
+<h1> UPLOADING STEP </h1>
+{%endblock%}
+
+{%block contentForm %}
+<form id='formStep' action='' method=''>
+<fieldset>
+    <p class='step'></p>
+    <textarea placeholder="Extra Description" id='desc' name='desc'></textarea>
+
+    <section id='timeStep' class='box_slider'>
+      <label> Time (min) </label>
+      <input class='slider_text' type="number" maxlength='3' id='time' name='time'/>
+      <aside class="slider"></aside>
+    </section>
+
+</fieldset>
+</form>
+<script type='text/javascript'>
+
+function addIngredientSection(id,name,unit){
+  var ingredient = "<section id='slider"+id.toString()+"' class='box_slider MB_I'>"+
+    "<label>"+name + " (" + unit + ") </label>"+
+    "<input class='slider_text' type='number' maxlength='3' name='I"+id+"' id='I"+id+"'/>"+
+    "<aside class='slider'></aside>" +
+    "</section>";
+
+  $('#formStep #timeStep').after(ingredient);
+}
+
+function updateIngredientSection(){
+  // Load the slider for each Ingredient
+    $('.MB_I').remove();
+    $.ajax({
+      url:'get_current_ingredient',
+      async:true,
+      dataType: "json",
+      success: function(data) {
+        // console.debug(data);
+        if (data.state==true)
+          for (var i=0 ; i< data.msg.length; i++){
+            if (data.msg[i].isStep == false){
+              addIngredientSection(data.msg[i].id,data.msg[i].name,data.msg[i].unit);
+              addSlider('slider'+data.msg[i].id.toString(),0,20,1);
+            }
+            else{
+              addIngredientSection(data.msg[i].id,data.msg[i].name,'%');
+              addSlider('slider'+data.msg[i].id.toString(),0,100,100); 
+            }
+          }
+      }
+    })
+}
+
+$(function(){
+
+    addSlider('timeStep',0,240,30);
+    $('#formStep .step').html($('#currentStep').html().toUpperCase())
+    updateIngredientSection()
+
+    $('#stepForm #acceptForm').click(function(){
+        $.ajax({
+          url:"upload_stream_step",
+          type:"POST",
+          async:true,
+          dataType: "json",
+          data: $('#formStep').serialize(),
+          success: function(data) {
+            if (data.state == true){
+              showInfoPanel('SUCCESS: ' + 'Step added Correctly');
+              updateUsedSteps();
+              shiftBoxDinamic($('#interactiveBall'));
+            }
+            else
+              showInfoPanel('ERROR: ' + data.msg);
+          },
+          error: function(data){
+            showInfoPanel('Error during uploading step');
+          }
+            
+      });
+    });
+    
+    $('#stepForm #cancelForm').click(function(){
+      shiftBoxDinamic($('#box_dinamic').data('last'));
+    });
+});
+</script>
+{%endblock%}

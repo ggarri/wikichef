@@ -1,0 +1,86 @@
+<html lang='en-US'> 
+<head> 
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title>New Recipe</title> 
+    
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery-1.6.2.min.js"></script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery-ui-1.8.16.custom.min.js"></script>
+      <script type='text/javascript' src='{{MEDIA_URL}}js/interface.js'> </script> 
+    {% block js %}{%endblock%}
+    <link type="text/css" href="{{MEDIA_URL}}css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />   
+    {% block style %} {% endblock %}
+    <link rel='stylesheet' href='{{MEDIA_URL}}css/template.css' type='text/css' media='
+    screen'> 
+    <link rel='stylesheet' href='{{MEDIA_URL}}css/style.css' type='text/css' media='screen'> 
+</head> 
+<body>
+
+<!--- PAGE HEADER -->
+<section id='page_header'>
+    <section class='header_box'>
+      <canvas id='logo'></canvas>
+    </section>
+
+    <section class='header_box'>
+    	<nav id='page_menu'>
+        <ul>
+          <li class='buttonMenu' id='linkHome'>Home</li>
+          <li class='buttonMenu' id='linkBrowser'>Search Recipe</li>
+          <li class='buttonMenu' id='linkNewRecipe'>New Recipe</li>
+        </ul>
+        <script type="text/javascript">
+        	$('#linkBrowser').click(function(){
+	        	document.location.href ='/recipes/browser/main';
+	        });
+	        $('#linkNewRecipe').click(function(){
+	        	document.location.href ='/recipes/main';
+	        });
+        </script>
+        {% block menuSelected %}{%endblock%}
+    	</nav>
+    </section>
+
+    <section class='header_box'>
+      <nav id='languages'>
+	      <form action="/language" method="post" >
+			{% csrf_token %}
+			<input name='next' type='hidden' value='{{request.path}}' />
+			<select name='lanSelect' onchange='this.form.submit()'>
+			{% for lan in request.session.lanList %}
+				<option value='{{lan.0}}' {%if lan.0 == request.session.lan %} selected {%endif%} >{{ lan.1 }}</option>
+			{% endfor %}
+			</select>
+			</form>
+	  </nav>
+    </section>
+
+</section> <!-- END 'PAGE HEADER' -->
+
+<aside id='infoPanel'><p></p></aside>
+<script type='text/javascript'>
+  $('#infoPanel').hide();
+</script>
+
+<section id='title'>
+{% block title %} {% endblock %}
+</section>
+
+<section  id='content'>
+{% block blockTop %} {%endblock%}
+{% block blockMiddle %} {%endblock%}
+{% block blockBottom %} {%endblock%}
+{% block endForm %} {%endblock%}
+{% block overPanel %} {%endblock%}
+</section>
+
+
+<section id='loadingPage'>
+  <canvas></canvas>
+</section>
+
+<footer id="page_footer">
+  <p>&copy; 2011 WikiChef by Gabriel Garrido Calvo.</p>
+</footer>
+
+</body>
+</html>

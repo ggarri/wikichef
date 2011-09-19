@@ -1,0 +1,42 @@
+{% include 'languageChooser.html' %}
+
+{% if recipe %}
+	<h1> 
+    {% if recipe.titleX %} {{ recipe.titleX }}   ( {{ recipe.title }} ) 
+    {% else %} {{ recipe.title }}
+    {% endif %}
+    </h1>
+
+    <p> Ingredients : </p>
+    <ul>
+    {% for ingredient in recipe.LI %}
+        <li><a href="/recipes/ingredients/{{ ingredient.id }}"> 
+        {{ ingredient.1 }} 
+        {{ ingredient.2 }}
+        {{ ingredient.0 }} 
+        </a></li>
+    {% endfor %}
+    </ul>
+
+    <p> Description : {{ recipe.desc }} </p>
+    <p> Time : {{ recipe.time }} minutes </p>
+    <p> Difficult : {{ recipe.dif }}  </p>
+    <p></p>
+    <h2> Steps : </h2>
+	<ol>
+    {% for step in recipe.steps %}
+        <li><h3>{{ step.label|upper }}<h3></li>
+        <p> Comments : {{ step.comment }} </p>
+        <ul>
+        {% for amount in step.amount %}
+            <li>{{amount.0}} : {{ amount.1 }} {{ amount.2 }}</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+	</ol>
+    
+{% else %}
+    <p>Recipe is not available.</p>
+{% endif %}
+
+<p><a href="/recipes"> <input type="submit" value="VIEW RECIPES" /></a></p>

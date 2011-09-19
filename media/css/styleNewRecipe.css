@@ -1,0 +1,268 @@
+/**************************************
+  INTERACTIVE BALL SECTION
+**************************************/
+
+
+#information{
+  display: block;
+  margin: 0 auto;
+  height: 35%;
+  width: 95%;
+/*  border: 4px solid green;*/
+}
+
+
+.centerUpload{
+  display: block;
+  margin: 0 auto;
+  /*border: 2px solid yellow;*/
+  height : 3em;
+  width : 3em;
+}
+
+#uploadStep{
+  display: inline;
+  height : 3em;
+  width : 3em;
+  border-radius: 1.5em;
+  background: url('../sources/upload.png');
+  background-size: 100% 100%;
+  -webkit-transition-property: width, height, background-image, margin;
+  -webkit-transition-duration: 0.8s;
+}
+
+#uploadStep:hover{
+  background-color: rgba(70,200,70,1);
+}
+
+p#currentStep{
+  display : block;
+  margin : 0.5em auto;
+  font-size : 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*******************************************/
+
+.box_ball{
+  display: block;
+  margin: 0 auto;
+  height: 65%;
+  width: 95%;
+  /*border: 4px solid yellow;*/
+}
+
+#ball{
+  display: block;
+  margin: auto;
+}
+
+.ballNormal{
+  width: 10em;
+  height: 10em;
+  border-radius: 6em;
+  border: 4px groove rgba(170,10,30,0.1);
+  vertical-align: center;
+  /*box-shadow: 0.5em 1em 1em rgba(0, 0, 0, .3);*/
+  -webkit-animation: ballMove 5s infinite;
+  -webkit-animation-timing-function:linear ;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+
+.ballHover{
+  width: 13em;
+  height: 13em;
+  border-radius: 6.5em;
+  border: 4px groove rgba(70,10,130,0.1);
+  /*box-shadow:  -2em -1em 3em rgba(0, 0, 0, 0.2);*/
+  -webkit-animation: ballMove2 5s infinite;
+  -webkit-animation-timing-function:linear ;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+
+
+@-webkit-keyframes ballMove
+{
+  0%  {  background-color : rgba(30,10,80,0.3); }
+  25% {  background-color : rgba(50,10,50,0.2); }
+  50% {  background-color : rgba(70,10,30,0.1); }
+  75% {  background-color : rgba(50,10,50,0.2); }
+  100%{  background-color : rgba(30,10,80,0.3); }
+}
+
+@-webkit-keyframes ballMove2
+{
+  0%  {  background-color : rgba(230,70,80,0.3); }
+  25% {  background-color : rgba(210,50,50,0.2); }
+  50% {  background-color : rgba(220,70,30,0.1); }
+  75% {  background-color : rgba(210,60,50,0.2); }
+  100%{  background-color : rgba(230,70,80,0.3); }
+}
+
+
+#ballContainer{
+  display: inline-block;
+  position: absolute;
+  /*border: 2px solid yellow;*/
+  overflow: hidden;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.5s;
+}
+
+#ballContainer ul{
+  padding-left: 1em;
+}
+
+
+/******************************
+/**   FORM STYLE
+******************************/
+
+.box_form{
+  display: block;
+  background-image: -webkit-gradient(
+   linear,left top, right bottom,
+   color-stop(0, rgba(10,10,10,0.4)),
+   color-stop(0.5, rgba(10,10,10,0.6)),
+   color-stop(1, rgba(10,10,10,0.4))
+  );
+  border-radius: 25px;
+  box-shadow: 0.3em -0.5em 1em rgba(20,20,90,0.8);
+  margin : 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+.box_form_top{
+  display: inline-block;
+  margin: auto;
+  height: 78%;
+  width: 100%;
+  /*border: 1px solid red;*/
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.box_form_bottom{
+  display: inline-block;
+  margin: auto;
+  height: 15%;
+  width: 100%;
+  /*border: 1px solid red;*/
+}
+
+.box_form h1{
+  display: block;
+  text-align:center;
+  margin: 0 auto;
+  padding-top: 0;
+  height: 7%;
+  width: 80%;
+  border-bottom: 3px groove rgba(190,10,10,0.8);
+  color: rgba(220,220,255,1);
+  text-shadow: 0.1em 0.1em 0.1em rgba(10,10,15,1);
+  font-size: 1.3em;
+}
+
+
+.box_form_top p{
+  display: block;
+  margin-bottom: 0;
+  color: rgba(110,10,10,1);
+  text-shadow: 0.1em 0.1em 0.1em rgba(210,210,215,1);
+}
+
+.box_form_top p[contenteditable=true]{
+  display: inline-block;
+  height: 2em;
+  color: rgba(110,10,10,1);
+  text-shadow: 0.1em 0.1em 0.1em rgba(210,210,215,1);
+}
+
+.box_form_top label{
+  float: right;
+  color: rgba(110,10,10,1);
+  text-shadow: 0.1em 0.1em 0.1em rgba(210,210,215,1);
+  margin :0 2em 0 0;
+}
+
+input[type='number']{
+  float: left;
+  width: 3em;
+  height: 2em;
+}
+
+input[type='text']{
+  float: left;
+  width: 100%;
+  height: 2em;
+  margin-bottom: 0.5em;
+}
+
+
+.box_form_top textarea{
+  width: 90%;
+  height: 3.5em;
+  resize: none;
+  margin-bottom: 1em;
+}
+
+
+/*** SLIDER ***/
+
+.box_slider{
+  display: inline-block;
+  width: 100%;
+  height: 2em;
+  /*border: 1px solid red;*/
+  margin : 0 auto;
+  padding: 0 auto;
+}
+
+
+.slider{
+  /*display: inline-block;*/
+  float: left;
+  height: 0.3em;
+  width: 70%;
+  margin: 0 0 0 0.5em;
+  padding: 0 auto;
+}
+
+.slider_text{
+  display: inline-block;
+  width: 30%;
+  height: 1.5em;
+  margin : 0 0 0 0;
+  padding: 0 0 0 0;
+  vertical-align: 50%;
+}
+
+
+/*********************************
+  ICONS
+********************************/
+
+.action{
+  background-image: url('../sources/boil.png');
+  background-size: 100% 100%;
+}
+
+.utensil{
+  background-image: url('../sources/fork.gif');
+  background-size: 100% 100%;
+}
+
+.step{
+  background-image: url('../sources/edit.png');
+  background-size: 100% 100%;
+}
+
+.selectedButton{
+  background-image: url('../sources/cut.png');
+  background-size: 100% 100%;
+}
