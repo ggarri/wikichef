@@ -244,16 +244,18 @@
 
 .browser{
   display: block;
-  margin: 0.5em auto;
+  margin: 0em auto;
   padding: 0 0 0 0;
   width : 25em;
   background: transparent;
-  box-shadow:  0.3em 1.2em 4em rgba(0, 0, 70, 0.9);
 }
 
 
 .browser input{
   width: 100%;
+  padding: 0 0 0 0;
+  margin : 0 0 0 0;
+  box-shadow:  0.3em 1.2em 4em rgba(0, 0, 70, 0.9);
 }
 
 

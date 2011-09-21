@@ -93,6 +93,7 @@
 
 .recipe .list_I{
   height: 5em;
+  overflow: hidden;
 }
 
 .recipe .list_I p{
@@ -113,14 +114,19 @@
   position: relative;
   left: 40%;
   top: -2em;
-  width: 10em;
+  width: 13em;
   background-color: transparent;
   box-shadow:  1.3em 0.1em 2em rgba(0, 0, 70, 0.9);
   border-radius: 10px;
 }
 
+#levelSimilarity label{
+  max-width: 9em;
+}
+
 #levelSimilarity input{
-  width: 4em;
+  width: 3em;
+  float: right;
 }
 
 #levelSimilarity aside{

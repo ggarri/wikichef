@@ -15,6 +15,8 @@ def baseInitial(request):
 	if not 'lanList' in request.session :	request.session['lanList'] = XGDic.getLanguages().items() 
 	if not 'lan' in request.session or not request.session['lan'] in XGDic.getLanguages().keys():
 		request.session['lan'] = 'en'
+		request.session['django_language'] = 'en'
+	else:	request.session['django_language'] = request.session['lan']
 	if not 'ingredientsSelected' in request.session: request.session['ingredientsSelected'] = list()
 
 def startingBrowser(request):
@@ -42,7 +44,7 @@ def getBriefRecipes(request):
 			acum['desc'] = wd.getLabels(lan)
 			acum['LI'] = [ {'id':I[0].id,'label':I[0].getLabels(lan),'amount':I[1],'unit':I[2]} for I in r.getIngredients()]
 			msg.append(acum);
-	else: state = False; msg = 'Session is not ajax.'
+	else: state = False; msg = _('Session is not ajax.')
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
 
@@ -53,7 +55,7 @@ def getIngredientsSelected(request):
 	 	lan = request.session['lan']
 	 	print request.session['ingredientsSelected']
 	 	msg = [ {'id':I.id,'label':I.getLabels(lan),'icon':str(I.icon)} for I in request.session['ingredientsSelected'] ]
-	else: state=False; msg='Session error.'
+	else: state=False; msg=_('Session error.')
 
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
@@ -69,8 +71,8 @@ def addIngredient(request):
 			request.session['ingredientsSelected'].append(mb)
 			request.session.modified = True
 		except:
-			state=False; msg = 'Ingredients did not find in the system.'
-	else: state=False; msg='Session error.'
+			state=False; msg = _('Ingredients did not find in the system.')
+	else: state=False; msg=_('Session error.')
 
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
@@ -83,13 +85,13 @@ def delIngredient(request):
 		try:
 			mb = MagicIngredient.objects.get(id=id)
 			if not mb in request.session['ingredientsSelected']:
-				state=False; msg='This ingredients was not selected.'
+				state=False; msg=_('This ingredients was not selected.')
 			else: 
 				request.session['ingredientsSelected'].remove(mb)
 				request.session.modified = True
 		except:
-			state=False; msg = 'Ingredients did not find in the system.'
-	else: state=False; msg='Session error.'
+			state=False; msg = _('Ingredients did not find in the system.')
+	else: state=False; msg=_('Session error.')
 
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
@@ -132,7 +134,7 @@ def getRecipe(request):
 			subdic['LI'] = [ {'label':A.ingredient.getLabels(lan),'amount':A.amount, 'unit':A.ingredient.getUnit()} for A in step.amount_set.all()]
 			dic['steps'].append(subdic)
 		msg = dic
-	else: state = False; msg='Session incorrect'
+	else: state = False; msg=_('Session incorrect')
 	
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')

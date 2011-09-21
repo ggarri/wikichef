@@ -50,6 +50,7 @@ USE_L10N = True
 
 PROJECT_DIR = path.normpath(path.dirname(__file__))
 MEDIA_ROOT = path.join(PROJECT_DIR, "media")
+LOCALE_PATHS = path.join(PROJECT_DIR, "locale")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

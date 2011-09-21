@@ -13,11 +13,11 @@ function setTag(id, value){
         data: {"id":id,"value":value},
         beforeSubmit: function(){},
         success: function(data) {
-        	showInfoPanel('That button was changed correctly.\n Thanks for you colaboration. ');
+        	showInfoPanel(gettext('That button was changed correctly. Thanks for you colaboration. ') );
         	updateCurrentStep();
         },
         error: function(data){
-        	showInfoPanel('That button could not be changed correctly.Try it again later. \nThanks for you colaboration. ');
+        	showInfoPanel(gettext('That button could not be changed correctly.Try it again later. Thanks for you colaboration. ') );
         }
 	})
 }
@@ -56,10 +56,10 @@ $(function(){
 	        success: function(data) {
 	        	if (data.state==true){
 	        		updateUsedSteps();
-	        		showInfoPanel('Step deleted correctly');
+	        		showInfoPanel(gettext('Step deleted correctly') );
 	        	}
 	        	else
-	        		showInfoPanel('It was imposible to delete the last Step');
+	        		showInfoPanel(gettext('It was imposible to delete the last Step') );
 	        }
 		});
 	});
@@ -83,6 +83,11 @@ $(function(){
 				setTag(pk,currentTag);
 	});
 
+	$('#box_step .stream,#box_action .stream,#box_utensil .stream,#box_ingredient .stream').live('click', function(){
+		var id = $(this).parent('li').attr('id');
+		addMBtoStep(id);
+	});
+
 	$('#cancelRecipe').click(function(){clearSession()});
 
   	$('#acceptRecipe').click(function(){
@@ -92,7 +97,7 @@ $(function(){
         dataType: "json",
         success: function(data){
         	if (data.state == true){
-	        	alert('Recipe saved correctly.');
+	        	alert(gettext('Recipe saved correctly.') );
 	        	$('#cancelRecipe').trigger('click');
 	        	// window.location.href=window.location.href
 	        }
@@ -100,7 +105,7 @@ $(function(){
 	        	showInfoPanel(data.msg);	
         },
         error: function(){
-        	showInfoPanel('It is imposible without steps.');	
+        	showInfoPanel(gettext('It is imposible without steps.') );	
         }
       });
   	});

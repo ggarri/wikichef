@@ -45,12 +45,6 @@ function setState(state){
     });
 }
 
-function updateAutocomplete(input, list) {
-	$( input ).autocomplete({
-		source: list
-	});
-}
-
 function clearSession(reload){
 	$.ajax({
 	    url:'clear_session',
@@ -62,25 +56,27 @@ function clearSession(reload){
 	    	window.location.href=window.location.href
 	    },
 	    error: function(){
-	    	showInfoPanel('Deleting session had error');	
+	    	showInfoPanel(gettext('Deleting session had a error') );	
     	}
 	});	
 }
 
+function updateAutocomplete(input, list) {
+	$( input ).autocomplete({
+		source: list
+	});
+}
+
 function insertIngredient(id, label, icon){
-	var base = "<li class='box_mb'>"+
-      "<canvas class='mb stream'>" + "</canvas>"+
-      "<p class='tag' contenteditable='true'></p></li>"
+	var base = "<li class='box_mb' id="+id+">"+
+      "<canvas class='mb stream' style='background:url(/media/"+icon+")')>" + "</canvas>"+
+      "<p class='tag' contenteditable='true'>"+label+"</p></li>"
    	$('#box_ingredient').find('ul').append(base);
 
-   	obj = $('#box_ingredient').find('ul').find('li:last')
-   	obj.attr('id',id);
-   	$(obj).find('.mb').css('background','url(/media/'+icon+')');
-   	$(obj).find('.tag').append(label);
- 	$(obj).find('.mb').click(function(){
-		$(this).parent().stop().effect('explode',{},700).fadeIn();
-		addMBtoStep(this);
-	});
+   	// obj = $('#box_ingredient').find('ul').find('li:last')
+   	// obj.attr('id',id);
+   	// $(obj).find('.mb').css('background','url(/media/'+icon+')');
+   	// $(obj).find('.tag').append(label);
 }
 
 /***************************************
@@ -93,7 +89,7 @@ $(function(){
 	$('#browserIngredient').keyup(function(){
 		if( $(this).data('value').last != $(this).attr('value') ){
 			$(this).data('value').last = $(this).attr('value');
-			console.log('changing');
+			// console.log('changing');
 			$.ajax({
 				url:"/recipes/instant_searching_ingredient",
 		        type:"POST",
@@ -102,7 +98,6 @@ $(function(){
 		        data: {"pattern":$(this).attr('value')},
 		        beforeSubmit: function(){},
 		        success: function(data) {
-		        	console.debug(data);
 		        	var ingredients = new Array();
 		        	var i;
 		        	$('#box_ingredient').find('ul').html('');
@@ -112,7 +107,7 @@ $(function(){
 		        	}
 		        	insertAdd();
 		        	updateAutocomplete($('#browserIngredient'), ingredients )
-		        	updateBoxFloat($('#box_ingredient .box_float'))
+		        	// updateBoxFloat($('#box_ingredient .box_float'))
 		        }
 			});
 		}
@@ -150,11 +145,6 @@ $(function(){
 			$(this).find('aside').animate({
 				'opacity' : 0.8
 			},'slow');
-			// console.log(window.mouseXPos,window.mouseYPos,$(this).find('aside'));
-			// $(this).find('aside').css({
-			//  	'top': window.mouseYPos,
-			// 	'left': window.mouseXPos
-			// });
         }
         else{
             $(this).find('.tag').stop().animate({

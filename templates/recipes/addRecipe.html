@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block menuSelected %}
 <script type='text/javascript'>
@@ -19,8 +20,8 @@ $('#linkNewRecipe').addClass('buttonmenu2');
 <section id='title'>
   <header>
     <h1> 
-    {% if title %} {{title}}
-    {% else%} New Recipe
+    {% if title %} {{title}} 
+    {% else %} {% trans "New Recipe"%}
     {%endif%}
     </h1>
   </header>
@@ -34,14 +35,14 @@ $('#linkNewRecipe').addClass('buttonmenu2');
 <section class='blockTop'>
     <section id='box_step' class='box'>
         <header class='box_header'>
-          <p> Previous Steps </p>
+          <p> {% trans "Previous Steps" %} </p>
         </header>
         <nav class='box_float'>
           <ul>
             <li class='box_mb'>
               <canvas class='mb minus'></canvas>
-              <p class='tag'>Delete</p>
-              <aside>Delete last Step</aside>
+              <p class='tag'>{% trans "Delete" %}</p>
+              <aside>{% trans "Delete last Step" %}</aside>
             </li>
           </ul>
         </nav>
@@ -54,7 +55,7 @@ $('#linkNewRecipe').addClass('buttonmenu2');
     <section class='box1_3'>
       <section id='box_action'  class='box'>
         <header class='box_header'>
-          <p> Actions </p>
+          <p> {% trans "Actions" %} </p>
         </header>
         <nav class='box_float'>
           <ul>
@@ -72,7 +73,7 @@ $('#linkNewRecipe').addClass('buttonmenu2');
           {% endif %}
             <li class='box_mb'>
               <canvas class='mb add'></canvas>
-              <p class='tag'>New</p>
+              <p class='tag'>{% trans "New" %}</p>
             </li>
           </ul>
         </nav>
@@ -126,7 +127,7 @@ $('#linkNewRecipe').addClass('buttonmenu2');
     <section class='box1_3'>
       <section id='box_utensil' class='box'>
         <header class='box_header'>
-          <p> Utensils </p>
+          <p> {% trans "Utensils" %} </p>
         </header>
         <nav class='box_float'>
           <ul>
@@ -144,7 +145,7 @@ $('#linkNewRecipe').addClass('buttonmenu2');
             {% endif %}
             <li class='box_mb'>
               <canvas class='mb add'></canvas>
-              <p class='tag'>New</p>
+              <p class='tag'>{% trans "New" %}</p>
             </li>
           </ul>
         </nav>
@@ -157,11 +158,12 @@ $('#linkNewRecipe').addClass('buttonmenu2');
 {%block blockBottom%}
 <section  class='blockBottom'>
     <section class='browser'>
-        <input id='browserIngredient' type="search" placeholder="Search Ingredient" />
+        <input id='browserIngredient' type="search" 
+        placeholder='{% trans "Search Ingredient"%}' />
     </section>
     <section id='box_ingredient' class='box'>
       <header class='box_header'>
-        <p> Ingredients </p>
+        <p> {% trans "Ingredients" %}</p>
       </header>
       <nav class='box_float'>
         <ul>
@@ -179,7 +181,7 @@ $('#linkNewRecipe').addClass('buttonmenu2');
           {% endif %}
           <li class='box_mb'>
             <canvas class='mb add'></canvas>
-            <p class='tag'>New</p>
+            <p class='tag'>{% trans "New" %}</p>
           </li>
         </ul>
       </nav>

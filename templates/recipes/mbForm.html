@@ -1,20 +1,21 @@
 {%extends "recipes/baseForm.html"%}
+{% load i18n %}
 
 {% block title%}
-<h1> NEW </h1>
+<h1> {% trans "NEW" %} </h1>
 {% endblock %}
 
 {% block contentForm%}
 <form id='formMB' action='set_new_mb' method='POST' enctype="multipart/form-data">
   <fieldset>
     <input type='hidden' name='category' id='category'/>
-    <p> Button Name </p>
+    <p> {% trans "Button Name" %} </p>
     <input  id='label' name='label' type='text' placeholder='Insert name' />
-    <p> Decription (Optinal) </p>
+    <p> {% trans "Decription (Optinal)" %}</p>
     <textarea  id='description' name='description' placeholder="Insert description" ></textarea>
-    <p id='unitLabel'> Measurement Unit. </p>
+    <p id='unitLabel'> {% trans "Measurement Unit." %} </p>
     <select id='unit' name='unit'></select>
-    <p>Icon (Optional) </p>
+    <p> {% trans "Icon (Optional)" %} </p>
     <input  type="file" name="path" id="path"/>
   </fieldset>
 {% csrf_token %}

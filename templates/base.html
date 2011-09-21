@@ -1,10 +1,13 @@
+{% load i18n %}
 <html lang='en-US'> 
 <head> 
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-    <title>New Recipe</title> 
+    <title>{% trans "New Recipe" %}</title> 
     
       <script type="text/javascript" src="{{MEDIA_URL}}js/jquery-1.6.2.min.js"></script>
-      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery-ui-1.8.16.custom.min.js"></script>
+      <script type="text/javascript" src="{{MEDIA_URL}}js/jquery-ui-1.8.16.custom.min.js">
+      </script>
+      <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
       <script type='text/javascript' src='{{MEDIA_URL}}js/interface.js'> </script> 
     {% block js %}{%endblock%}
     <link type="text/css" href="{{MEDIA_URL}}css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />   
@@ -24,9 +27,9 @@
     <section class='header_box'>
     	<nav id='page_menu'>
         <ul>
-          <li class='buttonMenu' id='linkHome'>Home</li>
-          <li class='buttonMenu' id='linkBrowser'>Search Recipe</li>
-          <li class='buttonMenu' id='linkNewRecipe'>New Recipe</li>
+          <li class='buttonMenu' id='linkHome'>{% trans "Home" %}</li>
+          <li class='buttonMenu' id='linkBrowser'>{% trans "Search Recipe" %}</li>
+          <li class='buttonMenu' id='linkNewRecipe'>{% trans "New Recipe" %}</li>
         </ul>
         <script type="text/javascript">
         	$('#linkBrowser').click(function(){

@@ -29,7 +29,7 @@ function updateCurrentStep(){
 					$('#currentStep').data('isOK',0);
 				}
 				else if(data.msg.length == 0){
-					$('#currentStep').html('Error loading Step');
+					$('#currentStep').html(gettext('Error loading Step') );
 					$('#currentStep').data('isOK',-1);
 				}
 				else{
@@ -41,20 +41,20 @@ function updateCurrentStep(){
 				}
 			}
 			else{
-				$('#currentStep').html('Current step in process');
+				$('#currentStep').html(gettext('Current step in process'));
 				$('#currentStep').data('isOK',-1);
 			}
 		},
 		error: function(){
-			showInfoPanel('Error while got the current step.')
+			showInfoPanel(gettext('Error while got the current step.'))
 		}
 	});
 }
 
 function updateBallContainer(){
-	function addButtonSelected(style,id,label){
+	function addButtonSelected(id,label,icon){
 		var base = "<li class='box_mb' id="+id+">"+
-		"<canvas class='mb stream' style="+style+"></canvas>"+
+		"<canvas class='mb stream' style='background:url(/media/"+icon+")')></canvas>"+
         "<aside>"+label+"</aside></li>";
 		$('#ballContainer ul').append(base);
 	}
@@ -68,10 +68,12 @@ function updateBallContainer(){
 		  if (data.state == true){
 		    var id,style;
 		    for (var i=0; i<data.msg.length; i++){
-		      id = data.msg[i];
-		      style = $('#'+id).children('canvas').attr('style');
-		      label = $('#'+id).children('p').html()
-		      addButtonSelected(style,id,label);
+		      id = data.msg[i].id;
+		      label = data.msg[i].label
+		      icon = data.msg[i].icon
+		      // style = $('#'+id).children('canvas').attr('style');
+		      // label = $('#'+id).children('p').html()
+		      addButtonSelected(id,label,icon);
 		    }
 		  }
 		}
@@ -80,7 +82,7 @@ function updateBallContainer(){
 
 function updateUsedSteps(){
 	function addStepUsed(id, label, tag, icon){
-		var base = "<li class='box_mb' id="+id+">"+
+		var base = "<li class='box_mb' id="+id+" style='display :inline-block;'>"+
         "<canvas class='mb stream' style='background:url(/media/"+icon+")'> </canvas>"+
         "<p class='tag'>"+tag+"</p>"+
         "<aside>"+label+"</aside></li>";
@@ -113,8 +115,8 @@ function containerBallResize(){
     var pos_top = $('#ball').offset().top;
     var w = $('#ball').width()-10;
     $("#ballContainer").css(
-      {'top':pos_top,'left':pos_left,
-      'width':w,'height':w,'border-radius':Math.round(w/2)}
+      {'top':pos_top+10,'left':pos_left+10,
+      'width':w-20,'height':w-20,'border-radius':Math.round(w/2)}
     );
 }
 
@@ -130,7 +132,7 @@ function addMBtoStep(id){
 			if(data.state == true){
 				updateCurrentStep();
 				updateBallContainer();
-				showInfoPanel('Button added correctly');
+				showInfoPanel(gettext('Button added correctly') );
 			}
 			else{
 				showInfoPanel(data.msg)
@@ -151,7 +153,7 @@ function delMBtoStep(id){
 			if (data.state == true){
 				updateCurrentStep();
 				updateBallContainer();
-				showInfoPanel('Button deleted correctly');
+				showInfoPanel(gettext('Button deleted correctly') );
 			}
 			else{
 				showInfoPanel(data.msg);
@@ -169,12 +171,12 @@ function setSentenceStep(sentence){
 		data:{'sentence':sentence},
 		success: function(data){
 			if (data.state == true)
-				showInfoPanel('Sentence Step updated correctly for next time. Thank for you collaboration')
+				showInfoPanel(gettext( 'Sentence Step updated correctly for next time. Thank for you collaboration') );
 			else
-				showInfoPanel(data.msg)
+				showInfoPanel(data.msg);
 		},
 		error: function(){
-			showInfoPanel('Error while connected with the Templates')
+			showInfoPanel(gettext('Error while connected with the Templates') );
 		}
 	});
 
@@ -187,11 +189,6 @@ function setSentenceStep(sentence){
 
 
 $(function() {
-
-	$('#box_step .stream,#box_action .stream,#box_utensil .stream,#box_ingredient .stream').live('click', function(){
-		var id = $(this).parent('li').attr('id');
-		addMBtoStep(id);
-	});
 
 
 	$('#ballContainer .stream').live('click',function(){
@@ -221,7 +218,7 @@ $(function() {
 
 	$('#ballButton').click(function(){
 		if ($('#currentStep').data('isOK') == -1)
-			showInfoPanel('Step is not ready yet')
+			showInfoPanel(gettext('Step is not ready yet') )
 		else{
 			$('#formStep .step').html($('#currentStep').html().toUpperCase())
 			updateIngredientSection()

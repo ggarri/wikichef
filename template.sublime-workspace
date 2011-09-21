@@ -163,7 +163,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -234,8 +234,8 @@
 						"selection":
 						[
 							[
-								1536,
-								1536
+								1560,
+								1560
 							]
 						],
 						"settings":
@@ -243,7 +243,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0,
-						"translation.y": 192,
+						"translation.y": 304,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -260,8 +260,8 @@
 						"selection":
 						[
 							[
-								1459,
-								1459
+								1456,
+								1456
 							]
 						],
 						"settings":
@@ -271,7 +271,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 400,
+						"translation.y": 448,
 						"zoom_level": 1
 					},
 					"type": "text"

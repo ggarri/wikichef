@@ -1,5 +1,0 @@
-<form action='/magic/clearSession' method='POST'> 
-{% csrf_token %}
-<input name='next' type='hidden' value='{{request.path}}' />
-<input type='submit' value='Clear Session' />
-</form>

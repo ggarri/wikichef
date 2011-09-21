@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block menuSelected %}
 <script type='text/javascript'>
@@ -18,7 +19,7 @@ $('#linkBrowser').addClass('buttonmenu2');
 
 {% block title %}
 <section id='title'>
-  <header> <h1>Searching Recipes</h1> </header>
+  <header> <h1>{% trans "Searching Recipes" %}</h1> </header>
 </section>
 {% endblock %}
 
@@ -27,13 +28,13 @@ $('#linkBrowser').addClass('buttonmenu2');
 <section class='blockTop'>
     <section id='box_ingredient_selected' class='box'>
         <header class='box_header'>
-          <p> Ingredients Selected </p>
+          <p> {% trans "Ingredients Selected" %}</p>
         </header>
         <nav class='box_float'>
           <ul>
           <li class='box_mb'>
               <canvas class='mb minus'></canvas>
-              <p class='tag'>Empty</p>
+              <p class='tag'>{% trans "Empty" %}</p>
           </li>
           </ul>
         </nav>
@@ -50,7 +51,7 @@ $('#linkBrowser').addClass('buttonmenu2');
       </nav>
   </section>
   <section id='levelSimilarity' class='box_slider'>
-      <label> Level Similarity </label>
+      <label>{% trans "Level Similarity" %} </label>
       <input class='slider_text' type="number" maxlength='3' disabled="disabled"/>
       <aside class="slider" ></aside>
   </section>
@@ -60,11 +61,12 @@ $('#linkBrowser').addClass('buttonmenu2');
 {%block blockBottom%}
 <section  class='blockBottom'>
     <section class='browser'>
-        <input id='browserIngredient' type="search" placeholder="Search Ingredient" />
+        <input id='browserIngredient' type="search"
+        placeholder='{% trans "Search Ingredient"%}' />
     </section>
     <section id='box_ingredient' class='box'>
       <header class='box_header'>
-        <p> Ingredients </p>
+        <p>{% trans "Ingredients" %} </p>
       </header>
       <nav class='box_float'>
         <ul>

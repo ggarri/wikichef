@@ -125,11 +125,23 @@ input[type='text']{
   padding: 0 auto;
 }
 
-.box_slider label{
-  width: 10em;
+.box_slider label:nth-child(even) {
+  width: 7em;
+  height: 1.2em;
   overflow: hidden;
+  /*border: 2px solid yellow;*/
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }
 
+.box_slider label:nth-child(odd) {
+  width: 3em;
+  height: 1.2em;
+  overflow: hidden;
+  /*border: 2px solid yellow;*/
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
 
 .slider{
   /*display: inline-block;*/

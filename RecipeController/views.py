@@ -6,6 +6,7 @@ from django.middleware.csrf import CsrfResponseMiddleware
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.utils.translation import ugettext as _
 
 import simplejson
 from MagicController.models import *
@@ -24,6 +25,8 @@ def baseInitial(request):
 	if not 'lanList' in request.session :	request.session['lanList'] = XGDic.getLanguages().items() 
 	if not 'lan' in request.session or not request.session['lan'] in XGDic.getLanguages().keys(): 
 		request.session['lan'] = 'en'
+		request.session['django_language'] = 'en'
+	else:	request.session['django_language'] = request.session['lan']
 	if not 'state' in request.session: request.session['state'] = 'initial'
 
 def clearSession(request):
@@ -45,7 +48,8 @@ def starting(request):
 		'MB_A':Actions,
 	}
 	if 'streamRecipe' in request.session: 
-		result['title'] = request.session['streamRecipe'].title + ' ('+str(request.session['streamRecipe'].nPerson)+' pers)'
+		pers = _('pers')
+		result['title'] = request.session['streamRecipe'].title + ' ('+str(request.session['streamRecipe'].nPerson)+pers+')'
 	return render_to_response('recipes/addRecipe.html', result , context_instance=RequestContext(request) )
 
 @csrf_exempt
@@ -99,7 +103,7 @@ def setState(request):
 
 @csrf_exempt
 def setNewMB(request):
-	print "Adding new button"
+	# print "Adding new button"
 	if request.method=="POST":
 		# Every parameters are gotten from POST 
 		cate = request.POST['category'] 
@@ -112,7 +116,7 @@ def setNewMB(request):
 		if 'unit' in request.POST : unit = request.POST['unit']
 		else: unit = '?'
 
-		print cate,mean,lan,desc,icon,temp,unit
+		# print cate,mean,lan,desc,icon,temp,unit
 		# Check whether the button is already
 		if cate   == 'A':	newButton = MagicAction.create(mean, lan, desc, icon, temp)
 		elif cate == 'U':	newButton = MagicUtensil.create(mean, lan, desc, icon, temp)
@@ -127,7 +131,7 @@ def addMBtoStep(request):
 	if not 'processStep' in request.session: request.session['processStep'] = MagicCombination.create('')
 	state = True
 	if not 'id' in request.GET :
-		msg = 'Could not get id button'
+		msg = _('Could not get id button')
 		state = False
 	
 	if 'processStep' in request.session and state:
@@ -141,19 +145,19 @@ def addMBtoStep(request):
 		mbA = request.session['processStep'].getMBs('A')
 		mbU = request.session['processStep'].getMBs('U')
 		mbsI = request.session['processStep'].getMBs('I')
-		if request.session['processStep'].isMB(mb): msg = 'This element is already added.';state=False
-		elif not mb.isAction() and mbA == None : msg = "The first button must be a ACTION";state=False
-		elif mb.isAction() and mbA != None: msg = "One ACTION was already selected";state=False
-		elif mb.isUtensil() and mbU != None: msg = "One UTENSIL was already selected";state=False
-		elif mb.isIngredient() and mb in mbsI : msg = "This INGREDIENT was already selected";state=False
+		if request.session['processStep'].isMB(mb): msg = _('This element is already added.');state=False
+		elif not mb.isAction() and mbA == None : msg = _("The first button must be a ACTION");state=False
+		elif mb.isAction() and mbA != None: msg = _("One ACTION was already selected");state=False
+		elif mb.isUtensil() and mbU != None: msg = _("One UTENSIL was already selected");state=False
+		elif mb.isIngredient() and mb in mbsI : msg = _("This INGREDIENT was already selected");state=False
 		else: # SUCCESS
 			request.session['processStep'].addMB(mb)
 			request.session.modified = True
 			labels = request.session['processStep'].getLabels(lan)
 			if labels.__class__ != list: labels = [labels]
-			print 'labels',labels
+			# print 'labels',labels
 			msg = labels
-	else: 	msj = 'The session is incorrect'; state=False
+	else: 	msj = _('The session is incorrect'); state=False
 
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
@@ -162,17 +166,17 @@ def addMBtoStep(request):
 def delMBtoStep(request):
 	state = True
 	msg=''
-	print request.GET
+	# print request.GET
 	if not 'id' in request.GET :
 		state = False
-		msg = 'Could not get id button'
+		msg = _('Could not get id button')
 	elif 'processStep' in request.session:
 		id = request.GET['id']
 		mb = get_object_or_404(MagicButton, pk=id)
-		if mb == None: msg = 'Button does not exist';state=False
+		if mb == None: msg = _('Button does not exist');state=False
 		elif mb.isAction() and len(request.session['processStep'].MBs.all()) > 1 : msg = 'ACTION must be deleted last one';state=False
 		else:	request.session['processStep'].MBs.remove(mb)
-	else: msg='Session Incorrect'; state = False
+	else: msg=_('Session Incorrect'); state = False
 
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
@@ -189,7 +193,7 @@ def getCurrentStep(request):
 			labels = request.session['processStep'].getLabels(lan)
 			if labels.__class__ != list: labels = [labels]
 			msg = labels
-	else: state = False; msg='There is not process in performance'
+	else: state = False; msg=_('There is not process in performance')
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
 
@@ -197,9 +201,9 @@ def getCurrentStep(request):
 def setCurrentStep(request):
 	state = True;msg=''
 	if 'processStep' in request.session and request.method=="GET":
-		if len(request.session['processStep'].MBs.all()) == 0: msg='There are not elements'; state = False
+		if len(request.session['processStep'].MBs.all()) == 0: msg=_('There are not elements'); state = False
 		else:
-			if not 'sentence' in request.GET: msg='Session error';state = False
+			if not 'sentence' in request.GET: msg=_('Session error');state = False
 			else:
 				sentence = request.GET['sentence']
 				mc = request.session['processStep']
@@ -207,7 +211,7 @@ def setCurrentStep(request):
 				if checkCustomSentence(request, sentence, lan):
 					mc.addTemplate(sentence,lan,True) # Just for this language
 				else:
-					msg = 'The new sentece must use all used elements'; state=False
+					msg = _('The new sentece must use every used elements'); state=False
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')	
 
@@ -219,8 +223,9 @@ def getSelectedButtons(request):
 	ids = None
 	if 'processStep' in request.session:
 		mbs = request.session['processStep'].getMBs()
+		lan = request.session['lan']
 		if len(mbs) == 0: state=False
-		else: ids = [mb.id for mb in mbs]
+		else: ids = [ {'id':mb.id,'label':mb.getLabels(lan),'icon':str(mb.icon)} for mb in mbs]
 	else: state=False
 
 	result = simplejson.dumps({'state':state,'msg':ids})
@@ -255,10 +260,10 @@ def saveStreamStep(request):
 			if checkCustomSentence(request, sentence, lan):
 				mc.addTemplate(sentence,lan)
 			else:
-				msg = 'Custom Sentece must use all used elements'; state=False
+				msg = _('Custom Sentece must use every used elements'); state=False
 		else:
 			mc.addTemplate(key,lan)
-	else:	msg = 'Option was not selected.'; state=False
+	else:	msg = _('Option was not selected.'); state=False
 	# else:	msg = 'Request incorrect.'; state=False 
 
 	result = simplejson.dumps({'state':state,'msg':msg})
@@ -275,9 +280,9 @@ def uploadStreamStep(request):
 		mc = request.session['processStep']
 		LI = mc.getMBs('I'); U  = mc.getMBs('U'); A  = mc.getMBs('A')
 		if A == None:
-			msg = 'A Action is needed by Step.';state=False
+			msg = _('One Action is needed by Step.');state=False
 		elif len(LI) == 0 and U == None:
-			msg = 'Ingredients or Utensil are needed by Step.';state=False
+			msg = _('Ingredients or Utensil are needed by Step.');state=False
 		else:
 			time = request.POST['time']
 			desc = request.POST['desc']
@@ -289,8 +294,8 @@ def uploadStreamStep(request):
 			MagicIngredient.create(tag,'en','',None,False,'?',True)
 
 			del request.session['processStep']
-	elif not 'processStep' in request.session: msg = 'Step is not created'; state=False
-	else: msg = 'Session Incorrect'; state=False
+	elif not 'processStep' in request.session: msg = _('Step is not created'); state=False
+	else: msg = _('Session Incorrect'); state=False
 
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
@@ -316,7 +321,7 @@ def getUsedSteps(request):
 @csrf_exempt
 def deleteLastStep(request):
 	if 'usedSteps' in request.session and request.is_ajax():
-		print request.session['usedSteps']
+		# print request.session['usedSteps']
 		if len(request.session['usedSteps']) > 0: 
 			request.session['usedSteps'].pop(); state = True
 			request.session.modified = True
@@ -356,7 +361,7 @@ def uploadRecipe(request):
 	state = True; msg=''
 	# request.is_ajax() and 
 	if 'usedSteps' in request.session and 'streamRecipe' in request.session:
-		if len(request.session['usedSteps']) < 2: state = False; msg='There are not enough steps'
+		if len(request.session['usedSteps']) < 2: state = False; msg=_('There are not enough steps')
 		else:
 			newRecipe = request.session['streamRecipe']
 			newRecipe.save()
@@ -368,7 +373,7 @@ def uploadRecipe(request):
 				for I in mc.getMBs('I') : 
 					print mc.getMBs('I'),stepData['amounts'],I.id
 					step.addIngredient(I,stepData['amounts'][str(I.id)] )
-	else: state = False; msg='Session incorrect'
+	else: state = False; msg=_('Session incorrect')
 
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')	

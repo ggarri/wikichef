@@ -1,14 +1,15 @@
 {%extends "recipes/baseForm.html"%}
+{% load i18n %}
 
 {% block title%}
-<h1> Select which is correct </h1>
+<h1> {% trans "Select which is correct" %} </h1>
 {% endblock %}
 
 {% block contentForm%}
 <form id='formCorrectStep' action='' method=''>
   <fieldset>
   </p><input type='radio' id='selectCorrectStep' name='selectCorrectStep' value='-1'/>
-  Custom : <input type='text' id='customCorrectStep' name='customCorrectStep' id='Custom'  disabled='disabled'/>
+  {% trans "Custom " %}: <input type='text' id='customCorrectStep' name='customCorrectStep' id='Custom'  disabled='disabled'/>
   </p>
   </fieldset>
 {% csrf_token %}

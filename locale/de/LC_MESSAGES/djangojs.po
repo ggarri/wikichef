@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-21 01:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: media/js/browser.js:5
+msgid "List Ingredients"
+msgstr "Liste zutaten"
+
+#: media/js/browser.js:6
+msgid "Decription"
+msgstr "Decription"
+
+#: media/js/browser.js:50
+msgid "Error while loading Recipes"
+msgstr "Fehler beim laden der rezepte"
+
+#: media/js/browser.js:78
+msgid "Error while loading the ingredients selected"
+msgstr "Fehler beim laden der zutaten ausgewählt"
+
+#: media/js/browser.js:129 media/js/browser.js.py:150
+msgid "Error while adding the ingredient."
+msgstr "Fehler beim hinzufügen der zutat."
+
+#: media/js/browser.js:138
+msgid "Element was already added"
+msgstr "Element wurde bereits hinzugefügt."
+
+#: media/js/browser.js:192
+msgid "Error while loading recipe datas"
+msgstr "Fehler beim laden der rezept-daten"
+
+#: media/js/interactiveBall.js:32
+msgid "Error loading Step"
+msgstr "Fehler-laden-schritt"
+
+#: media/js/interactiveBall.js:44
+msgid "Current step in process"
+msgstr "Aktuellen schritt im prozess"
+
+#: media/js/interactiveBall.js:49
+msgid "Error while got the current step."
+msgstr "Fehler während den aktuellen schritt zu bekommen."
+
+#: media/js/interactiveBall.js:221
+msgid "Step is not ready yet"
+msgstr "Schritt ist noch nicht bereit"
+
+#: media/js/interface.js:59
+msgid "Deleting session had a error"
+msgstr "Löschen von sitzung hatte einen fehler"
+
+#: media/js/newRecipe.js:16
+msgid "That button was changed correctly. Thanks for you colaboration. "
+msgstr "Diese schaltfläche wurde korrekt geändert. vielen dank für sie mitarbeit."
+
+#: media/js/newRecipe.js:20
+msgid ""
+"That button could not be changed correctly.Try it again later. Thanks for "
+"you colaboration. "
+msgstr ""
+
+#: media/js/newRecipe.js:59
+msgid "Step deleted correctly"
+msgstr "Schritt korrekt gelöscht"
+
+#: media/js/newRecipe.js:62
+msgid "It was imposible to delete the last Step"
+msgstr "Es war imposible zu letzt löschen"
+
+#: media/js/newRecipe.js:100
+msgid "Recipe saved correctly."
+msgstr "Rezept korrekt gespeichert."
+
+#: media/js/newRecipe.js:108
+msgid "It is imposible without steps."
+msgstr "Es ist imposible stufenlos."
+

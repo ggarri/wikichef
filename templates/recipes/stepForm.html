@@ -1,7 +1,8 @@
 {%extends "recipes/baseForm.html"%}
+{% load i18n %}
 
 {%block title%}
-<h1> UPLOADING STEP </h1>
+<h1>{% trans "UPLOADING STEP" %} </h1>
 {%endblock%}
 
 {%block contentForm %}
@@ -11,7 +12,7 @@
     <textarea placeholder="Extra Description" id='desc' name='desc'></textarea>
 
     <section id='timeStep' class='box_slider'>
-      <label> Time (min) </label>
+      <label>{% trans "(min)" %} </label><label>{% trans "Time" %} </label>
       <input class='slider_text' type="number" maxlength='3' id='time' name='time'/>
       <aside class="slider"></aside>
     </section>
@@ -22,7 +23,7 @@
 
 function addIngredientSection(id,name,unit){
   var ingredient = "<section id='slider"+id.toString()+"' class='box_slider MB_I'>"+
-    "<label>"+name + " (" + unit + ") </label>"+
+    "<label> ("+ unit + ") </label><label>"+name +"</label>"+
     "<input class='slider_text' type='number' maxlength='3' name='I"+id+"' id='I"+id+"'/>"+
     "<aside class='slider'></aside>" +
     "</section>";
@@ -43,7 +44,7 @@ function updateIngredientSection(){
           for (var i=0 ; i< data.msg.length; i++){
             if (data.msg[i].isStep == false){
               addIngredientSection(data.msg[i].id,data.msg[i].name,data.msg[i].unit);
-              addSlider('slider'+data.msg[i].id.toString(),0,20,1);
+              addSlider('slider'+data.msg[i].id.toString(),0,30,3);
             }
             else{
               addIngredientSection(data.msg[i].id,data.msg[i].name,'%');

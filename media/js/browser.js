@@ -2,16 +2,18 @@
 
 function updateRecipes(){
 	function addRecipe(id, title, desc, listI, path){
+        var strLI = gettext("List Ingredients");
+        var strDesc = gettext("Decription");
 		var base = "<li class='recipe' id='"+id+"'>"+
             "<section class='header'>"+
             "<p>"+title+"</p>"+
             "<canvas class='imgRecipe' style='background:url(/media/"+path+")'></canvas>"+
             "</section>"+
             "<section class='list_I'>"+
-            "<label> List Ingredients: </label>"+
+            "<label>"+strLI+" : </label>"+
             "</section>"+
             "<section class='desc'>"+
-            "<label> Decription: </label>"+
+            "<label>"+strDesc+" : </label>"+
             "<p>"+desc+"</p>"+
             "</section></li>"
         $('#listRecipes ul').append(base);
@@ -34,7 +36,7 @@ function updateRecipes(){
                $('#loadingPage').fadeIn();
                 $('#listRecipes ul').empty()
                 if (data.msg.length == 0)
-                    addRecipe(-1, 'None', 'There are not any with this ingredients', new Array(), 'imgs/defaultRecipe.png');
+                    addRecipe(-1, 'None', gettext('There are not any recipe with this ingredients'), new Array(), 'imgs/defaultRecipe.png');
                 else {
             		for (var i=0; i<data.msg.length; i++){
             			var recipe = data.msg[i]
@@ -45,7 +47,7 @@ function updateRecipes(){
                 $('#loadingPage').fadeOut();
         	}
         	else 
-        		showInfoPanel('Error while loading Recipes');
+        		showInfoPanel(gettext('Error while loading Recipes') );
      	}
 	});
 }
@@ -73,7 +75,7 @@ function updateIngredientsSelected(){
                 }
             }
             else
-                showInfoPanel('Error while loading the ingredients selected');
+                showInfoPanel(gettext('Error while loading the ingredients selected') );
         }
     })
 
@@ -124,7 +126,7 @@ $(function(){
                 data: {'id':id},
                 success: function(data){
                     if (data.state == false)
-                        showInfoPanel('Error while adding the ingredient.')
+                        showInfoPanel(gettext('Error while adding the ingredient.') );
                     else{
                         updateIngredientsSelected();
                         updateRecipes();
@@ -133,7 +135,7 @@ $(function(){
             });
         }
         else
-            showInfoPanel('Element was already added')
+            showInfoPanel(gettext('Element was already added') );
     });
 
     $('#box_ingredient_selected canvas').live('click',function(){
@@ -145,7 +147,7 @@ $(function(){
             data: {'id':id},
             success: function(data){
                 if (data.state == false)
-                    showInfoPanel('Error while adding the ingredient.')
+                    showInfoPanel(gettext('Error while adding the ingredient.') );
                 else{
                     updateIngredientsSelected();
                     updateRecipes();
@@ -187,7 +189,7 @@ $(function(){
                         $('.overPanel').fadeIn('slow'); 
                     }
                     else
-                        showInfoPanel('Error while loading recipe datas');
+                        showInfoPanel(gettext('Error while loading recipe datas') );
                 }
         })
     });
