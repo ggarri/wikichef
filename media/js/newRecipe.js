@@ -91,6 +91,8 @@ $(function(){
 	$('#cancelRecipe').click(function(){clearSession()});
 
   	$('#acceptRecipe').click(function(){
+  	  $('#loadingPage').fadeIn();
+  	  console.log($('#loadingPage'));
       $.ajax({
         url:'upload_recipe',
         async:true,
@@ -108,6 +110,7 @@ $(function(){
         	showInfoPanel(gettext('It is imposible without steps.') );	
         }
       });
+      $('#loadingPage').fadeOut();
   	});
 });
 

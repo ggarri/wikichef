@@ -71,12 +71,12 @@ msgid "Session error"
 msgstr "Sitzungsfehler"
 
 #: RecipeController/views.py:214
-msgid "The new sentece must use every used elements"
-msgstr "Die neue sentece muss alle verwendeten elemente verwenden."
+msgid "The new sentence must use every used elements"
+msgstr "Die neue phrase muss alle verwendeten elemente verwenden."
 
 #: RecipeController/views.py:263
-msgid "Custom Sentece must use every used elements"
-msgstr "Benutzerdefinierte sentece muss alle verwendeten elemente verwenden."
+msgid "Custom Sentence must use every used elements"
+msgstr "Benutzerdefinierte phrase muss alle verwendeten elemente verwenden."
 
 #: RecipeController/views.py:266
 msgid "Option was not selected."

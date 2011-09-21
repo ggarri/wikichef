@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.middleware.csrf import CsrfResponseMiddleware
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
+from django.utils.translation import ugettext as _
 
 import simplejson
 from MagicController.models import *
@@ -40,8 +41,8 @@ def getBriefRecipes(request):
 			if r.language != lan:
 				 wt = XGDic.getWordSentence(r.title, r.language)
 				 acum['title'] = wt.getLabels(lan).capitalize()+ ' ('+acum['title']+')'
-			wd = XGDic.getWordSentence(r.description, r.language)
-			acum['desc'] = wd.getLabels(lan)
+			# wd = XGDic.getWordSentence(r.description, r.language)
+			acum['desc'] = r.description.getLabels(lan)
 			acum['LI'] = [ {'id':I[0].id,'label':I[0].getLabels(lan),'amount':I[1],'unit':I[2]} for I in r.getIngredients()]
 			msg.append(acum);
 	else: state = False; msg = _('Session is not ajax.')
@@ -100,7 +101,7 @@ def delIngredient(request):
 def getRecipe(request):
 	baseInitial(request)
 	state = True; msg=''
-	if request.is_ajax() and request.method == 'GET':
+	if request.method == 'GET':
 		lan = request.session['lan']
 		id = request.GET['id']
 		recipe = get_object_or_404(Recipe, pk=id)
@@ -108,12 +109,9 @@ def getRecipe(request):
 		dic = dict()
 		if recipe.language != lan:
 			wt = XGDic.getWordSentence(recipe.title, recipe.language)
-			wd = XGDic.getWordSentence(recipe.description, recipe.language)
 			dic['title'] = wt.getLabels(lan).capitalize()+ ' ('+recipe.title+')'
-			dic['desc'] = wd.getLabels(lan)
-		else:
-			dic['title'] = recipe.title.capitalize()
-			dic['desc'] = recipe.description
+		else: dic['title'] = recipe.title.capitalize()
+		dic['desc'] = recipe.description.getLabels(lan)
 
 		dic['LI'] = [ {'id':I[0].id,'label':I[0].getLabels(lan),'amount':I[1],'unit':I[2]} for I in recipe.getIngredients()]
 		dic['time'] = recipe.time
@@ -126,15 +124,15 @@ def getRecipe(request):
 			subdic['label'] = step.getLabels(lan)
 			# if subdic['label'].__class__ == list: subdic['label'][0]
 			
-			if recipe.language != lan: 
-				wc = XGDic.getWordSentence(step.comments,recipe.language)
-				subdic['comments'] = wc.getLabels(lan)
-			else: subdic['comments'] = step.comments
+			# if recipe.language != lan: 
+			# 	# wc = XGDic.getWordSentence(step.comments,recipe.language)
+			# else: subdic['comments'] = step.comments
+			subdic['comments'] = step.comments.getLabels(lan)
 
 			subdic['LI'] = [ {'label':A.ingredient.getLabels(lan),'amount':A.amount, 'unit':A.ingredient.getUnit()} for A in step.amount_set.all()]
 			dic['steps'].append(subdic)
 		msg = dic
+		print msg
 	else: state = False; msg=_('Session incorrect')
-	
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')

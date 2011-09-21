@@ -24,7 +24,7 @@ function updateRecipes(){
         	$(recipe).find('.list_I label').after(ingredient)
         }
 	}
-
+    $('#loadingPage').fadeIn();
 	$.ajax({
 		url:'get_brief_recipes',
         async:true,
@@ -33,7 +33,6 @@ function updateRecipes(){
         data: {'level': $('#levelSimilarity .slider_text').val()/100.0 },
         success: function(data){
         	if (data.state==true){
-               $('#loadingPage').fadeIn();
                 $('#listRecipes ul').empty()
                 if (data.msg.length == 0)
                     addRecipe(-1, 'None', gettext('There are not any recipe with this ingredients'), new Array(), 'imgs/defaultRecipe.png');
@@ -44,12 +43,12 @@ function updateRecipes(){
             		}
                 }
         		updateBoxFloat($('#listRecipes .box_float'));
-                $('#loadingPage').fadeOut();
         	}
         	else 
         		showInfoPanel(gettext('Error while loading Recipes') );
      	}
 	});
+    $('#loadingPage').fadeOut();
 }
 
 
@@ -156,10 +155,8 @@ $(function(){
         });
     });
 
-
-    $('#levelSimilarity .slider').live('mouseup',function(){
+    $('#levelSimilarity .slider').bind('slidestop',function(){
         updateRecipes();
-        $(this).trigger('focusout');
     });
 
     $('.overPanel').css({
@@ -175,6 +172,7 @@ $(function(){
 
     $('.recipe').live('click',function(){
        id = $(this).attr('id');
+       $('#loadingPage').fadeIn();
         $.ajax({
             url:'get_recipe',
                 async:true,
@@ -183,15 +181,14 @@ $(function(){
                 data: {'id':id},
                 success: function(data){
                     if (data.state == true){
-                        $('#loadingPage').fadeIn();
                         fillRecipeForm(data.msg);
                         $('#loadingPage').fadeOut();
-                        $('.overPanel').fadeIn('slow'); 
                     }
                     else
                         showInfoPanel(gettext('Error while loading recipe datas') );
                 }
-        })
+        });
+        $('.overPanel').fadeIn('slow'); 
     });
 
     $('.overPanel').hide(); // Firstly hidden

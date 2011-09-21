@@ -90,9 +90,10 @@ class Template(models.Model):
 	def calculate(self,LI, U):
 		def listIngredients(wordsI,lan):
 			cad = ''
+			w_and = XGDic.getWordSentence('and','en')
 			for i,I in enumerate(LI):
 				if i == 0 : cad = I.getLabels(lan)
-				elif i==len(LI)-1 : cad += ' and ' + I.getLabels(lan)
+				elif i==len(LI)-1 : cad += ' '+ w_and.getLabels(lan) + ' ' + I.getLabels(lan)
 				else:	cad += ', ' + I.getLabels(lan)
 			return cad
 

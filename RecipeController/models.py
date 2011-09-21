@@ -1,6 +1,8 @@
-""" Models for managing of Recipes
+""" Models for management of intenationalization of Recipes
 	:author: Gabriel Garrido Calvo
-	:version: 0.9
+	:version: 0.9 (Release)
+	:licence: GNU
+	:contact: ggarri@gmail.com
 """
 
 __docformat__ = "restructuredtext"
@@ -16,6 +18,7 @@ from XGDic.models import XGDic
 
 """
 :cvar DIFFICULTY_VALUES : Define the level of difficulty of the recipes
+:type DIFFICULTY_VALUES : enumerate
 """
 DIFFICULTY_VALUES = (
 	(u'HARD' , u'HARD'),
@@ -33,18 +36,19 @@ DIFFICULTY_VALUES = (
 from django import forms
 
 class Recipe(models.Model):
-	""" Modeling one Recipe
-	:ivar title: Keeps the original title of the Recipe 
-	:ivar language: Stores the language which was uploaded
-	:ivar description: Keep the description given for the recipe
-	:ivar time: Keeps the time, in minutes, to prepare the recipe
-	:ivar difficult: Keeps the difficulty level of the recipe   
-	:ivar nPerson: Keeps the number of people is done the recipe
-	:ivar image: Recipe Thumb.
+	""" Recipe Class manages the main information refer to one recipe.
+	:ivar title: Original title gave for the Recipe by a user.
+	:ivar language: Language which was uploaded.
+	:ivar description: Given description for the recipe.
+	:ivar time: Time, in minutes, to make the recipe.
+	:ivar difficult: Level of difficulty of the recipe.
+	:ivar nPerson: Number of people for which was stored the Recipe.
+	:ivar img: Recipe Thumb.
+	:
 	"""
 	title = models.CharField(max_length=100)
 	language = models.CharField(max_length=2,default='en')
-	description = models.CharField(blank=True, max_length=500)
+	description = models.ForeignKey(Word, related_name="Recipe_description_set")
 	time = models.PositiveIntegerField(blank=True, default=0)
 	difficult = models.CharField(max_length=20,choices=DIFFICULTY_VALUES)
 	nPerson = models.PositiveIntegerField(blank=True, default=0)
@@ -56,21 +60,24 @@ class Recipe(models.Model):
 		"""
 		Creates a Recipe object
 		:param tit: Title of recipe
-		:type tit: String < 100
-		:param lan: Orignal language which was uploaded
-		:type lan: ['en','es','de','fr']
-		:param desc: Description
-		:type desc: String < 1000
-		:param t: Time neccesary to prepare
-		:type t: Integer
-		:param diff: Difficult assigned
-		:type diff: ['hard','INTERMEDIATE','EASY']
-		:param nPers: Number of people thought
-		:type nPers: Integer
-		:return : A recipe object already saved
-		:rtype:	Recipe Obj.
+		:type tit: String with size less tan 100 characters.
+		:param lan: Language which was uploaded.
+		:type lan: Belongs to ['en','es','de','fr']
+		:param desc: Description of the recipe.
+		:type desc: String with size less tan 500 characters.
+		:param t: Needed time, in minutes, to make the recipe.
+		:type t: Integer number.
+		:param diff: Difficult assigned.
+		:type diff: Belongs to ['HARD','INTERMEDIATE','EASY'].
+		:param nPers: Number of people thought for this data recipe.
+		:type nPers: Integer number.
+		:param path: Image path to identify the recipe.
+		:type path: Image File
+		:return : Recipe instance with the passed datas.
+		:rtype:	Recipe.
 		"""
-		recipe = Recipe(title=tit,language=lan, description=desc, time=t, nPerson = nPers, img=path)
+		wd = Word.create(desc,lan)
+		recipe = Recipe(title=tit,language=lan, description=wd, time=t, nPerson = nPers, img=path)
 		recipe.save()
 		return recipe
 
@@ -78,18 +85,19 @@ class Recipe(models.Model):
 	@staticmethod
 	def searchByIngredient(levelSimilarity,ingredients):
 		"""
-		Searches in the system recipes whose ingredients are given and difference percente
-		:param levelSimilarity: Amount of difference percente
-		:type levelSimilarity: Float number in range [0.0,1.0]
-		:param ingredients: List of ID ingredients
-		:type ingredients: Integer List
-		:return: List of Recipe ObjectS which achieve features given
-		:rtype: List of Recipe Objects
+		Searches in the database what recipes whose ingredients are passed and level difference percentage is lesser.
+		:param levelSimilarity: Level difference percentage value.
+		:type levelSimilarity: Float number in range [0.0-1.0]
+		:param ingredients: List of IDs ingredients to search the recipes.
+		:type ingredients: ID integer array.
+		:return: List of Recipe Objects which achieve given features.
+		:rtype: List of Recipe Objects.
 		"""
 		def getLevelSimilarity(recipe):
+			from NLG.models import TCC
 			right = 0
-			listI = [ I[0].id for I in recipe.getIngredients()]
-			print listI,ingredients
+			noValid = [ cc.button.id for cc in TCC.objects.all() ]
+			listI = [ I[0].id for I in recipe.getIngredients() if not I[0].id in noValid]
 			if len(listI) == 0 : return -1.0
 			for idsSend in ingredients:
 				if idsSend in listI: right +=1
@@ -100,36 +108,36 @@ class Recipe(models.Model):
 		print levelSimilarity,listRecipes
 		return listRecipes
 
-	@staticmethod
-	def searchByPattern(pattern,threshold, lan='en'):
-		"""
-		Searches in the system recipes whose its title close of string given
-		:param pattern: String seeked to find the recipes
-		:type pattern: str
-		:param threshold: Distance between its title and the pattern
-		:type threshold: int
-		:param lan: Language used to search the recipe
-		:return: List of Recipe ObjectS which achieve features given
-		:rtype: List of Recipe Objects
-		"""
-		pairs = set()	# Keeps the pairs [distance, object]
-		for r in Recipe.objects.all():
-			# Covert the original to current language given
-			if r.language != lan:	title = XGDic.translate(r.title,r.language,lan)
-			else: title = r.title
-			dist = searchDistance( pattern, title )
-			pairs.add( (dist,r) )
-		# Using a dict to get the buttons and a set again to remove the repeting
-		resul = set( v[1] for v in list(pairs) if v[0] < threshold )
-		return list(resul)
+	# @staticmethod
+	# def searchByPattern(pattern,threshold, lan='en'):
+	# 	"""
+	# 	Searches in the system recipes whose its title close of string given
+	# 	:param pattern: String seeked to find the recipes
+	# 	:type pattern: str
+	# 	:param threshold: Distance between its title and the pattern
+	# 	:type threshold: int
+	# 	:param lan: Language used to search the recipe
+	# 	:return: List of Recipe ObjectS which achieve features given
+	# 	:rtype: List of Recipe Objects
+	# 	"""
+	# 	pairs = set()	# Keeps the pairs [distance, object]
+	# 	for r in Recipe.objects.all():
+	# 		# Covert the original to current language given
+	# 		if r.language != lan:	title = XGDic.translate(r.title,r.language,lan)
+	# 		else: title = r.title
+	# 		dist = searchDistance( pattern, title )
+	# 		pairs.add( (dist,r) )
+	# 	# Using a dict to get the buttons and a set again to remove the repeting
+	# 	resul = set( v[1] for v in list(pairs) if v[0] < threshold )
+	# 	return list(resul)
 
 
 	
 	def getIngredients(self):
-		""" 
-		The ingredients which are used step to step in Recipe
-		:return : List of ingredients
-		:rtype : List of [MagicIngredients, Amount , Measurement]
+		"""
+		Get the ingredients used in each step in the recipe.
+		:return : List of ingredients with its amount and its linked measurement unit.
+		:rtype : Array List Format is [MagicIngredient, Amount , Measurement Unit]
 		"""
 		steps = self.step_set.all()
 		listI = list()	# List of Ingredients found
@@ -171,13 +179,13 @@ class Recipe(models.Model):
 
 class Step(models.Model):
 	"""
-	Instance the used Steps which consist on several MagicCombinations to carry out a Recipe
-	:ivar pk2 : Auxiliar variable. It is used to hold the compose key (IDrecipe-IDmagiccombination).
-	:ivar phase: Indicates the orderring of this step in the whole process.
-	:ivar combination: Actions assigned to this phase of the process.
-	:ivar recipe: Recipe whose this step belongs.
+	Step class which consist on the description of one phase to carry a Recipe out.
+	:ivar pk2 : Auxiliar primary key variable. It is used to hold the compose key (IDrecipe-IDmagiccombination).
+	:ivar phase: Indicates the step order in the process to make the recipe.
+	:ivar combination: MagicCombination assigned to this phase of the process.
+	:ivar recipe: Recipe which this step belongs.
 	:ivar ingredients: Indicates the amount to each ingredients used in this Step.
-	:ivar time: Spent time in the Step
+	:ivar time: Time to make this Step.
 	:ivar comments: Some comments about how the Step must be carried out.
 	"""
 	pk2 = models.CharField(max_length=20, primary_key=True)
@@ -185,39 +193,40 @@ class Step(models.Model):
 	combination = models.ForeignKey(MagicCombination)
 	recipe = models.ForeignKey(Recipe)
 	ingredients = models.ManyToManyField(MagicIngredient , through='Amount')
-	time = models.PositiveIntegerField(default= 0)
-	comments = models.CharField(max_length=1000, blank=True)
+	time = models.PositiveIntegerField(default=0)
+	comments = models.ForeignKey(Word, related_name="Step_comment_set")
 
 	@staticmethod
 	def create(rec, comb, p, time, comment):
 		""" 
-		Create and return a instance of Step
+		Create instance of Step via to passed parameters. 
 		:param rec: Recipe which the step belongs.
-		:type rec: Recipe Obj.
-		:param comb: Combination used in the Step.
-		:type comb: MagicCombination Obj.
+		:type rec: Recipe Object.
+		:param comb: MagicCombination used in the Step.
+		:type comb: MagicCombination Object.
 		:param p: Phase of the whole Recipe's process.
-		:type phase: Integer
-		:param time: Used time in the Step.
-		:type time: Integer
-		:param comments: Linked comments with the Step.
-		:type comments: String < 1000
+		:type phase: Integer > 0
+		:param time: Determined time in the Step.
+		:type time: Integer >= 0
+		:param comments: Comments used to guide the correct execution of the Step.
+		:type comments: String of less than 500 characters.
 		:return: Recipe's saved Step.
 		:rtype: Step Obj.
 		"""
-		step = Step(recipe=rec, combination = comb, phase = p, time=time, comments=comment)
+		wc = Word.create(comment,rec.language)
+		step = Step(recipe=rec, combination = comb, phase = p, time=time, comments=wc)
 		step.save()
 		return step
 
 	
 	def addIngredient(self,ingr, amount):
 		"""
-		Add a ingredient with its corresponding amount to this Step.
-		:param ingr: Ingredient associated.
-		:type ingr: MagicIngredient Obj.
-		:param amount: Amount of this Ingredient used.
-		:type amount: Float
-		:return : Amount object added.
+		Add a ingredient with its corresponding ingredient amount to this Step.
+		:param ingr: Ingredient added.
+		:type ingr: MagicIngredient Object.
+		:param amount: Amount of this Ingredient used, depending on ingredient measurement unit.
+		:type amount: Float number.
+		:return : Amount object created.
 		"""
 		obj = Amount.create(self, ingr, amount)
 		obj.save()
@@ -226,9 +235,9 @@ class Step(models.Model):
 
 	def getLabels(self, lan='en'):
 		"""
-		Getting the label which the step is identified, through the MagicCombination Label + Time Label.
+		Gets the label which indentifies the step. For that is used MagicCombination label + 'for Time minutes'
 		:param lan: Selects the language used to get the label.
-		:keyword lan: Default value 'en'
+		:keyword lan: Default value 'en'(English)
 		"""
 		def stringTime(time):
 			stringTime = ''
@@ -285,7 +294,7 @@ class Step(models.Model):
 
 class Amount(models.Model):
 	"""
-	Conects Steps and Ingredients in a Recipe. Provides the feature of ingredient amounts.
+	Each included Step Ingredient must have a Amount object. This provides the amount per of ingredient in the step.
 	:ivar pk2: Auxiliar variable used to get a composed primary key (MagicIngredientID-StepID)
 	:ivar amount: Defines the quantity requiered
 	:ivar ingredient: The Ingredient refered to.
@@ -300,13 +309,13 @@ class Amount(models.Model):
 	@staticmethod
 	def create(step, ingre, amount):
 		"""
-		Creates a Amount instance.
+		Creates a Amount instance with the information about how many quantity of the ingredient is used.
 		:param step : The step where belongs.
-		:type step : Step Obj.
-		:param ingre : The ingredient measures.
-		:type ingre: MagicIngredient Obj.
-		:param amount : Amount of this ingredient.
-		:type amount : Float
+		:type step : Step Object.
+		:param ingre : The measured Ingredient.
+		:type ingre: MagicIngredient Object.
+		:param amount : Quantity of this Ingredient.
+		:type amount : Float number.
 		"""
 		newAmount = Amount(ingredient=ingre, step=step, amount=amount)
 		return newAmount

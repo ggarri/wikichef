@@ -50,6 +50,9 @@ def starting(request):
 	if 'streamRecipe' in request.session: 
 		pers = _('pers')
 		result['title'] = request.session['streamRecipe'].title + ' ('+str(request.session['streamRecipe'].nPerson)+pers+')'
+	else: request.session['state'] = 'initial'
+	print request.session['state']
+
 	return render_to_response('recipes/addRecipe.html', result , context_instance=RequestContext(request) )
 
 @csrf_exempt
@@ -128,7 +131,7 @@ def setNewMB(request):
 
 @csrf_exempt
 def addMBtoStep(request):
-	if not 'processStep' in request.session: request.session['processStep'] = MagicCombination.create('')
+	if not 'processStep' in request.session: request.session['processStep'] = MagicCombination.create()
 	state = True
 	if not 'id' in request.GET :
 		msg = _('Could not get id button')
@@ -211,7 +214,7 @@ def setCurrentStep(request):
 				if checkCustomSentence(request, sentence, lan):
 					mc.addTemplate(sentence,lan,True) # Just for this language
 				else:
-					msg = _('The new sentece must use every used elements'); state=False
+					msg = _('The new sentence must use every used elements'); state=False
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')	
 
@@ -260,7 +263,7 @@ def saveStreamStep(request):
 			if checkCustomSentence(request, sentence, lan):
 				mc.addTemplate(sentence,lan)
 			else:
-				msg = _('Custom Sentece must use every used elements'); state=False
+				msg = _('Custom Sentence must use every used elements'); state=False
 		else:
 			mc.addTemplate(key,lan)
 	else:	msg = _('Option was not selected.'); state=False
@@ -342,6 +345,8 @@ def setRecipeData(request):
 		datas = {'form-TOTAL_FORMS':u'1','form-INITIAL_FORMS':u'0','form-MAX_NUM_FORMS':u''}
 		request.POST.update(datas)
 		request.POST.update({'form-0-language':request.session['lan']})
+		wd = XGDic.getWordSentence(request.POST['description'],request.session['lan'])
+		request.POST.update({'form-0-description':wd.id})
 		formset = FormRecipe(request.POST,request.FILES)
 		if formset.is_valid():
 			r = formset.save(commit=True)[0] #Just to upload image and after delete it
@@ -352,6 +357,7 @@ def setRecipeData(request):
 			request.session.modified = True
 		else: 
 			msg = str(formset.errors[0]); state = False
+			print formset.errors[0]
 
 	return HttpResponseRedirect(reverse('RecipeController.views.starting', kwargs={} ))
 
@@ -359,8 +365,7 @@ def setRecipeData(request):
 @csrf_exempt
 def uploadRecipe(request):
 	state = True; msg=''
-	# request.is_ajax() and 
-	if 'usedSteps' in request.session and 'streamRecipe' in request.session:
+	if 'usedSteps' in request.session and 'streamRecipe' in request.session and request.is_ajax():
 		if len(request.session['usedSteps']) < 2: state = False; msg=_('There are not enough steps')
 		else:
 			newRecipe = request.session['streamRecipe']

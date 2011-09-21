@@ -20,8 +20,8 @@ from XGDic.models import *
 def searchDistance(pattern, word):
 	"""
 	Calculates the 'distance'(Levenshtein Distance) between two strings.
-	:param pattern: String number one.
-	:param word: String number two.
+	:param pattern: The first string.
+	:param word: The second string.
 	"""
 	def getDistance(str1, str2):
 		dist = min( [calculateDistanceLevenshtein(str1 , subStr2) for subStr2 in str2.split()] )
@@ -37,7 +37,7 @@ def searchDistance(pattern, word):
 
 def calculateDistanceLevenshtein(str1, str2):
 	"""
-	Calculates the Distance Levenshtein between two strings.
+	Calculates the Distance Levenshtein between two words.
 	"""
 	# print str1,'|',str2
 	str1 = str1.lower(); str2 = str2.lower()
@@ -64,8 +64,8 @@ def calculateDistanceLevenshtein(str1, str2):
 
 class Label(models.Model):
 	"""
-	Labels the class MagicButtons through the 'word', which allows the use of several language to label.
-	:ivar word: Word instance associated. This object keeps the same word in several languages.
+	Class Label is used to label a MagicButtons instance and for that class Word is used.
+	:ivar word: Word instance associated. This object keeps the same word/sentence in several languages.
 	"""
 	word = models.OneToOneField(Word)
 
@@ -73,12 +73,12 @@ class Label(models.Model):
 	@staticmethod
 	def create(meaning, lan='en', isVerb=False):
 		"""
-		Creates a instance of the class.
-		:param meaning: Original label used.
+		Creates a instance of the class with the passed parameters.
+		:param meaning: String used to identify the class.
 		:type meaning: str
-		:param lan: Label's language. Default 'en'
-		:param isVerb: Indicate whether the label is a verb to indicate to translate.
-		:return : Label with this meaning. If the label is already created, it is returned.
+		:param lan: Used language to create it. Default 'en'
+		:param isVerb: Indicate whether the label is a verb to make translation easier.
+		:return : Create label object.
 		"""
 		meaning = meaning.lower()
 		# Checking whether a label with the same meaning is already created.
@@ -92,8 +92,8 @@ class Label(models.Model):
 	@staticmethod
 	def getObject(meaning,lan):
 		"""
-		Searching in the system whether there is a label already stored with this meaning. 
-		:return: If if there is a label already it is returned else 'None'.
+		Searches in the system whether there is a label already stored with the passed label parameter.
+		:return: If there is a label already this is returned, else 'None'.
 		"""
 		meaning = meaning.lower()
 		# Checking every languages
@@ -112,12 +112,20 @@ class Label(models.Model):
 
 	def getLabels(self,lan=None):
 		"""
-		Method to get the label in a selected language.
-		:return: The labels in the selected language.
+		Gets the label in a passed language.
+		:return: The labels in the selected language. If it is None, then a tuple with every languages is returned.
 		"""
 		return self.word.getLabels(lan)
 	
+
 	def setLabel(self, label, lan='en'):
+		"""
+		Replaces a last label in the indicated language.
+		:param label: New label to replace
+		:type label: str
+		:param lan : Used language to replace
+		:type lan : Belongs ['en','es','de','fr']
+		"""
 		self.word.setLabel(label, lan)
 	
 	
@@ -137,13 +145,13 @@ class Label(models.Model):
 
 class MagicButton(models.Model):
 	"""
-	Holds whole the system of elements which are used in the recipe execution.
+	This is the main class. It holds all the system elements which are used in the recipe execution.
 	:ivar description : Description of the MagicButton
 	:ivar isTemporal : TRUE when the MagicButton is uploaded by the user.
 	:ivar icon: Image associates with the MagicButton
-	:ivar label: Meaning of the element keeps in the MagicButton.
+	:ivar label: Element tag.
 	"""	
-	description = models.CharField(blank=True, max_length=500)
+	description = models.ForeignKey(Word, related_name="MB_description_set")
  	isTemporal = models.BooleanField()
  	icon = models.ImageField(blank=True, upload_to="imgs/", default="imgs/default.png")
  	label = models.ForeignKey(Label, related_name="button_set")
@@ -152,9 +160,9 @@ class MagicButton(models.Model):
 	@staticmethod
 	def spread(list_MB):
 		"""
-		Classified a MagicButton list in each one of categories [MagicIngredients,MagicActions,MagicUtensils].
+		Classifies list MagicButton in each one of categories [MagicIngredients,MagicActions,MagicUtensils]
 		:param list_MB: List of MagicButton to classify.
-		:return : Dictionary structures as ['I':Ingredients,'A':Actions,'U':Utensils]
+		:return : Dictionary structure like ['I':Ingredients,'A':Actions,'U':Utensils]
 		"""
 		MB_A,MB_I,MB_U = None,[],None
 		allI = MagicIngredient.objects.all().values_list('id',flat=True)
@@ -173,14 +181,14 @@ class MagicButton(models.Model):
 	@staticmethod
 	def searchByPattern(category, pattern,threshold, lan='en'):
 		"""
-		Searches a MagicButton which has the given label and language. Using techniques of string distances.
-		:param category: Selects the group of MagicButtons
-		:type category: ['I','U','A']
-		:param pattern: Label used to seek.
+		Searches a MagicButton which has the given label and language. Uses techniques of string distances.
+		:param category: Selects the group of MagicButtons to search.
+		:type category: ['I','U','A','all']
+		:param pattern: Used pattern to seek in the buttons set.
 		:type pattern: str
-		:param threshold: Threshold selects whether a MagicButton must be included.
-		:type threshold: Integer
-		:param lan: Language use to search. Default value is 'en'(English)
+		:param threshold: Threshold selects whether a MagicButton must be included in the income.
+		:type threshold: Integer number.
+		:param lan: Used Language to search. Default value is 'en'(English)
 		"""
 		if category == 'all':  	buttons = MagicButton.objects.all()
 		elif category == 'I':  	buttons = MagicIngredient.objects.filter(isStep=False)
@@ -196,18 +204,19 @@ class MagicButton(models.Model):
  	def initial(self, meaning, lan, desc, icon, temp, isVerb=False):
  		"""
  		Initializes the MagicButton with a set of common variables.
- 		:param meaning: Label is assigned
+ 		:param meaning: Label assigned
  		:type meaning: str
  		:param lan: Language used. Default 'en'
  		:param desc: Description assigned to this MagicButton.
- 		:type desc: str < 500
- 		:param icon: Path icon image.
- 		:param temp: Indicate whether the button was uploaded by the user
+ 		:type desc: str with less tan 500 characters.
+ 		:param icon: Icon image.
+ 		:param temp: Indicates whether the button was uploaded by the user
  		:type temp: Boolean
- 		:param isVerb: TRUE when the Button is a ACTION to use correctly the translate.
+ 		:param isVerb: 'TRUE' when the Button is a Action(it means a verb) so it uses correctly the translation.
  		"""
 		self.label = Label.create(meaning, lan, isVerb)
-		self.description = desc
+		wd = Word.create(desc,lan)
+		self.description = wd
 		if icon != '' and icon != None:
 			self.icon = icon
 		self.isTemporal = temp
@@ -216,36 +225,42 @@ class MagicButton(models.Model):
 
 	def getLabels(self, lan=None):
 		"""
-		Returns the label with selected language.
-		:param lan: Language selected. Default value NONE.
-		:type lan: 'en','es','de','fr', None
-		:return : The label in the selected language or if lan is NONE a tuple with the label in all languages.
+		Gets the label which indentifies the MagicButton.For that is used the associted word.
+		:param lan: Selects the language used to get the label.
+		:keyword lan: Range in ['es','en','de','fr']. Default value 'en'(English)
 		"""
 		return self.label.getLabels(lan)
 
+
 	def setLabel(self, label, lan='en'):
+		"""
+		Changes the current label in the passed language to a new label passed for paramaters.
+		"""
 		self.label.setLabel(label, lan)
 
 
 	def isUtensil(self):
 		"""
-		:return : TRUE is the object is a Magic Utensil and FALSE in other case.
+		:return : TRUE if the object is a Magic Utensil, FALSE else.
 		"""
 		return MagicUtensil.objects.filter(id=self.id).count() > 0
 
 	def isAction(self):
 		"""
-		:return : TRUE is the object is a Magic Action and FALSE in other case.
+		:return : TRUE if the object is a Magic Action, FALSE else.
 		"""
 		return MagicAction.objects.filter(id=self.id).count() > 0
 	
 	def isIngredient(self):
 		"""
-		:return : TRUE is the object is a Magic Ingredient and FALSE in other case.
+		:return : TRUE if the object is a Magic Ingredient, FALSE else.
 		"""
 		return MagicIngredient.objects.filter(id=self.id).count() > 0
 
 	def isStep(self):
+		"""
+		:return : TRUE if the object is a MagicIngredient and moreover a Step, FALSE else.
+		"""
 		if not self.isIngredient(): return False
 		MI = MagicIngredient.objects.get(id=self.id);
 		return MI.isStep
@@ -284,7 +299,7 @@ class MagicButton(models.Model):
 
 class MagicUtensil(MagicButton):
 	"""
-	MagicButton Inheritance Instace, which it implement the specific method for the MagicUtensils.
+	MagicButton Inheritance Instance, which it implements the specific method for the MagicUtensils.
 	"""
 
 	@staticmethod
@@ -383,11 +398,11 @@ class MagicIngredient(MagicButton):
 	@staticmethod
  	def create(meaning, lan='en', desc='', icon='', temp=False, unit='?', isStep = False) :
  		"""
- 		Creates a object of Magic Utensil with these parameters.
- 		:param meaning: Label of Button.
- 		:param lan: Language of uploading.
- 		:param desc: Description of Button.
- 		:param icon: Path of image icon of Button.
+ 		Creates a object of Magic Ingredient with these parameters.
+ 		:param meaning: Button Label.
+ 		:param lan: Uploading Language.
+ 		:param desc: Button Description.
+ 		:param icon: Button image icon.
  		:param temp: Defines whether the Button was uploaded by user.
  		:param unit: Measurement Unit
  		:param isStep: TRUE when Ingredient belongs to a Step.
@@ -438,52 +453,43 @@ class MagicIngredient(MagicButton):
 
 class MagicCombination(models.Model):
 	"""
-	Keeps a list of MagicButtons which compose a whole step in one or many recipes.
+	This class has a list of MagicButtons to compose a whole step in one or many recipes.
 	:ivar description : Description of the combination.
 	:ivar time: The neccesary time to make the task of this combination.
 	"""
-	description = models.CharField(blank=True, max_length=500)
 	MBs = models.ManyToManyField(MagicButton)
 
 	@staticmethod
-	def create(desc):
+	def create():
 		"""
-		Creates MagicCombination empty, only with a description and default primary key.
-		:param desc: Description of MagicCombination.
-		:type desc: str < 500
+		Creates MagicCombination empty.
+		:return : Created MagicCombination Object.
 		"""
-		mc = MagicCombination(description=desc)
+		mc = MagicCombination()
 		mc.save()
 		return mc
 	
-	# @staticmethod
-	# def isButton(button):
-	# 	for MC in MagicCombination.objects.all():
-	# 		if button in MC.MBs.all():
-	# 			return True
-	# 	return False
-	
 
-	def replaceDelete(self):
-		"""
-		Checks whether there is other MagicCombination with the same MagicButtons, in this case we delete
-		the current Object and return the found MagicCombination and other case we return the current object.
-		"""
-		# DOESN'T WORK
-		mbsO = set(self.MBs.all())
-		for mc in MagicCombination.objects.all():
-			mbs = set(mc.MBs.all())
-			if len(mbsO.difference(mbs)) == 0:
-				print "FOUND OTHER MAGIC COMBINATION WITH SAME MAGIC BUTTONS"
-				self.delete()
-				self = mc
-				break
+	# def replaceDelete(self):
+	# 	"""
+	# 	Checks whether there is other MagicCombination with the same MagicButtons, in this case we delete
+	# 	the current Object and return the found MagicCombination and other case we return the current object.
+	# 	"""
+	# 	# DOESN'T WORK
+	# 	mbsO = set(self.MBs.all())
+	# 	for mc in MagicCombination.objects.all():
+	# 		mbs = set(mc.MBs.all())
+	# 		if len(mbsO.difference(mbs)) == 0:
+	# 			print "FOUND OTHER MAGIC COMBINATION WITH SAME MAGIC BUTTONS"
+	# 			self.delete()
+	# 			self = mc
+	# 			break
+
 
 	def getStep(self, recipe):
 		"""
-		Gets the possition of this MagicCombination in the process of a Recipe.
-		:return : The step possition which belongs this MagicCombination in the Recipe. 
-		Returns '-1' when this MagicCombination don't belong at the Recipe
+		Gets the possition of this MagicCombination in the a process of the passed Recipe.
+		:return : Integer number with the corresponding possition. If this MagicCombination is not in the given recipe, then it is returned '-1'.
 		"""
 		for n,step in enumerate(recipe.step_set):
 			if step.combination == self:
@@ -493,9 +499,9 @@ class MagicCombination(models.Model):
 	def getLabels(self,lan=None):
 		"""
 		Returns the label with selected language via stored Templates.
-		:param lan: Language selected. Default value NONE.
-		:type lan: 'en','es','de','fr', None
-		:return : The label in the selected language or if lan is NONE a tuple with the label in all languages.
+		:param lan: Used language.
+		:type lan: Range is ['es','en','de','fr'].Default is None.
+		:return : The label in the selected language.If lan is NONE, then it is returned a tuple with every languages.
 		"""
 		from NLG.models import Template
 
@@ -508,18 +514,19 @@ class MagicCombination(models.Model):
 
 	def getIngredients(self):
 		"""
-		:return : Returns one list of Ingredient which belong to MagicCombination.
-		:rtype: List of MagicIngredients.
+		:return : Returns the list of Ingredients of this MagicCombination.
+		:rtype : List of MagicIngredients.
 		"""
 		dic = MagicButton.spread(self.MBs.all())
 		return dic['I']
 	
 	def addTemplate(self, key, lan='en',only=False):
 		"""
-		Adds a new Template in the dababase through the relation between 'sentence' and the MagicButtons belongs of MagicCombination.
-		So the next time when it is used the same buttons, we will get this one result(sentence) by Templates.
-		:param sentence: Used Sentence to link these MagicCombination.
+		Adds a new Template in the dababase through the given 'sentence'.
+		So the next time when it is used the same buttons, we will get just this result(sentence) via Templates.
+		:param key: Used Sentence to create the Template.
 		:param lan: Selected Language uses to check Templates.
+		:param only: Determines if the template will be created or just modified from last one.
 		"""
 		from NLG.models import Template
 		
@@ -527,26 +534,33 @@ class MagicCombination(models.Model):
 			labels = self.getLabels(lan)
 			sentence = labels[key]
 		else: 	sentence = key
-		print 'saving : ' + sentence
+		print 'Saving template: ' + sentence
 		Template.setTemplate(sentence,lan,only)
 
 	def addMB(self,MB):
 		"""
 		Adds a new MagicButton in the MagicCombination
+		:param MB: MagicButton Object.
 		"""
 		self.MBs.add(MB)
 		self.save()
 	
 	def getMBs(self,cat=None):
 		"""
-		:param cat: Category of Magic Button to return
-		:type cat: 'I','A','U',None
-		:return : Returns a list of Magic Button. If 'cat' is None, all of them if not only the category selected.
+		Gets a list of the MagicButtons belong to this MagicCombination.
+		:param cat: Filter the MagicButtons by this category.
+		:type cat: Between ['I','A','U',None]
+		:return : Returns a list of MagicButtons filter.
 		"""
 		if cat == None: return self.MBs.all()
 		else:	return MagicButton.spread(self.MBs.all())[cat]
 
 	def isMB(self,mb):
+		"""
+			Checks if a MagicButton already belongs to.
+			:param  mb: MagicButton to check.
+			:return : Returns TRUE if the MagicButton belongs, FALSE in other way.
+		"""
 		for b in self.MBs.all():
 			if b.id == mb.id: return True
 		return False

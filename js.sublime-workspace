@@ -11,7 +11,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/newRecipe.js",
 			"settings":
 			{
-				"buffer_size": 3014,
+				"buffer_size": 3175,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/interface.js",
 			"settings":
 			{
-				"buffer_size": 4634,
+				"buffer_size": 4646,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/browser.js",
 			"settings":
 			{
-				"buffer_size": 6705,
+				"buffer_size": 6813,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 			"settings":
 			{
-				"buffer_size": 5936,
+				"buffer_size": 6032,
 				"line_ending": "Unix"
 			}
 		}
@@ -119,6 +119,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$('#loadingPage')",
+			"loading",
+			"addingRecipe",
+			"ballCont",
+			"seach",
 			"updateAutocomplete",
 			".mb",
 			".stream",
@@ -198,7 +203,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -206,15 +211,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/newRecipe.js",
 					"settings":
 					{
-						"buffer_size": 3014,
+						"buffer_size": 3175,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2398,
-								2398
+								2578,
+								2561
 							]
 						],
 						"settings":
@@ -223,7 +228,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 167,
+						"translation.y": 1296,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -233,15 +238,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/interface.js",
 					"settings":
 					{
-						"buffer_size": 4634,
+						"buffer_size": 4646,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1824,
-								1864
+								3535,
+								3542
 							]
 						],
 						"settings":
@@ -250,7 +255,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 864,
+						"translation.y": 1799,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -267,8 +272,8 @@
 						"selection":
 						[
 							[
-								2895,
-								2898
+								533,
+								535
 							]
 						],
 						"settings":
@@ -277,7 +282,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 1239,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -287,15 +292,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/browser.js",
 					"settings":
 					{
-						"buffer_size": 6705,
+						"buffer_size": 6813,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1995,
-								2034
+								1901,
+								1901
 							]
 						],
 						"settings":
@@ -305,7 +310,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 720,
+						"translation.y": 288,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -315,15 +320,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 					"settings":
 					{
-						"buffer_size": 5936,
+						"buffer_size": 6032,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1641,
-								1641
+								1425,
+								1425
 							]
 						],
 						"settings":
@@ -332,7 +337,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 720,
+						"translation.y": 96,
 						"zoom_level": 1
 					},
 					"type": "text"

@@ -32,6 +32,7 @@ I 	OLIVE OIL	| dl |	imgs/olive_oil.png	|	with|in
 I 	PEPPER	| ? |	imgs/pepper.png	|	with
 I 	MILK	| dl |	imgs/milk.png	|	in|of
 I 	WATER	| dl |	imgs/water.png	|	in
+I 	BOILING WATER	| dl |	imgs/boiling_water.png	|	in
 
 I 	ONION	| u |	imgs/onion.png	|	NONE	
 I 	GARLIC	| u |	imgs/garlic.png	|	NONE
@@ -52,7 +53,6 @@ I 	MINCE MEAT	| u |	imgs/mince_meat.png	|	NONE
 I 	CHICKEN MEAT	| u |	imgs/chicken.png	|	NONE
 I 	BEEF MEAT	| u |	imgs/beef.png	|	NONE
 I 	STEAK PIG MEAT	| u |	imgs/steak_pig_meat.png	|	NONE
-I 	BOILING WATER	| u |	imgs/boiling_water.png	|	NONE
 I 	SUNFLOWER OIL	| dl |	imgs/sunflower_oil.png	|	NONE
 I 	EGG PLANT	| u |	imgs/eggplant.png	|	NONE
 I 	STRAWBERRY	| u |	imgs/strawberry.png	|	NONE

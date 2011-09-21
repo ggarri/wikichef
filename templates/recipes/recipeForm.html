@@ -1,7 +1,8 @@
 {%extends "recipes/baseForm.html"%}
+{% load i18n %}
 
 {% block title %}
-<h1> DEFINE RECIPE </h1>
+<h1> {% trans "DEFINE RECIPE" %}</h1>
 {% endblock %}
 
 {%block contentForm %}
@@ -9,29 +10,29 @@
   <fieldset>
     <!-- <p contenteditable="true" id='title2'>Insert Title</p> -->
     <input type='text' id='title' name='form-0-title' placeholder=" Insert Title"/>
-    <textarea placeholder="Insert description optional" name='form-0-description' id='description'></textarea>
+    <textarea placeholder="Insert description optional" name='description' id='description'></textarea>
   <p>
     <section id='nPers' class='box_slider'>
-      <label for='numberP'> Number Pers. </label>
+      <label></label><label for='numberP'>{% trans "Number Pers." %}</label>
       <input class='slider_text' type="numberP" maxlength='3' id='nPerson' name='form-0-nPerson'/>
       <aside class="slider"></aside>
     </section>
   </p>
   <p>
     <section id='timeRecipe' class='box_slider'>
-      <label for='numberT'> Time (min) </label>
+      <label></label><label for='numberT'>{% trans  "Time (min)" %}</label>
       <input class='slider_text' type="numberT" maxlength='3' id='time' name='form-0-time'/>
       <aside class="slider"></aside>
     </section>
     
   </p>
   <p>
-  <label for='number'> Difficulty </label>
+  <label for='number'> {% trans "Difficulty" %}</label>
   <nav>
     <select id='difficult' name='form-0-difficult'>
-      <option value="INTERMEDATE">Medium</option>
-      <option value="EASY">Easy</option>
-      <option value="HARD">Hard</option>
+      <option value="INTERMEDATE">{% trans "Medium" %}</option>
+      <option value="EASY">{% trans "Easy" %}</option>
+      <option value="HARD">{% trans "Hard" %} </option>
     </select>
   </nav>
   </p>

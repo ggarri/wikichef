@@ -7,7 +7,6 @@ function addSlider(box,min,max,value){
 	  value: value,
 	  slide: function( event, ui ) {
 	    $(box).children('.slider_text').val( ui.value);
-	    $(box).children(".slider").trigger('change');
 	  }
 	});
 	$(box).children(".slider_text" ).val( value );

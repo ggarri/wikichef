@@ -16,6 +16,7 @@ function updateCurrentStep(){
 		    $('#formCorrectStep fieldset p:last').append(data[i]);
 		}
 	}
+	$('#loadingPage').fadeIn();
 	$.ajax({
 		url:'get_current_step',
 		async:true,
@@ -33,11 +34,9 @@ function updateCurrentStep(){
 					$('#currentStep').data('isOK',-1);
 				}
 				else{
-					$('#loadingPage').fadeIn();
 					updateFormCurrentStep(data.msg);
 					shiftBoxDinamic('#correctStepForm');
 					$('#currentStep').data('isOK',-1);
-					$('#loadingPage').fadeOut();
 				}
 			}
 			else{
@@ -49,6 +48,7 @@ function updateCurrentStep(){
 			showInfoPanel(gettext('Error while got the current step.'))
 		}
 	});
+	$('#loadingPage').fadeOut();
 }
 
 function updateBallContainer(){
@@ -128,11 +128,11 @@ function addMBtoStep(id){
 		dataType:'json',
 		data:{'id':id},
 		success: function(data){ 
-			// console.debug(data); 
+			strAdd = gettext('Button added correctly');
 			if(data.state == true){
 				updateCurrentStep();
 				updateBallContainer();
-				showInfoPanel(gettext('Button added correctly') );
+				showInfoPanel(strAdd);
 			}
 			else{
 				showInfoPanel(data.msg)
@@ -149,11 +149,12 @@ function delMBtoStep(id){
 		datatype:'json',
 		data:{'id':id},
 		success: function(data){
+			strDel = gettext('Button deleted correctly');
 			console.debug(data.state,id);
 			if (data.state == true){
 				updateCurrentStep();
 				updateBallContainer();
-				showInfoPanel(gettext('Button deleted correctly') );
+				showInfoPanel(strDel);
 			}
 			else{
 				showInfoPanel(data.msg);

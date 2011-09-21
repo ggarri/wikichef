@@ -4,7 +4,10 @@ from xbing import *
 
 # Create your models here.
 
-
+"""
+:cvar languages : Define the languages avaiable.
+:type language : Dicctionary of languages.
+"""
 languages = {
 		'en': 'English',
 		'es': 'Spanish',
@@ -15,6 +18,9 @@ languages = {
 
 
 def translateToTuple(label, lan_from, lan_to=None):
+	"""
+		
+	"""
 	import re
 	# Checkin that the label is not empty or with spaces or whereever
 	if re.match(r'^\s*$',label) != None:
@@ -152,11 +158,15 @@ class Word(models.Model):
 
 	
 	def hide(self,w):
-		for lan in XGDic.getLanguages().keys():
-			if   lan == 'en': self.en = self.en.replace(w.en,'').strip()
-			elif lan == 'es': self.es = self.es.replace(w.es,'').strip()
-			elif lan == 'de': self.de = self.de.replace(w.de,'').strip()
-			elif lan == 'fr': self.fr = self.fr.replace(w.fr,'').strip()
+		# for lan in XGDic.getLanguages().keys():
+		# 	if   lan == 'en': self.en = self.en.replace(w.en,'').strip()
+		# 	elif lan == 'es': self.es = self.es.replace(w.es,'').strip()
+		# 	elif lan == 'de': self.de = self.de.replace(w.de,'').strip()
+		# 	elif lan == 'fr': self.fr = self.fr.replace(w.fr,'').strip()
+		self.en = self.en.rsplit(' ',1)[0]
+		self.es = self.es.rsplit(' ',1)[0]
+		self.de = self.de.rsplit(' ',1)[0]
+		self.fr = self.fr.rsplit(' ',1)[0]
 		self.save()
 		
 	def __unicode__(self):
