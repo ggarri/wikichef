@@ -1,6 +1,8 @@
 """ Models for managing of Magic-Buttons
 	:author: Gabriel Garrido Calvo
-	:version: 0.9
+	:version: 0.9 (Release)
+	:licence: GNU
+	:contact: ggarri@gmail.com
 """
 
 __docformat__ = "restructuredtext"

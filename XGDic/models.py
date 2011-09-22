@@ -1,3 +1,10 @@
+""" Models for managing of tranlations.
+	:author: Gabriel Garrido Calvo
+	:version: 0.9 (Release)
+	:licence: GNU
+	:contact: ggarri@gmail.com
+"""
+
 from django.db import models
 from xgoogle import *
 from xbing import *
@@ -19,7 +26,11 @@ languages = {
 
 def translateToTuple(label, lan_from, lan_to=None):
 	"""
-		
+		Translates a string of characters using XBing or XGoogle API from a determined language to other passed.
+		:param label: String to translate
+		:type label: unicode
+		:param lan_from: Language of passed string.
+		:paran lan_to : Language to translate the string.
 	"""
 	import re
 	# Checkin that the label is not empty or with spaces or whereever
@@ -58,10 +69,18 @@ def translateToTuple(label, lan_from, lan_to=None):
 
 
 class XGDic():
+	"""
+		This class has the differents methods to manage the string translation.
+	"""
 
-	@staticmethod
-	def __addWord(label, lan):
-		return Word.create(label, lan)
+	# @staticmethod
+	# def __addWord(label, lan):
+	# 	"""
+	# 		Creates a new intance of Word object in the DB from a label and associated language.
+	# 		:param label: Label to create the new Word object.
+	# 		:param lan: Original language with which label is given.
+	# 	"""
+	# 	return Word.create(label, lan)
 	
 	# @staticmethod
 	# def __addSentence(label, lan):
@@ -69,8 +88,16 @@ class XGDic():
 		
 	@staticmethod	
 	def getWordSentence(label, lan_from='en', isVerb = False):
+		"""
+			Get or creates, if it is not yet, a Word object with the passed label and language.
+			:param label: Label to create the new Word object.
+			:type label: String less than 500 characters.
+			:param lan_from: Original language with which label is given.
+			:param isVerb: It is marked if the string to translate is a verb, so this makes the translation easier.
+			:type isVerb: [True,False]. Default False.
+			:return : One Word object with the given label.
+		"""
 		lan_from = lan_from.lower()
-		# label = label.encode('utf-8')
 		label = label.strip().lower()
 		if not lan_from in languages.keys():
 			raise Exception ("ERROR: Language doesn't allowed")
@@ -81,8 +108,19 @@ class XGDic():
 			return Word.create(label, lan_from, isVerb)
 		raise Exception ("ERROR: Word has more than 500 characters")
 	
-	@staticmethod	
+
+	@staticmethod
 	def translate(label, lan_from, lan_to='en', isVerb = False):
+		"""
+			Translate a string from a given language to other language without saving anything.
+			:param label: Label to create the new Word object.
+			:type label: String less than 500 characters.
+			:param lan_from: Original language with which label is given.
+			:param lan_to: Detination language with which label will be translated.
+			:param isVerb: It is marked if the string to translate is a verb, so this makes the translation easier.
+			:type isVerb: [True,False]. Default False.
+			:return : A tuple with the label translated in ['en','es','de','fr']
+		"""
 		if label == '' or label == ' ':	return ''
 
 		lan_from = lan_from.lower()
@@ -99,11 +137,21 @@ class XGDic():
 
 	@staticmethod
 	def getLanguages():
+		"""
+			:return : Tuple with the avaiable languages in the system.
+		"""
 		return languages
 
 
 
 class Word(models.Model):
+	"""
+		This class manages the string using 4 different languages. Spanish, French, English and German.
+		:ivar en: String in English language. Max 500 characters.
+		:ivar es: String in Spanish language. Max 500 characters.
+		:ivar de: String in German language. Max 500 characters.
+		:ivar fr: String in French language. Max 500 characters.
+	"""
 
 	en = models.CharField(blank=True, max_length=500)
 	es = models.CharField(blank=True, max_length=500)
@@ -112,6 +160,12 @@ class Word(models.Model):
 
 	@staticmethod
 	def create(label, lan, verb = False):
+		"""
+			Creates a new Word object using the passed paramenters.
+			:param label: Main string to create a new Word object. No more than 500 characters.
+			:param lan: Language which label is given.
+			:param verb: Define if the string is a Verb, so that it makes the translation easier.
+		"""
 		def standard(cad):
 			cad = cad.split()
 			if len(cad) == 1: cad = cad[0]
@@ -130,6 +184,12 @@ class Word(models.Model):
 	
 	@staticmethod
 	def getObjects(label, lan):
+		"""
+			Gets a Word object from the database with the label and language gave in the parameters.
+			:param label: String of characters that defines the Word object.
+			:param lan : Language used to search it.
+			:return : One list with the found Words with passed label.
+		"""
 		if lan == 'en': return Word.objects.filter(en=label)
 		elif lan == 'es': return Word.objects.filter(es=label)
 		elif lan == 'de': return Word.objects.filter(de=label)
@@ -138,6 +198,11 @@ class Word(models.Model):
 	
 
 	def getLabels(self,lan=None):
+		"""
+			Gets a string of the Word in the passed language.
+			:param lan : Language to get the word.
+			:return : Word in the passed language or a tuple with every language if lan is None
+		"""
 		if lan == None:
 			dic = dict()
 			dic['en'] = self.en.lower(); dic['es'] = self.es.lower(); dic['de'] = self.de.lower();	dic['fr'] = self.fr.lower()
@@ -149,6 +214,11 @@ class Word(models.Model):
 			elif lan == 'fr' : return self.fr.lower()
 
 	def setLabel(self, label, lan='en'):	
+		"""
+			Modifies the a string to another in a given language.
+			:param label : String to replace.
+			:param lan: Language that wants to replace.
+		"""
 		if lan == 'en' :  self.en = label.lower()
 		elif lan == 'es' : self.es = label.lower()
 		elif lan == 'de' : self.de = label.lower()
@@ -157,19 +227,25 @@ class Word(models.Model):
 		self.save()
 
 	
-	def hide(self,w):
-		# for lan in XGDic.getLanguages().keys():
-		# 	if   lan == 'en': self.en = self.en.replace(w.en,'').strip()
-		# 	elif lan == 'es': self.es = self.es.replace(w.es,'').strip()
-		# 	elif lan == 'de': self.de = self.de.replace(w.de,'').strip()
-		# 	elif lan == 'fr': self.fr = self.fr.replace(w.fr,'').strip()
-		self.en = self.en.rsplit(' ',1)[0]
-		self.es = self.es.rsplit(' ',1)[0]
-		self.de = self.de.rsplit(' ',1)[0]
-		self.fr = self.fr.rsplit(' ',1)[0]
-		self.save()
+	# def hide(self,w):
+	# 	"""
+	# 		Deletes the last word in every language in the way that the string has more than two words.
+	# 	"""
+	# 	# for lan in XGDic.getLanguages().keys():
+	# 	# 	if   lan == 'en': self.en = self.en.replace(w.en,'').strip()
+	# 	# 	elif lan == 'es': self.es = self.es.replace(w.es,'').strip()
+	# 	# 	elif lan == 'de': self.de = self.de.replace(w.de,'').strip()
+	# 	# 	elif lan == 'fr': self.fr = self.fr.replace(w.fr,'').strip()
+	# 	self.en = self.en.rsplit(' ',1)[0]
+	# 	self.es = self.es.rsplit(' ',1)[0]
+	# 	self.de = self.de.rsplit(' ',1)[0]
+	# 	self.fr = self.fr.rsplit(' ',1)[0]
+	# 	self.save()
 		
 	def __unicode__(self):
+		"""
+			Overload of print method.
+		"""
 		return self.en+','+self.es+','+self.de+','+self.fr
 
 	

@@ -44,7 +44,6 @@ class Recipe(models.Model):
 	:ivar difficult: Level of difficulty of the recipe.
 	:ivar nPerson: Number of people for which was stored the Recipe.
 	:ivar img: Recipe Thumb.
-	:
 	"""
 	title = models.CharField(max_length=100)
 	language = models.CharField(max_length=2,default='en')
