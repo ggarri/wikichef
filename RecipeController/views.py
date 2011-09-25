@@ -134,7 +134,7 @@ def addMBtoStep(request):
 	if not 'processStep' in request.session: request.session['processStep'] = MagicCombination.create()
 	state = True
 	if not 'id' in request.GET :
-		msg = _('Could not get id button')
+		msg = _('Could not get button ID')
 		state = False
 	
 	if 'processStep' in request.session and state:
@@ -148,7 +148,7 @@ def addMBtoStep(request):
 		mbA = request.session['processStep'].getMBs('A')
 		mbU = request.session['processStep'].getMBs('U')
 		mbsI = request.session['processStep'].getMBs('I')
-		if request.session['processStep'].isMB(mb): msg = _('This element is already added.');state=False
+		if request.session['processStep'].isMB(mb): msg = _('This element was already added.');state=False
 		elif not mb.isAction() and mbA == None : msg = _("The first button must be a ACTION");state=False
 		elif mb.isAction() and mbA != None: msg = _("One ACTION was already selected");state=False
 		elif mb.isUtensil() and mbU != None: msg = _("One UTENSIL was already selected");state=False
@@ -172,7 +172,7 @@ def delMBtoStep(request):
 	# print request.GET
 	if not 'id' in request.GET :
 		state = False
-		msg = _('Could not get id button')
+		msg = _('Could not get button ID')
 	elif 'processStep' in request.session:
 		id = request.GET['id']
 		mb = get_object_or_404(MagicButton, pk=id)
@@ -214,7 +214,7 @@ def setCurrentStep(request):
 				if checkCustomSentence(request, sentence, lan):
 					mc.addTemplate(sentence,lan,True) # Just for this language
 				else:
-					msg = _('The new sentence must use every used elements'); state=False
+					msg = _('The new sentence must include each used elements'); state=False
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')	
 
@@ -263,7 +263,7 @@ def saveStreamStep(request):
 			if checkCustomSentence(request, sentence, lan):
 				mc.addTemplate(sentence,lan)
 			else:
-				msg = _('Custom Sentence must use every used elements'); state=False
+				msg = _('The custom sentence must include each used elements'); state=False
 		else:
 			mc.addTemplate(key,lan)
 	else:	msg = _('Option was not selected.'); state=False
@@ -283,9 +283,9 @@ def uploadStreamStep(request):
 		mc = request.session['processStep']
 		LI = mc.getMBs('I'); U  = mc.getMBs('U'); A  = mc.getMBs('A')
 		if A == None:
-			msg = _('One Action is needed by Step.');state=False
+			msg = _('One Action is needed in each Step.');state=False
 		elif len(LI) == 0 and U == None:
-			msg = _('Ingredients or Utensil are needed by Step.');state=False
+			msg = _('Ingredients or Utensil are needed in each Step.');state=False
 		else:
 			time = request.POST['time']
 			desc = request.POST['desc']

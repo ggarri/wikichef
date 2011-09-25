@@ -2,7 +2,7 @@
 
 function updateRecipes(){
 	function addRecipe(id, title, desc, listI, path){
-        var strLI = gettext("List Ingredients");
+        var strLI = gettext("List of Ingredients");
         var strDesc = gettext("Decription");
 		var base = "<li class='recipe' id='"+id+"'>"+
             "<section class='header'>"+
@@ -96,7 +96,8 @@ function fillRecipeForm(recipe){
     $('.overPanel .steps ul').empty()
     for (var i=0 ; i<recipe.steps.length; i++){
         var step = recipe.steps[i]
-        var base='<li><label>(Step '+(i+1)+')'+step.label+'</label>'+
+        var w_step = gettext('step')
+        var base='<li><label>('+w_step+' '+(i+1)+')'+step.label+'</label>'+
         '<p> Comment :'+step.comments+'</p><p>Amounts: </p></li>';
         $('.overPanel .steps ul').append(base);
         for (var j=0 ; j<step.LI.length; j++){

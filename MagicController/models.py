@@ -443,7 +443,7 @@ class MagicIngredient(MagicButton):
 		"""
 		if self.isStep == True: return '%'
 		for measure in UNIT_MEASUREMENT:
-			if measure[0] == self.unit:	return measure[1]
+			if measure[0] == self.unit:	return measure[0]
 		return 'Unknown'
 
 

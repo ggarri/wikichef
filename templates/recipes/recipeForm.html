@@ -9,8 +9,8 @@
 <form id='formRecipe' action='set_recipe_data' method='POST' enctype="multipart/form-data"> {% csrf_token %}
   <fieldset>
     <!-- <p contenteditable="true" id='title2'>Insert Title</p> -->
-    <input type='text' id='title' name='form-0-title' placeholder=" Insert Title"/>
-    <textarea placeholder="Insert description optional" name='description' id='description'></textarea>
+    <input type='text' id='title' name='form-0-title' placeholder='{% trans "Insert Title" %}'/>
+    <textarea placeholder='{% trans "Insert description optional" %}' name='description' id='description'></textarea>
   <p>
     <section id='nPers' class='box_slider'>
       <label></label><label for='numberP'>{% trans "Number Pers." %}</label>

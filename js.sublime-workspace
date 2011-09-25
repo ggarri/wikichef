@@ -19,7 +19,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/interface.js",
 			"settings":
 			{
-				"buffer_size": 4646,
+				"buffer_size": 4595,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/browser.js",
 			"settings":
 			{
-				"buffer_size": 6813,
+				"buffer_size": 6777,
 				"line_ending": "Unix"
 			}
 		},
@@ -72,6 +72,9 @@
 	},
 	"file_history":
 	[
+		"/home/ggarri/Project/wikichef/createLocale.py",
+		"/home/ggarri/Project/wikichef/media/development-bundle/ui/jquery-ui-1.8.16.custom.js",
+		"/home/ggarri/Project/wikichef/media/js/jquery-ui-1.8.16.custom.min.js",
 		"/home/ggarri/Project/wikichef/templates/recipes/correctStepForm.html",
 		"/home/ggarri/Dropbox/wikichef/media/js/boxFloat.js",
 		"/home/ggarri/Project/wikichef/templates/recipes/stepForm.html",
@@ -119,6 +122,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addClass( \"ui-state-active",
+			"ui-state-active",
+			".bind(\"mouseenter.button\"",
+			"addClass('ui-state-active",
+			"addClass('.ui-state-active",
+			"addClass(ui-state-active",
+			"ui-state-active",
+			".bind(\"mouseenter.button\"",
+			"ui-state-active",
+			"active",
 			"$('#loadingPage')",
 			"loading",
 			"addingRecipe",
@@ -238,15 +251,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/interface.js",
 					"settings":
 					{
-						"buffer_size": 4646,
+						"buffer_size": 4595,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3535,
-								3542
+								154,
+								154
 							]
 						],
 						"settings":
@@ -255,7 +268,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 1799,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -292,15 +305,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/browser.js",
 					"settings":
 					{
-						"buffer_size": 6813,
+						"buffer_size": 6777,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1901,
-								1901
+								5538,
+								5538
 							]
 						],
 						"settings":
@@ -310,7 +323,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 288,
+						"translation.y": 2400,
 						"zoom_level": 1
 					},
 					"type": "text"

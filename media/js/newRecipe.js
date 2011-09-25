@@ -13,11 +13,11 @@ function setTag(id, value){
         data: {"id":id,"value":value},
         beforeSubmit: function(){},
         success: function(data) {
-        	showInfoPanel(gettext('That button was changed correctly. Thanks for you colaboration. ') );
+        	showInfoPanel(gettext('That button was changed correctly.') );
         	updateCurrentStep();
         },
         error: function(data){
-        	showInfoPanel(gettext('That button could not be changed correctly.Try it again later. Thanks for you colaboration. ') );
+        	showInfoPanel(gettext('That button could not be changed correctly. Try it again.') );
         }
 	})
 }

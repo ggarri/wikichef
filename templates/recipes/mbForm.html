@@ -10,9 +10,9 @@
   <fieldset>
     <input type='hidden' name='category' id='category'/>
     <p> {% trans "Button Name" %} </p>
-    <input  id='label' name='label' type='text' placeholder='Insert name' />
+    <input  id='label' name='label' type='text' placeholder='{% trans 'Insert name' %}'/>
     <p> {% trans "Decription (Optinal)" %}</p>
-    <textarea  id='description' name='description' placeholder="Insert description" ></textarea>
+    <textarea  id='description' name='description' placeholder='{% trans "Insert description" %}'></textarea>
     <p id='unitLabel'> {% trans "Measurement Unit." %} </p>
     <select id='unit' name='unit'></select>
     <p> {% trans "Icon (Optional)" %} </p>

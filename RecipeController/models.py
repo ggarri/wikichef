@@ -22,9 +22,20 @@ from XGDic.models import XGDic
 """
 DIFFICULTY_VALUES = (
 	(u'HARD' , u'HARD'),
-	(u'INTERMEDATE' , u'INTERMEDATE'),
+	(u'INTERMEDIATE' , u'INTERMEDIATE'),
 	(u'EASY' , u'EASY'),
 	)
+
+"""
+:cvar languages : Define the languages avaiable.
+:type language : Dicctionary of languages.
+"""
+LANGUAGES = {
+	(u'en' , u'English'),
+	(u'es' , u'Spanish'),
+	(u'de' , u'German'),
+	(u'fr' , u'French'),
+	}
 
 ################################################################
 ###		MODELS OF RECIPE MANAGING
@@ -46,7 +57,7 @@ class Recipe(models.Model):
 	:ivar img: Recipe Thumb.
 	"""
 	title = models.CharField(max_length=100)
-	language = models.CharField(max_length=2,default='en')
+	language = models.CharField(max_length=2,default='en', choices = LANGUAGES)
 	description = models.ForeignKey(Word, related_name="Recipe_description_set")
 	time = models.PositiveIntegerField(blank=True, default=0)
 	difficult = models.CharField(max_length=20,choices=DIFFICULTY_VALUES)

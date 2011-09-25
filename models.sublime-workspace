@@ -8,50 +8,10 @@
 	"buffers":
 	[
 		{
-			"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/views.py",
-			"settings":
-			{
-				"buffer_size": 5532,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ggarri/Project/wikichef/settings.py",
-			"settings":
-			{
-				"buffer_size": 5502,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/urls.py",
-			"settings":
-			{
-				"buffer_size": 659,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
-			"settings":
-			{
-				"buffer_size": 13836,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ggarri/Project/wikichef/urls.py",
-			"settings":
-			{
-				"buffer_size": 940,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
 			"settings":
 			{
-				"buffer_size": 11116,
+				"buffer_size": 12339,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +19,7 @@
 			"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
 			"settings":
 			{
-				"buffer_size": 17472,
+				"buffer_size": 18014,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,7 +27,7 @@
 			"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
 			"settings":
 			{
-				"buffer_size": 4889,
+				"buffer_size": 8397,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +35,7 @@
 			"file": "/home/ggarri/Project/wikichef/NLG/models.py",
 			"settings":
 			{
-				"buffer_size": 8724,
+				"buffer_size": 14755,
 				"line_ending": "Unix"
 			}
 		}
@@ -104,16 +64,18 @@
 	},
 	"file_history":
 	[
-		"/home/ggarri/Project/wikichef/RecipeController/urls.py",
+		"/home/ggarri/Project/wikichef/RecipeController/Browser/views.py",
+		"/home/ggarri/Project/wikichef/RecipeController/views.py",
 		"/home/ggarri/Project/wikichef/urls.py",
+		"/home/ggarri/Project/wikichef/RecipeController/Browser/urls.py",
+		"/home/ggarri/Project/wikichef/settings.py",
+		"/home/ggarri/Project/wikichef/XGDic/xgoogle.py",
+		"/home/ggarri/Project/wikichef/RecipeController/urls.py",
 		"/home/ggarri/Project/wikichef/XGDic/views.py",
 		"/home/ggarri/Project/wikichef/templates/languageChooser.html",
-		"/home/ggarri/Project/wikichef/RecipeController/views.py",
-		"/home/ggarri/Project/wikichef/RecipeController/Browser/urls.py",
 		"/home/ggarri/Project/stuff/exampleDjango/mysite/urls.py",
 		"/home/ggarri/Project/wikichef/RecipeController/views2.py",
 		"/home/ggarri/Project/wikichef/NLG/generator.py",
-		"/home/ggarri/Project/wikichef/settings.py",
 		"/home/ggarri/Project/wikichef/NLG/__init__.py",
 		"/home/ggarri/Project/wikichef/__init__.py",
 		"/home/ggarri/Project/wikichef/MagicController/views.py",
@@ -161,6 +123,29 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"languages",
+			"prefix",
+			"prefixe",
+			"re",
+			"__add",
+			"isMB",
+			"__ad",
+			"__Add",
+			"hide",
+			"only",
+			"replaceDe",
+			"replace",
+			"getLabels",
+			"'streamRecipe'",
+			"request.session['streamRecipe']",
+			"streamRecipe",
+			"'streamRecipe",
+			"and",
+			"description",
+			"MagicCombination.c",
+			"description",
+			"comments",
+			"description",
 			"sentece",
 			"Thank",
 			"Thanks",
@@ -238,6 +223,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"prefix",
 			"'streamRecipe'",
 			"'streamRecipeID'",
 			"ingredientsSelected",
@@ -259,23 +245,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/views.py",
+					"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
 					"settings":
 					{
-						"buffer_size": 5532,
+						"buffer_size": 12339,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1308,
-								1310
+								601,
+								612
 							]
 						],
 						"settings":
@@ -284,215 +270,79 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 170,
+						"translation.y": 432,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/ggarri/Project/wikichef/settings.py",
+					"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
 					"settings":
 					{
-						"buffer_size": 5502,
+						"buffer_size": 18014,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1964,
-								1964
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 650,
+						"translation.y": 8832,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/ggarri/Project/wikichef/RecipeController/Browser/urls.py",
+					"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
 					"settings":
 					{
-						"buffer_size": 659,
+						"buffer_size": 8397,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								230,
-								230
+								4556,
+								4565
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 8,
-						"translation.y": 0,
+						"translation.x": 0,
+						"translation.y": 3600,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
-					"settings":
-					{
-						"buffer_size": 13836,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7966,
-								7966
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0,
-						"translation.y": 3130,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/ggarri/Project/wikichef/urls.py",
-					"settings":
-					{
-						"buffer_size": 940,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								252,
-								236
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0,
-						"translation.y": 0,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
-					"settings":
-					{
-						"buffer_size": 11116,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								809,
-								809
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0,
-						"translation.y": 1590,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
-					"settings":
-					{
-						"buffer_size": 17472,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11433,
-								11433
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0,
-						"translation.y": 5568,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
-					"settings":
-					{
-						"buffer_size": 4889,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4492,
-								4492
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0,
-						"translation.y": 912,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "/home/ggarri/Project/wikichef/NLG/models.py",
 					"settings":
 					{
-						"buffer_size": 8724,
+						"buffer_size": 14755,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7714,
-								7698
+								897,
+								897
 							]
 						],
 						"settings":
@@ -501,7 +351,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 4112,
+						"translation.y": 5664,
 						"zoom_level": 1
 					},
 					"type": "text"

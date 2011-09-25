@@ -86,7 +86,7 @@ def delIngredient(request):
 		try:
 			mb = MagicIngredient.objects.get(id=id)
 			if not mb in request.session['ingredientsSelected']:
-				state=False; msg=_('This ingredients was not selected.')
+				state=False; msg=_('This ingredient was not selected.')
 			else: 
 				request.session['ingredientsSelected'].remove(mb)
 				request.session.modified = True
@@ -116,6 +116,10 @@ def getRecipe(request):
 		dic['LI'] = [ {'id':I[0].id,'label':I[0].getLabels(lan),'amount':I[1],'unit':I[2]} for I in recipe.getIngredients()]
 		dic['time'] = recipe.time
 		dic['difficulty'] = recipe.difficult
+		# To use i18n
+		if dic['difficulty'] == 'EASY' : dic['difficulty'] = _('EASY')
+		elif dic['difficulty'] == 'HARD' : dic['difficulty'] = _('HARD')
+		elif dic['difficulty'] == 'INTERMEDIATE' : dic['difficulty'] = _('INTERMEDIATE')
 		dic['img'] = str(recipe.img)
 		dic['steps'] = list()
 		# print 'steps :',recipe.step_set.all()

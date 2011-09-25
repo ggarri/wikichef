@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-21 02:32+0200\n"
+"POT-Creation-Date: 2011-09-25 16:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,20 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: media/js/browser.js:5
-msgid "List Ingredients"
-msgstr "Ingredientes de la lista"
+msgid "List of Ingredients"
+msgstr "Lista de ingredientes"
 
 #: media/js/browser.js:6
 msgid "Decription"
 msgstr "Descripción"
 
-#: media/js/browser.js:50
+#: media/js/browser.js:48
 msgid "Error while loading Recipes"
 msgstr "Error al cargar recetas"
 
-#: media/js/browser.js:78
+#: media/js/browser.js:77
 msgid "Error while loading the ingredients selected"
 msgstr "Error al cargar los ingredientes seleccionados"
+
+#: media/js/browser.js:99
+msgid "step"
+msgstr "Paso"
 
 #: media/js/browser.js:129 media/js/browser.js.py:150
 msgid "Error while adding the ingredient."
@@ -42,19 +46,19 @@ msgstr "Error al agregar el ingrediente."
 msgid "Element was already added"
 msgstr "Ya ha agregado el elemento"
 
-#: media/js/browser.js:192
+#: media/js/browser.js:189
 msgid "Error while loading recipe datas"
 msgstr "Error al cargar datos de receta"
 
-#: media/js/interactiveBall.js:32
+#: media/js/interactiveBall.js:33
 msgid "Error loading Step"
 msgstr "Paso de carga de error"
 
-#: media/js/interactiveBall.js:44
+#: media/js/interactiveBall.js:43
 msgid "Current step in process"
 msgstr "Paso actual en proceso"
 
-#: media/js/interactiveBall.js:49
+#: media/js/interactiveBall.js:48
 msgid "Error while got the current step."
 msgstr "Error mientras tuvo el paso actual."
 
@@ -62,18 +66,17 @@ msgstr "Error mientras tuvo el paso actual."
 msgid "Step is not ready yet"
 msgstr "Paso no está listo todavía"
 
-#: media/js/interface.js:59
+#: media/js/interface.js:58
 msgid "Deleting session had a error"
 msgstr "Eliminar la sesión tuvo un error"
 
 #: media/js/newRecipe.js:16
-msgid "That button was changed correctly. Thanks for you colaboration. "
-msgstr "Ese botón se cambió correctamente. Gracias por la colaboración."
+msgid "That button was changed correctly."
+msgstr "Ese botón se cambió correctamente."
 
 #: media/js/newRecipe.js:20
-msgid "That button could not be changed correctly.Try it again later. Thanks for "
-"you colaboration. "
-msgstr "Ese botón no se cambió correctamente. Gracias por la colaboración."
+msgid "That button could not be changed correctly. Try it again."
+msgstr "No se pudo cambiar correctamente ese botón. vuelva a intentarlo."
 
 #: media/js/newRecipe.js:59
 msgid "Step deleted correctly"
@@ -83,10 +86,11 @@ msgstr "Paso eliminado correctamente"
 msgid "It was imposible to delete the last Step"
 msgstr "Fue imposible para eliminar el último paso"
 
-#: media/js/newRecipe.js:100
+#: media/js/newRecipe.js:102
 msgid "Recipe saved correctly."
 msgstr "Receta guarda correctamente."
 
-#: media/js/newRecipe.js:108
+#: media/js/newRecipe.js:110
 msgid "It is imposible without steps."
 msgstr "Es imposible sin pasos."
+

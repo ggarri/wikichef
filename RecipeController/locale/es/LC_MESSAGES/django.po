@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-21 02:00+0200\n"
+"POT-Creation-Date: 2011-09-25 16:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,102 +22,114 @@ msgstr ""
 msgid "pers"
 msgstr "Pers"
 
-#: RecipeController/views.py:134 RecipeController/views.py:172
-msgid "Could not get id button"
-msgstr "No se pudo obtener el botón de id."
+#: RecipeController/views.py:137 RecipeController/views.py:175
+msgid "Could not get button ID"
+msgstr "No se pudo obtener el id de botón"
 
-#: RecipeController/views.py:148
-msgid "This element is already added."
-msgstr "Este elemento ya se ha agregado."
+#: RecipeController/views.py:151
+msgid "This element was already added."
+msgstr "Ya se ha agregado este elemento."
 
-#: RecipeController/views.py:149
+#: RecipeController/views.py:152
 msgid "The first button must be a ACTION"
 msgstr "El primer botón debe ser una acción"
 
-#: RecipeController/views.py:150
+#: RecipeController/views.py:153
 msgid "One ACTION was already selected"
 msgstr "Una acción ya fue seleccionada"
 
-#: RecipeController/views.py:151
+#: RecipeController/views.py:154
 msgid "One UTENSIL was already selected"
 msgstr "Ya se seleccionó un utensilio"
 
-#: RecipeController/views.py:152
+#: RecipeController/views.py:155
 msgid "This INGREDIENT was already selected"
 msgstr "Este ingrediente ya fue seleccionado"
 
-#: RecipeController/views.py:160
+#: RecipeController/views.py:163
 msgid "The session is incorrect"
 msgstr "La sesión es incorrecta"
 
-#: RecipeController/views.py:176
+#: RecipeController/views.py:179
 msgid "Button does not exist"
 msgstr "Botón no existe"
 
-#: RecipeController/views.py:179 RecipeController/views.py:298
+#: RecipeController/views.py:182 RecipeController/views.py:301
 msgid "Session Incorrect"
 msgstr "Sesión incorrecta"
 
-#: RecipeController/views.py:196
+#: RecipeController/views.py:199
 msgid "There is not process in performance"
 msgstr "No hay proceso en ejecución"
 
-#: RecipeController/views.py:204
+#: RecipeController/views.py:207
 msgid "There are not elements"
 msgstr "No hay elementos"
 
-#: RecipeController/views.py:206
+#: RecipeController/views.py:209
 msgid "Session error"
 msgstr "Error de sesión"
 
-#: RecipeController/views.py:214
-msgid "The new sentence must use every used elements"
-msgstr "El nuevo frase debe utilizar cada elementos utilizados"
-
-#: RecipeController/views.py:263
-msgid "Custom Sentence must use every used elements"
-msgstr "La frase personalizada debe utilizar cada elementos utilizados"
+#: RecipeController/views.py:217
+msgid "The new sentence must include each used elements"
+msgstr "La nueva frase debe incluir cada elementos utilizados"
 
 #: RecipeController/views.py:266
+msgid "The custom sentence must include each used elements"
+msgstr "La frase personalizada debe incluir cada elementos utilizados"
+
+#: RecipeController/views.py:269
 msgid "Option was not selected."
 msgstr "No se seleccionó la opción."
 
-#: RecipeController/views.py:283
-msgid "One Action is needed by Step."
-msgstr "Es necesaria una acción de paso."
+#: RecipeController/views.py:286
+msgid "One Action is needed in each Step."
+msgstr "Una acción es necesaria en cada paso."
 
-#: RecipeController/views.py:285
-msgid "Ingredients or Utensil are needed by Step."
-msgstr "Ingredientes o utensilio son necesarios por paso."
+#: RecipeController/views.py:288
+msgid "Ingredients or Utensil are needed in each Step."
+msgstr "Ingredientes o utensilio son necesarias en cada paso."
 
-#: RecipeController/views.py:297
+#: RecipeController/views.py:300
 msgid "Step is not created"
 msgstr "No se crea el paso"
 
-#: RecipeController/views.py:364
+#: RecipeController/views.py:369
 msgid "There are not enough steps"
 msgstr "No hay suficientes pasos"
 
-#: RecipeController/views.py:376 RecipeController/Browser/views.py:137
+#: RecipeController/views.py:381 RecipeController/Browser/views.py:140
 msgid "Session incorrect"
 msgstr "Sesión incorrecta"
 
-#: RecipeController/Browser/views.py:47
+#: RecipeController/Browser/views.py:48
 msgid "Session is not ajax."
 msgstr "Sesión no es ajax."
 
-#: RecipeController/Browser/views.py:58 RecipeController/Browser/views.py:75
-#: RecipeController/Browser/views.py:94
+#: RecipeController/Browser/views.py:59 RecipeController/Browser/views.py:76
+#: RecipeController/Browser/views.py:95
 msgid "Session error."
 msgstr "Error de sesión."
 
-#: RecipeController/Browser/views.py:74 RecipeController/Browser/views.py:93
+#: RecipeController/Browser/views.py:75 RecipeController/Browser/views.py:94
 msgid "Ingredients did not find in the system."
 msgstr "Ingredientes no encontró en el sistema."
 
-#: RecipeController/Browser/views.py:88
-msgid "This ingredients was not selected."
-msgstr "Este ingredientes no fue seleccionada."
+#: RecipeController/Browser/views.py:89
+msgid "This ingredient was not selected."
+msgstr "Este ingrediente no fue seleccionada."
+
+#: RecipeController/Browser/views.py:120
+msgid "EASY"
+msgstr "Fácil"
+
+#: RecipeController/Browser/views.py:121
+msgid "HARD"
+msgstr "Disco duro"
+
+#: RecipeController/Browser/views.py:122
+msgid "INTERMEDIATE"
+msgstr "Intermedio"
 
 #: templates/base.html:5 templates/base.html.py:32
 #: templates/recipes/addRecipe.html:24
@@ -129,8 +141,8 @@ msgid "Home"
 msgstr "Inicio"
 
 #: templates/base.html:31
-msgid "Search Recipe"
-msgstr "Receta de búsqueda"
+msgid "Recipe Browser"
+msgstr "Navegador de receta"
 
 #: templates/browser/searchRecipe.html:22
 msgid "Searching Recipes"
@@ -148,13 +160,34 @@ msgstr "Vacío"
 msgid "Level Similarity"
 msgstr "Similitud de nivel"
 
-#: templates/browser/searchRecipe.html:65 templates/recipes/addRecipe.html:162
-msgid "Search Ingredient"
-msgstr "Ingrediente de búsqueda"
+#: templates/browser/searchRecipe.html:65
+msgid "Ingredient Searching"
+msgstr "Búsqueda de ingrediente"
 
 #: templates/browser/searchRecipe.html:69 templates/recipes/addRecipe.html:166
 msgid "Ingredients"
 msgstr "Ingredientes"
+
+#: templates/browser/templateRecipe.html:8
+msgid "List of ingredients"
+msgstr "Lista de ingredientes"
+
+#: templates/browser/templateRecipe.html:13
+msgid "Description"
+msgstr "Descripción"
+
+#: templates/browser/templateRecipe.html:18
+msgid "Duration"
+msgstr "Duración"
+
+#: templates/browser/templateRecipe.html:23
+#: templates/recipes/recipeForm.html:30
+msgid "Difficulty"
+msgstr "Dificultad"
+
+#: templates/browser/templateRecipe.html:29
+msgid "Steps"
+msgstr "Pasos"
 
 #: templates/recipes/addRecipe.html:38
 msgid "Previous Steps"
@@ -181,6 +214,10 @@ msgstr "Nuevo"
 msgid "Utensils"
 msgstr "Utensilios"
 
+#: templates/recipes/addRecipe.html:162
+msgid "Search Ingredient"
+msgstr "Ingrediente de búsqueda"
+
 #: templates/recipes/correctStepForm.html:5
 msgid "Select which is correct"
 msgstr "Seleccione que es correcto"
@@ -197,9 +234,17 @@ msgstr "Nuevo"
 msgid "Button Name"
 msgstr "Nombre del botón"
 
+#: templates/recipes/mbForm.html:13
+msgid "Insert name"
+msgstr "Insertar nombre"
+
 #: templates/recipes/mbForm.html:14
 msgid "Decription (Optinal)"
 msgstr "Descripción (opcional)"
+
+#: templates/recipes/mbForm.html:15
+msgid "Insert description"
+msgstr "Insertar descripción"
 
 #: templates/recipes/mbForm.html:16
 msgid "Measurement Unit."
@@ -209,9 +254,45 @@ msgstr "Unidad de medida."
 msgid "Icon (Optional)"
 msgstr "Icono (opcional)"
 
+#: templates/recipes/recipeForm.html:5
+msgid "DEFINE RECIPE"
+msgstr "Definir la receta"
+
+#: templates/recipes/recipeForm.html:12
+msgid "Insert Title"
+msgstr "Insertar título"
+
+#: templates/recipes/recipeForm.html:13
+msgid "Insert description optional"
+msgstr "Insertar descripción opcional"
+
+#: templates/recipes/recipeForm.html:16
+msgid "Number Pers."
+msgstr "Números pers."
+
+#: templates/recipes/recipeForm.html:23
+msgid "Time (min)"
+msgstr "Tiempo (min)"
+
+#: templates/recipes/recipeForm.html:33
+msgid "Medium"
+msgstr "Medio"
+
+#: templates/recipes/recipeForm.html:34
+msgid "Easy"
+msgstr "Fácil"
+
+#: templates/recipes/recipeForm.html:35
+msgid "Hard"
+msgstr "Disco duro"
+
 #: templates/recipes/stepForm.html:5
 msgid "UPLOADING STEP"
 msgstr "Carga de paso"
+
+#: templates/recipes/stepForm.html:12
+msgid "Extra Description"
+msgstr "Descripción adicional"
 
 #: templates/recipes/stepForm.html:15
 msgid "(min)"
