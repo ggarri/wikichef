@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-25 16:37+0200\n"
+"POT-Creation-Date: 2011-09-27 00:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+#: NLG/models.py:84
+msgid "ERROR : A action must be in the first position of the sentence"
+msgstr "ERREUR: Une action doit être en première position de la phrase"
 
 #: RecipeController/views.py:51
 msgid "pers"
@@ -54,7 +58,7 @@ msgstr "La session est incorrecte"
 msgid "Button does not exist"
 msgstr "Bouton n'existe pas"
 
-#: RecipeController/views.py:182 RecipeController/views.py:301
+#: RecipeController/views.py:182 RecipeController/views.py:305
 msgid "Session Incorrect"
 msgstr "Session incorrecte"
 
@@ -70,35 +74,35 @@ msgstr "Il n'existe pas d'éléments"
 msgid "Session error"
 msgstr "Erreur de session"
 
-#: RecipeController/views.py:217
+#: RecipeController/views.py:219
 msgid "The new sentence must include each used elements"
 msgstr "La nouvelle phrase doit comprendre chaque éléments utilisés"
 
-#: RecipeController/views.py:266
+#: RecipeController/views.py:269
 msgid "The custom sentence must include each used elements"
 msgstr "La phrase personnalisée doit comprendre chaque éléments utilisés"
 
-#: RecipeController/views.py:269
+#: RecipeController/views.py:273
 msgid "Option was not selected."
 msgstr "Option n'a pas été sélectionnée."
 
-#: RecipeController/views.py:286
+#: RecipeController/views.py:290
 msgid "One Action is needed in each Step."
 msgstr "Une action est nécessaire à chaque étape."
 
-#: RecipeController/views.py:288
+#: RecipeController/views.py:292
 msgid "Ingredients or Utensil are needed in each Step."
 msgstr "Ingrédients ou ustensile sont nécessaires à chaque étape."
 
-#: RecipeController/views.py:300
+#: RecipeController/views.py:304
 msgid "Step is not created"
 msgstr "Étape n'est pas créé."
 
-#: RecipeController/views.py:369
+#: RecipeController/views.py:373
 msgid "There are not enough steps"
 msgstr "Il n'y a pas suffisamment étapes"
 
-#: RecipeController/views.py:381 RecipeController/Browser/views.py:140
+#: RecipeController/views.py:385 RecipeController/Browser/views.py:140
 msgid "Session incorrect"
 msgstr "Session incorrecte"
 
@@ -168,24 +172,24 @@ msgstr "Ingrédient recherche"
 msgid "Ingredients"
 msgstr "Ingrédients"
 
-#: templates/browser/templateRecipe.html:8
+#: templates/browser/templateRecipe.html:9
 msgid "List of ingredients"
 msgstr "Liste des ingrédients"
 
-#: templates/browser/templateRecipe.html:13
+#: templates/browser/templateRecipe.html:14
 msgid "Description"
 msgstr "Description"
 
-#: templates/browser/templateRecipe.html:18
+#: templates/browser/templateRecipe.html:19
 msgid "Duration"
 msgstr "Durée"
 
-#: templates/browser/templateRecipe.html:23
+#: templates/browser/templateRecipe.html:24
 #: templates/recipes/recipeForm.html:30
 msgid "Difficulty"
 msgstr "Difficulté"
 
-#: templates/browser/templateRecipe.html:29
+#: templates/browser/templateRecipe.html:30
 msgid "Steps"
 msgstr "Étapes"
 
@@ -309,4 +313,3 @@ msgstr "Django site admin"
 #: templates/templates/admin/base_site.html:7
 msgid "Django administration"
 msgstr "Administration de django"
-

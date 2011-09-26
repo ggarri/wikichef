@@ -8,6 +8,7 @@
 from django.db import models
 from XGDic.models import Word,XGDic
 from MagicController.models import *
+from django.utils.translation import ugettext as _
 
 
 class Template(models.Model):
@@ -64,7 +65,7 @@ class Template(models.Model):
 		from operator import itemgetter, attrgetter
 
 		# sentence = standard(sentence)
-		sentence = sentence.lower()
+		sentence = sentence.lower().strip()
 		# Gather all the stored buttons
 		listA,listU,listI,listCC = dict(),dict(),dict(),dict()
 		for A in MagicAction.objects.all(): listA[A.getLabels(lan)] = A
@@ -72,16 +73,21 @@ class Template(models.Model):
 		for I in MagicIngredient.objects.all(): listI[I.getLabels(lan)] = I
 		for CC in TCC.objects.all(): listCC[CC.button.getLabels(lan)] = CC.button
 		
-		A,posMB = list(),list()
+		A,posMB = None,list()
 		for wordA in listA.keys():
 			n = sentence.find(wordA)
-			if n != -1: 
-				A.append(listA[wordA])
-				posMB.append( ( n,('A',listA[wordA],wordA) ) )
-
+			if n == 0: 
+				A = listA[wordA]
+				posMB.append( ( n,('A',A,wordA) ) )
+		
+		# Use just one ACTION
+	 	if A == None:	return _("ERROR : A action must be in the first position of the sentence")
+		else: t = Template.create(A)#; sentence.replace(A[0]['w'])
+				
 		for wordU in listU.keys():
 			n = sentence.find(wordU)
-			if n != -1: posMB.append( (n,('U',listU[wordU],wordU) ) )
+			if n != -1: 
+				posMB.append( (n,('U',listU[wordU],wordU) ) )
 
 		for wordCC in listCC.keys():
 			n = sentence.find(wordCC)
@@ -93,10 +99,7 @@ class Template(models.Model):
 				posMB.append( (n,('I',listI[wordI],wordI) ) )
 
 		print sorted(posMB, key=itemgetter(0))
-		# Use just one ACTION
-	 	if len(A) == 0:	print "ERROR : There aren't action in the sentence";return None
-	 	elif len(A) > 1:	print "ERROR : There are more than one action in the sentence";return None
-		else: t = Template.create(A[0])#; sentence.replace(A[0]['w'])
+		
 
 		for mark in sorted(posMB, key=itemgetter(0)): # step format is (pos,(type,mb))
 			typ = mark[1][0]; mb = mark[1][1]; w = mark[1][2]
@@ -106,6 +109,7 @@ class Template(models.Model):
 			elif typ == 'CC': t.addCC(mb,pre,lan,only)
 			# Delete from start up to its position more itseft
 			sentence = sentence[pos+len(w):].strip()	
+			print sentence
 		print 'Template : ',t
 
 

@@ -109,6 +109,13 @@ function fillRecipeForm(recipe){
     
 }
 
+function insertIngredient(id, label, icon){
+    var base = "<li class='box_mb' id="+id+">"+
+      "<canvas class='mb stream' style='background:url(/media/"+icon+")')>" + "</canvas>"+
+      "<p class='tag'>"+label+"</p></li>"
+    $('#box_ingredient').find('ul').append(base);
+}
+
 $(function(){
 
     $('#box_ingredient canvas').live('click',function(){

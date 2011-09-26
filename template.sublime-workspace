@@ -11,7 +11,7 @@
 			"file": "/home/ggarri/Project/wikichef/templates/base.html",
 			"settings":
 			{
-				"buffer_size": 2818,
+				"buffer_size": 2819,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,15 +27,7 @@
 			"file": "/home/ggarri/Project/wikichef/templates/browser/searchRecipe.html",
 			"settings":
 			{
-				"buffer_size": 2752,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ggarri/Project/wikichef/media/css/styleForms.css",
-			"settings":
-			{
-				"buffer_size": 2875,
+				"buffer_size": 2755,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +35,7 @@
 			"file": "/home/ggarri/Project/wikichef/templates/recipes/recipeForm.html",
 			"settings":
 			{
-				"buffer_size": 1814,
+				"buffer_size": 1842,
 				"line_ending": "Unix"
 			}
 		},
@@ -59,7 +51,7 @@
 			"file": "/home/ggarri/Project/wikichef/templates/recipes/mbForm.html",
 			"settings":
 			{
-				"buffer_size": 2112,
+				"buffer_size": 2138,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,7 +59,15 @@
 			"file": "/home/ggarri/Project/wikichef/templates/recipes/stepForm.html",
 			"settings":
 			{
-				"buffer_size": 2737,
+				"buffer_size": 2751,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/templates/browser/templateRecipe.html",
+			"settings":
+			{
+				"buffer_size": 878,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +75,7 @@
 			"file": "/home/ggarri/Project/wikichef/templates/recipes/correctStepForm.html",
 			"settings":
 			{
-				"buffer_size": 1743,
+				"buffer_size": 1741,
 				"line_ending": "Unix"
 			}
 		}
@@ -104,13 +104,13 @@
 	},
 	"file_history":
 	[
+		"/home/ggarri/Project/wikichef/templates/recipes/interactiveBall.html",
+		"/home/ggarri/Project/wikichef/media/css/styleForms.css",
 		"/home/ggarri/Project/wikichef/createLocale.py",
 		"/home/ggarri/Project/wikichef/media/css/styleBrowser.css",
-		"/home/ggarri/Project/wikichef/media/css/styleForms.css",
 		"/home/ggarri/Project/wikichef/media/css/styleBall.css",
 		"/home/ggarri/Project/wikichef/locale/es/LC_MESSAGES/django.po",
 		"/home/ggarri/Project/wikichef/locale/es/LC_MESSAGES/django.mo",
-		"/home/ggarri/Project/wikichef/templates/recipes/interactiveBall.html",
 		"/home/ggarri/Project/wikichef/media/css/style.css",
 		"/home/ggarri/.config/sublime-text-2/Packages/User/Global.sublime-settings",
 		"/home/ggarri/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
@@ -210,7 +210,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -218,15 +218,15 @@
 					"file": "/home/ggarri/Project/wikichef/templates/base.html",
 					"settings":
 					{
-						"buffer_size": 2818,
+						"buffer_size": 2819,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								455,
-								371
+								15,
+								0
 							]
 						],
 						"settings":
@@ -236,7 +236,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 240,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -264,7 +264,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 1455,
+						"translation.y": 2447,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -274,15 +274,15 @@
 					"file": "/home/ggarri/Project/wikichef/templates/browser/searchRecipe.html",
 					"settings":
 					{
-						"buffer_size": 2752,
+						"buffer_size": 2755,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1729,
-								1729
+								1792,
+								1792
 							]
 						],
 						"settings":
@@ -292,53 +292,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 64,
+						"translation.y": 16,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/home/ggarri/Project/wikichef/media/css/styleForms.css",
-					"settings":
-					{
-						"buffer_size": 2875,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								49,
-								49
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0,
-						"translation.y": 1968,
-						"zoom_level": 1
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "/home/ggarri/Project/wikichef/templates/recipes/recipeForm.html",
 					"settings":
 					{
-						"buffer_size": 1814,
+						"buffer_size": 1842,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								484,
-								484
+								1278,
+								1278
 							]
 						],
 						"settings":
@@ -348,13 +320,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 0,
+						"translation.y": 16,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "/home/ggarri/Project/wikichef/startWikichef",
 					"settings":
 					{
@@ -380,19 +352,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "/home/ggarri/Project/wikichef/templates/recipes/mbForm.html",
 					"settings":
 					{
-						"buffer_size": 2112,
+						"buffer_size": 2138,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								36
+								564,
+								564
 							]
 						],
 						"settings":
@@ -408,19 +380,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "/home/ggarri/Project/wikichef/templates/recipes/stepForm.html",
 					"settings":
 					{
-						"buffer_size": 2737,
+						"buffer_size": 2751,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								808,
-								808
+								281,
+								281
 							]
 						],
 						"settings":
@@ -436,19 +408,46 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "/home/ggarri/Project/wikichef/templates/recipes/correctStepForm.html",
+					"buffer": 7,
+					"file": "/home/ggarri/Project/wikichef/templates/browser/templateRecipe.html",
 					"settings":
 					{
-						"buffer_size": 1743,
+						"buffer_size": 878,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								51,
-								51
+								15,
+								15
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 0,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/ggarri/Project/wikichef/templates/recipes/correctStepForm.html",
+					"settings":
+					{
+						"buffer_size": 1741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								222,
+								222
 							]
 						],
 						"settings":

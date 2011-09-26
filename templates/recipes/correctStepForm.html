@@ -8,7 +8,7 @@
 {% block contentForm%}
 <form id='formCorrectStep' action='' method=''>
   <fieldset>
-  </p><input type='radio' id='selectCorrectStep' name='selectCorrectStep' value='-1'/>
+  <p><input type='radio' id='selectCorrectStep' name='selectCorrectStep' value='-1'/>
   {% trans "Custom " %}: <input type='text' id='customCorrectStep' name='customCorrectStep' id='Custom'  disabled='disabled'/>
   </p>
   </fieldset>
@@ -20,6 +20,7 @@
 function selectCorrectStep(radio) {
 	var key = $(radio).val();
 	var custom = $('#customCorrectStep').val();
+	$('#loadingPage').fadeIn();
 	if (key != null){
 		$.ajax({
 			url:"save_stream_step",
@@ -27,7 +28,7 @@ function selectCorrectStep(radio) {
 	        async:true,
 	        dataType: "json",
 	        data: {"key":key,'custom':custom},
-	        success: function(data) {
+	        success: function(data) {	        	
 	        	if (data.state){
 	        		shiftBoxDinamic('#interactiveBall');
 	        		showInfoPanel('Thanks for you colaboration.');
@@ -41,12 +42,11 @@ function selectCorrectStep(radio) {
 	}
 	else
 		showInfoPanel('There are not selected option.');
+	$('#loadingPage').fadeOut();
 }
 $(function(){
     $('#correctStepForm #acceptForm').click(function(){
-    	$('#loadingPage').fadeIn();
         selectCorrectStep($('#formCorrectStep input[name=selectCorrectStep]:checked'));
-        $('#loadingPage').fadeOut();
     });
     $('#selectCorrectStep').live('change',function(){
 		if ($(this).val() == -1)

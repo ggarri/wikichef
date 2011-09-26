@@ -66,17 +66,6 @@ function updateAutocomplete(input, list) {
 	});
 }
 
-function insertIngredient(id, label, icon){
-	var base = "<li class='box_mb' id="+id+">"+
-      "<canvas class='mb stream' style='background:url(/media/"+icon+")')>" + "</canvas>"+
-      "<p class='tag' contenteditable='true'>"+label+"</p></li>"
-   	$('#box_ingredient').find('ul').append(base);
-
-   	// obj = $('#box_ingredient').find('ul').find('li:last')
-   	// obj.attr('id',id);
-   	// $(obj).find('.mb').css('background','url(/media/'+icon+')');
-   	// $(obj).find('.tag').append(label);
-}
 
 /***************************************
 	BROWSER INGREDIENTS

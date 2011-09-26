@@ -537,7 +537,7 @@ class MagicCombination(models.Model):
 			sentence = labels[key]
 		else: 	sentence = key
 		print 'Saving template: ' + sentence
-		Template.setTemplate(sentence,lan,only)
+		return Template.setTemplate(sentence,lan,only)
 
 	def addMB(self,MB):
 		"""

@@ -22,6 +22,13 @@ function setTag(id, value){
 	})
 }
 
+function insertIngredient(id, label, icon){
+	var base = "<li class='box_mb' id="+id+">"+
+      "<canvas class='mb stream' style='background:url(/media/"+icon+")')>" + "</canvas>"+
+      "<p class='tag' contenteditable='true'>"+label+"</p></li>"
+   	$('#box_ingredient').find('ul').append(base);
+}
+
 /***************************************
 	ADDING NEW BUTTON
 **************************************/
@@ -73,9 +80,9 @@ $(function(){
 **************************************/
 
 $(function(){
-	$('.box_mb [contenteditable=true]').focusin(function(){
+	$('.box_mb [contenteditable=true]').live('focusin',function(){
 		$(this).data('value', {tag:$(this).html()} );
-	}).focusout(function(){
+	}).live('focusout',function(){
 		var pk = parseInt($(this).parent('.box_mb').attr('id'));
 		var currentTag = $(this).html();
 		if ( currentTag != $(this).data('value').tag)

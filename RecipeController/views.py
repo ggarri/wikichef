@@ -212,7 +212,9 @@ def setCurrentStep(request):
 				mc = request.session['processStep']
 				lan = request.session['lan']
 				if checkCustomSentence(request, sentence, lan):
-					mc.addTemplate(sentence,lan,True) # Just for this language
+					# Just for this language
+					error = mc.addTemplate(sentence,lan,True)
+					if error != None: msg = error; state=False
 				else:
 					msg = _('The new sentence must include each used elements'); state=False
 	result = simplejson.dumps({'state':state,'msg':msg})
@@ -261,11 +263,13 @@ def saveStreamStep(request):
 		if key == -1:	
 			sentence = str(request.GET['custom']).lower()
 			if checkCustomSentence(request, sentence, lan):
-				mc.addTemplate(sentence,lan)
+				error = mc.addTemplate(sentence,lan)
+				if error != None: msg = error; state=False;
 			else:
 				msg = _('The custom sentence must include each used elements'); state=False
 		else:
-			mc.addTemplate(key,lan)
+			error = mc.addTemplate(key,lan)
+			if error != None: msg = error; state=False;
 	else:	msg = _('Option was not selected.'); state=False
 	# else:	msg = 'Request incorrect.'; state=False 
 

@@ -4,6 +4,10 @@ function updateCurrentStep(){
 		$('#currentStep').html(msg[0]);
 	}
 	function updateFormCurrentStep(data){
+		$('#formCorrectStep fieldset')
+		var custom = $('#formCorrectStep fieldset p:first')
+		$('#formCorrectStep fieldset').empty();
+		$('#formCorrectStep fieldset').append(custom);
 		for (var i=0 ; i<data.length; i++){
 			obj = document.createElement('input');
 			$(obj).attr('type','radio');
@@ -164,6 +168,7 @@ function delMBtoStep(id){
 }
 
 function setSentenceStep(sentence){
+	$('#loadingPage').fadeIn();
 	$.ajax({
 		url:'set_current_step',
 		async:true,
@@ -180,7 +185,7 @@ function setSentenceStep(sentence){
 			showInfoPanel(gettext('Error while connected with the Templates') );
 		}
 	});
-
+	$('#loadingPage').fadeOut();
 }
 
 
