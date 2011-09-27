@@ -2,8 +2,8 @@
 
 function updateRecipes(){
 	function addRecipe(id, title, desc, listI, path){
-        var strLI = gettext("List of Ingredients");
-        var strDesc = gettext("Decription");
+        var strLI = htmlMsg26;
+        var strDesc = htmlMsg27;
 		var base = "<li class='recipe' id='"+id+"'>"+
             "<section class='header'>"+
             "<p>"+title+"</p>"+
@@ -32,10 +32,11 @@ function updateRecipes(){
         dataType: "json",
         data: {'level': $('#levelSimilarity .slider_text').val()/100.0 },
         success: function(data){
+            $('#loadingPage').fadeOut();
         	if (data.state==true){
                 $('#listRecipes ul').empty()
                 if (data.msg.length == 0)
-                    addRecipe(-1, 'None', gettext('There are not any recipe with this ingredients'), new Array(), 'imgs/defaultRecipe.png');
+                    addRecipe(-1, 'None', htmlMsg28, new Array(), 'imgs/defaultRecipe.png');
                 else {
             		for (var i=0; i<data.msg.length; i++){
             			var recipe = data.msg[i]
@@ -45,10 +46,9 @@ function updateRecipes(){
         		updateBoxFloat($('#listRecipes .box_float'));
         	}
         	else 
-        		showInfoPanel(gettext('Error while loading Recipes') );
+        		showInfoPanel(htmlMsg29);
      	}
 	});
-    $('#loadingPage').fadeOut();
 }
 
 
@@ -74,14 +74,14 @@ function updateIngredientsSelected(){
                 }
             }
             else
-                showInfoPanel(gettext('Error while loading the ingredients selected') );
+                showInfoPanel(htmlMsg30);
         }
     })
 
 }
 
 function fillRecipeForm(recipe){
-    console.debug(recipe);
+    // console.debug(recipe);
     $('.overPanel .title h1').html(recipe.title);
     $('.overPanel .title canvas').css('background','url(/media/'+recipe.img+')');
     $('.overPanel .ingredients ul').empty()
@@ -96,7 +96,7 @@ function fillRecipeForm(recipe){
     $('.overPanel .steps ul').empty()
     for (var i=0 ; i<recipe.steps.length; i++){
         var step = recipe.steps[i]
-        var w_step = gettext('step')
+        var w_step = htmlMsg31
         var base='<li><label>('+w_step+' '+(i+1)+')'+step.label+'</label>'+
         '<p> Comment :'+step.comments+'</p><p>Amounts: </p></li>';
         $('.overPanel .steps ul').append(base);
@@ -133,7 +133,7 @@ $(function(){
                 data: {'id':id},
                 success: function(data){
                     if (data.state == false)
-                        showInfoPanel(gettext('Error while adding the ingredient.') );
+                        showInfoPanel(htmlMsg32);
                     else{
                         updateIngredientsSelected();
                         updateRecipes();
@@ -142,7 +142,7 @@ $(function(){
             });
         }
         else
-            showInfoPanel(gettext('Element was already added') );
+            showInfoPanel(htmlMsg33);
     });
 
     $('#box_ingredient_selected canvas').live('click',function(){
@@ -154,7 +154,7 @@ $(function(){
             data: {'id':id},
             success: function(data){
                 if (data.state == false)
-                    showInfoPanel(gettext('Error while adding the ingredient.') );
+                    showInfoPanel(htmlMsg34);
                 else{
                     updateIngredientsSelected();
                     updateRecipes();
@@ -188,12 +188,12 @@ $(function(){
                 dataType: "json",
                 data: {'id':id},
                 success: function(data){
+                    $('#loadingPage').fadeOut();
                     if (data.state == true){
                         fillRecipeForm(data.msg);
-                        $('#loadingPage').fadeOut();
                     }
                     else
-                        showInfoPanel(gettext('Error while loading recipe datas') );
+                        showInfoPanel(htmlMsg35);
                 }
         });
         $('.overPanel').fadeIn('slow'); 

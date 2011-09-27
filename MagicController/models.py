@@ -107,7 +107,7 @@ class Label(models.Model):
 
 		if len(obj) == 1: return obj[0]
 		elif len(obj) > 1:
-			print "WARNING : It was found many LABEL with the same meaning : ",meaning
+			# print "WARNING : It was found many LABEL with the same meaning : ",meaning
 			return obj[0]
 		else:	return None
 	
@@ -222,7 +222,7 @@ class MagicButton(models.Model):
 		if icon != '' and icon != None:
 			self.icon = icon
 		self.isTemporal = temp
-		print "CREATING BUTTON : ",meaning
+		# print 'INFO :',"CREATING BUTTON : ",meaning
 
 
 	def getLabels(self, lan=None):
@@ -536,7 +536,7 @@ class MagicCombination(models.Model):
 			labels = self.getLabels(lan)
 			sentence = labels[key]
 		else: 	sentence = key
-		print 'Saving template: ' + sentence
+		# print 'INFO : ','Saving template: ' + sentence
 		return Template.setTemplate(sentence,lan,only)
 
 	def addMB(self,MB):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-27 00:39+0200\n"
+"POT-Creation-Date: 2011-09-27 18:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: NLG/models.py:84
-msgid "ERROR : A action must be in the first like first word in the sentence"
-msgstr "ERROR : Una accción debe estar como la primera palabra en la frase"
+#: NLG/models.py:90
+#, fuzzy
+msgid "ERROR : A action must be in the first position of the sentence"
+msgstr "Error: debe ser una acción en la primera posición de la oración"
 
 #: RecipeController/views.py:51
 msgid "pers"
@@ -129,22 +130,22 @@ msgstr "Fácil"
 
 #: RecipeController/Browser/views.py:121
 msgid "HARD"
-msgstr "Disco duro"
+msgstr "Dificil"
 
 #: RecipeController/Browser/views.py:122
 msgid "INTERMEDIATE"
 msgstr "Intermedio"
 
-#: templates/base.html:5 templates/base.html.py:32
+#: templates/base.html:5 templates/base.html.py:33
 #: templates/recipes/addRecipe.html:24
 msgid "New Recipe"
 msgstr "Nueva receta"
 
-#: templates/base.html:30
+#: templates/base.html:31
 msgid "Home"
 msgstr "Inicio"
 
-#: templates/base.html:31
+#: templates/base.html:32
 msgid "Recipe Browser"
 msgstr "Navegador de receta"
 
@@ -185,7 +186,7 @@ msgid "Duration"
 msgstr "Duración"
 
 #: templates/browser/templateRecipe.html:24
-#: templates/recipes/recipeForm.html:30
+#: templates/recipes/recipeForm.html:31
 msgid "Difficulty"
 msgstr "Dificultad"
 
@@ -234,27 +235,27 @@ msgstr "Personalizado"
 msgid "NEW"
 msgstr "Nuevo"
 
-#: templates/recipes/mbForm.html:12
+#: templates/recipes/mbForm.html:13
 msgid "Button Name"
 msgstr "Nombre del botón"
 
-#: templates/recipes/mbForm.html:13
+#: templates/recipes/mbForm.html:14
 msgid "Insert name"
 msgstr "Insertar nombre"
 
-#: templates/recipes/mbForm.html:14
+#: templates/recipes/mbForm.html:15
 msgid "Decription (Optinal)"
 msgstr "Descripción (opcional)"
 
-#: templates/recipes/mbForm.html:15
+#: templates/recipes/mbForm.html:16
 msgid "Insert description"
 msgstr "Insertar descripción"
 
-#: templates/recipes/mbForm.html:16
+#: templates/recipes/mbForm.html:17
 msgid "Measurement Unit."
 msgstr "Unidad de medida."
 
-#: templates/recipes/mbForm.html:18
+#: templates/recipes/mbForm.html:19
 msgid "Icon (Optional)"
 msgstr "Icono (opcional)"
 
@@ -262,33 +263,33 @@ msgstr "Icono (opcional)"
 msgid "DEFINE RECIPE"
 msgstr "Definir la receta"
 
-#: templates/recipes/recipeForm.html:12
+#: templates/recipes/recipeForm.html:13
 msgid "Insert Title"
 msgstr "Insertar título"
 
-#: templates/recipes/recipeForm.html:13
+#: templates/recipes/recipeForm.html:14
 msgid "Insert description optional"
 msgstr "Insertar descripción opcional"
 
-#: templates/recipes/recipeForm.html:16
+#: templates/recipes/recipeForm.html:17
 msgid "Number Pers."
 msgstr "Números pers."
 
-#: templates/recipes/recipeForm.html:23
+#: templates/recipes/recipeForm.html:24
 msgid "Time (min)"
 msgstr "Tiempo (min)"
 
-#: templates/recipes/recipeForm.html:33
+#: templates/recipes/recipeForm.html:34
 msgid "Medium"
 msgstr "Medio"
 
-#: templates/recipes/recipeForm.html:34
+#: templates/recipes/recipeForm.html:35
 msgid "Easy"
 msgstr "Fácil"
 
-#: templates/recipes/recipeForm.html:35
+#: templates/recipes/recipeForm.html:36
 msgid "Hard"
-msgstr "Disco duro"
+msgstr "Dificil"
 
 #: templates/recipes/stepForm.html:5
 msgid "UPLOADING STEP"
@@ -313,3 +314,4 @@ msgstr "Administrador de sitio de django"
 #: templates/templates/admin/base_site.html:7
 msgid "Django administration"
 msgstr "Administración de django"
+

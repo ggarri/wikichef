@@ -40,7 +40,9 @@ function setState(state){
         async:true,
         dataType: "json",
         data: {'state':state},
-        success: function(){ console.log('state changed');}
+        success: function(){ 
+	        // console.log('state changed');
+	    }
     });
 }
 
@@ -50,12 +52,12 @@ function clearSession(reload){
 	    async:true,
 	    dataType: "json",
 	    success: function(){
-	    	showInfoPanel('Session deleted');
-	    	console.log(reload)
+	    	showInfoPanel(htmlMsg25);
+	    	// console.log(reload)
 	    	window.location.href=window.location.href
 	    },
 	    error: function(){
-	    	showInfoPanel(gettext('Deleting session had a error') );	
+	    	showInfoPanel(htmlMsg25);	
     	}
 	});	
 }

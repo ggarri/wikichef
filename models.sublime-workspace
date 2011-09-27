@@ -48,11 +48,10 @@
 			}
 		},
 		{
-			"contents": "\"\"\" Models for managing of Templates and generation of sentences.\n	:author: Gabriel Garrido Calvo\n	:version: 0.9 (Release)\n	:licence: GNU\n	:contact: ggarri@gmail.com\n\"\"\"\n\nfrom django.db import models\nfrom XGDic.models import Word,XGDic\nfrom MagicController.models import *\nfrom django.utils.translation import ugettext as _\n\n\nclass Template(models.Model):\n	\"\"\"\n		This class controls the management of auto generation of sentences from stored templates.\n		:ivar action: This element is used to define the behaviour of actions(verbs) in the sentences and to identify each template object.\n		:ivar utensil: These elements are used to define the behaviour of utensils in the sentences.\n		:ivar cc: These elements are used to define the behaviour of ingredients(which are used as complements) in the sentences.\n	\"\"\"\n	action = models.OneToOneField('TAction')	# PRIMARY KEY\n	utensil = models.ManyToManyField('TUtensil')\n	cc = models.ManyToManyField('TCC')\n	\n	@staticmethod\n	def create(MB_A):\n		\"\"\"\n			Creates a new templace with a linked MagicAction.\n			:param MB_A: MagicAction used to identify the new created template.\n			:type MB_A: MaggicAction object.\n			:return : The new created Template or if one already exists with the same MagicAction, then it will be.\n		\"\"\"\n		try:\n			t = Template.objects.get(action__button=MB_A)\n		except:\n			t = Template()\n			t.action = TAction.create(MB_A)\n			t.save()\n		return t\n\n	@staticmethod\n	def generator(A,LI=None,U=None):\n		\"\"\"\n			Generates one or more sentences in every available language using every stored Templates. For that a list of ingredients and one utensil is used.\n			:param LI : List of MagicIngredients to generate the sentences.\n			:param U : MagicUtensil uses to generates the sentece.\n			:return : One set with each sentence generated in each available language.\n			:rtype : [['en':sentence1,'es'...]['en'..]]\n		\"\"\"\n		if A == None:\n			wError = XGDic.getWordSentence('ACTION is needed','en')\n			return wError.getLabels()\n		t = Template.create(A)\n		return t.calculate(LI,U)\n	\n\n	@staticmethod\n	def setTemplate(sentence, lan='en', only=False):\n		\"\"\"\n			Gets a new Template from the passed sentence. For that it is deffined the language and if the goal is replacing or creating a template. \n			:param sentence: Sentence analyzes to get the Template.\n			:param lan: Language uses in the sentence.\n			:param only: Define if the templase must be created(False) or modified(True).\n		\"\"\"\n		from operator import itemgetter, attrgetter\n\n		# sentence = standard(sentence)\n		sentence = sentence.lower().strip()\n		# Gather all the stored buttons\n		listA,listU,listI,listCC = dict(),dict(),dict(),dict()\n		for A in MagicAction.objects.all(): listA[A.getLabels(lan)] = A\n		for U in MagicUtensil.objects.all(): listU[U.getLabels(lan)] = U\n		for I in MagicIngredient.objects.all(): listI[I.getLabels(lan)] = I\n		for CC in TCC.objects.all(): listCC[CC.button.getLabels(lan)] = CC.button\n		\n		A,posMB = None,list()\n		for wordA in listA.keys():\n			n = sentence.find(wordA)\n			if n == 0: \n				A = listA[wordA]\n				posMB.append( ( n,('A',A,wordA) ) )\n		\n		# Use just one ACTION\n	 	if A == None:	return _(\"ERROR : A action must be in the first position of the sentence\")\n		else: t = Template.create(A)#; sentence.replace(A[0]['w'])\n				\n		for wordU in listU.keys():\n			n = sentence.find(wordU)\n			if n != -1: \n				posMB.append( (n,('U',listU[wordU],wordU) ) )\n\n		for wordCC in listCC.keys():\n			n = sentence.find(wordCC)\n			if n != -1: posMB.append( (n,('CC',listCC[wordCC],wordCC) ) )\n		\n		for wordI in listI.keys():\n			n = sentence.find(wordI)\n			if n != -1 and not wordI in listCC.keys(): \n				posMB.append( (n,('I',listI[wordI],wordI) ) )\n\n		print sorted(posMB, key=itemgetter(0))\n		\n\n		for mark in sorted(posMB, key=itemgetter(0)): # step format is (pos,(type,mb))\n			typ = mark[1][0]; mb = mark[1][1]; w = mark[1][2]\n			pos = sentence.find(w)\n			pre = sentence[:pos].strip()\n			if typ   == 'U': t.addUtensil(mb,pre,lan,only)\n			elif typ == 'CC': t.addCC(mb,pre,lan,only)\n			# Delete from start up to its position more itseft\n			sentence = sentence[pos+len(w):].strip()	\n			print sentence\n		print 'Template : ',t\n\n\n		# A   = [ {'mb':listA[wordA],'w':wordA}   for wordA in listA.keys() if sentence.find(wordA) != -1]\n		# U   = [ {'mb':listU[wordU],'w':wordU}   for wordU in listU.keys() if sentence.find(wordU) != -1]\n		# I   = [ {'mb':listI[wordI],'w':wordI}   for wordI in listI.keys() if sentence.find(wordI) != -1]\n		# CC  = [ {'mb':listCC[wordCC],'w':wordCC} for wordCC in listCC.keys() if sentence.find(wordCC) != -1]\n\n	def calculate(self,LI, U):\n		\"\"\"\n			Generates from the current template the chance sentences to this Ingredients and Utensil with own Action.\n			:param LI: List of MagicIngredients\n			:param U: MagicUtensil\n			:return : One set with each sentence generated in each available language.\n			:rtype : [['en':sentence1,'es'...]['en'..]]\n		\"\"\"\n		def listIngredients(wordsI,lan):\n			\"\"\"\n				Develops the ingredient list part of the sentence\n			\"\"\"\n			cad = ''\n			w_and = XGDic.getWordSentence('and','en')\n			for i,I in enumerate(LI):\n				if i == 0 : cad = I.getLabels(lan)\n				elif i==len(LI)-1 : cad += ' '+ w_and.getLabels(lan) + ' ' + I.getLabels(lan)\n				else:	cad += ', ' + I.getLabels(lan)\n			return cad\n\n		#	UTENSILS TEMPLATE\n		wordsU = list()\n		if U != None:	# Checks if utensils is\n			# Search if it was used in this template sometime.\n			try: wordsU = [self.utensil.get(button=U)]	\n			except:	# If it was used in any other template.\n				wordsU = [tu for tu in TUtensil.objects.filter(button=U)]\n			if len(wordsU) == 0: # Else, creates a list with default prefixs.\n				print 'Using default prefixs'\n				wordsU.append(TUtensil.create(U,'in the'))\n				wordsU.append(TUtensil.create(U,'with the'))\n				wordsU.append(TUtensil.create(U,'onto'))\n\n		#	COMPLEMENT INGREDIENTS\n		wordsI = list()\n		if LI.__class__ == list:	# Check if there is a list in the parameters\n			# Here, just searchs if each ingredients was used anytime like complement.\n			for I in LI[:]:\n				try: # It was used in this template.\n					wordsI.append([self.cc.get(button=I)]); LI.remove(I)\n				except: # Or it was used for others.\n					acum = [tcc for tcc in TCC.objects.filter(button=I)]\n					if len(acum) : 	wordsI.append(acum); LI.remove(I)\n\n		# Starts the chance list with the action\n		sentencesMB = [[self.action]]\n		# Join each current chance with each utensil chance.\n		if len(wordsU): sentencesMB = [ (s+[wu]) for wu in wordsU for s in sentencesMB]\n		# Join each current chance with each complement ingredient chance.\n		if len(wordsI):\n			for l1I in wordsI:\n				sentencesMB = [ (s+[wi]) for wi in l1I for s in sentencesMB]\n\n		# Creates dictionary with all the languages\n		dic = dict()\n		print sentencesMB\n		for lan in XGDic.getLanguages().keys():\n			dic[lan],acum = list(),set()\n			for sentence in sentencesMB:\n				chance = ''\n				for tw in sentence: chance += ' ' + tw.getLabels(lan)\n				chance += ' ' + listIngredients(wordsI,lan)\n				acum.add(chance)\n			dic[lan].extend( list(acum) )\n		return dic\n\n	\n	def addUtensil(self, mb, pre,lan='en',only=False):\n		\"\"\"\n			Adds a new Utensil to the current template to be used in the future.\n			:param mb: MagicUtensil associated.\n			:param pre: Prefix used to link the utensil in the sentence.\n			:param lan: Language defines for the prefix.\n			:param only: Define if the Utensil prefix must be created(False) or modified(True).\n		\"\"\"\n		try:\n			u = self.utensil.get(button=mb)\n			if not only: u.setPre(pre,lan)\n			else: u.preposition.setLabel(pre,lan)\n		except:\n			print 'Creating Utensil : ',pre,mb.getLabels('en')\n			self.utensil.add(TUtensil.create(mb,pre,lan))\n		\n	def addCC(self, mb, pre,lan='en',only=False):\n		\"\"\"\n			Adds a new Ingredient complement to the current template to be used in the future.\n			:param mb: MagicIngredient associated.\n			:param pre: Prefix used to link the complement ingredient in the sentence.\n			:param lan: Language defines for the prefix.\n			:param only: Define if the Utensil prefix must be created(False) or modified(True).\n		\"\"\"\n		try:\n			c = self.cc.get(button=mb)\n			if not only: c.setPre(pre,lan)\n			else: c.preposition.setLabel(pre,lan)\n		except:\n			print 'Creating CC : ',pre,mb.getLabels('en')\n			self.cc.add(TCC.create(mb,pre,lan))\n	\n	def getAction(self):\n		\"\"\"\n			:return : TAction object.\n		\"\"\"\n		return self.action\n	\n	def getUtensil(self):\n		\"\"\"\n			:return : TUtensil list of objects.\n		\"\"\"\n		return self.utensil.all()\n	\n	def getCC(self):\n		\"\"\"\n			:return : TCC list of objects.\n		\"\"\"\n		return self.cc.all()\n\n	def __unicode__(self):\n		\"\"\"The object is typed by its action in first place and the utensils and ingredients in the next ones.\"\"\"\n		labelA = self.action.getLabels('en')\n		labelU = [tu.getLabels('en') for tu in self.utensil.all()]\n		labelCC = [tcc.getLabels('en') for tcc in self.cc.all()]\n		return labelA + '\\n\\t' + str(labelU) + '\\n\\t' + str(labelCC)\n\n####################################################\n\n#####################################################\n\nclass TAction(models.Model):\n	\"\"\"\n		This class stores a MagicAction and the chance suggestions associated with it.\n		:ivar button: MagicAction used to identify it.\n		:ivar suggestion: List of words with the suggestions.\n	\"\"\"\n	button = models.OneToOneField(MagicAction)\n	suggestion = models.ManyToManyField(Word)\n\n	@staticmethod\n	def create(mb):\n		\"\"\"\n			Creates a new object with the passed MagicAction and if this already exists, it don't do any.\n			:param mb: MagicAction object.\n			:return : The new object created or the object previously stored.\n		\"\"\"\n		try:\n			obj = TAction.objects.get(button=mb)\n		except:\n			obj = TAction(button=mb)\n			obj.save()\n		return obj\n\n	def getLabels(self,lan='en'):\n		\"\"\"\n			Gets the label gave for this object which is corresponded with the label of its MagicAction.\n			:param lan: Language to get the label.\n			:return : The label of its MagicAction in the given language.\n		\"\"\"\n		return self.button.getLabels(lan)\n	\n	def getSuggestion(self,lan='en'):\n		\"\"\"\n			Gets the list of suggestion in the given language.\n			:param lan: Language used to get the label.\n			:return : A list of the suggestion in the passed language.\n		\"\"\"\n		return [s.getLabels(lan) for s in self.suggestion.all()]\n\n	def addSuggestion(self, sug, lan='en'):\n		\"\"\"\n			Adds a new suggestion.\n			:param sug: String with the suggestion.\n			:param lan: Language in that the suggestion is given.\n		\"\"\"\n		w_sug = XGDic.getWordSentence(sug,lan)\n		self.suggestion.add(w_sug)\n		self.save()\n\n	def __unicode__(self):\n		\"\"\" Typed the label of TAction from the MagicAcction stored.\"\"\"\n		return self.getLabels('en')\n\nclass TUtensil(models.Model):\n	\"\"\"\n		This class stores the MagicUtensil and its prefix which is used to execute the sentences in the templates.\n		:ivar button: MagicUtensil linked.\n		:ivar preposition: Word object with the prefix uses in the sentence.\n	\"\"\"\n	button = models.ForeignKey(MagicUtensil)\n	preposition = models.ForeignKey(Word)\n\n	@staticmethod\n	def create(mb, pre='', lan='en'):\n		\"\"\"\n			Creates a new TUtensil object with the passed parameters.\n			:param mb : Used MagicUtensil.\n			:param pre: Prefix of the MagicUtensil in the sentences.\n			:param lan: Language used in the given prefix.\n		\"\"\"\n		# w_pre = Word.create(pre+' '+mb.getLabels(lan),lan)\n		# w_pre.hide(mb.label.word)\n		w_pre = Word.create(pre,lan)\n		obj = TUtensil(button=mb, preposition=w_pre)\n		obj.save()\n		return obj\n\n	def getLabels(self,lan='en'):\n		\"\"\"\n			Returns the labels of the MagicUtensil plus its prefix.\n			:param lan: Language defines the obtained label.\n			:return : Label that defines the TUtensil.\n		\"\"\"\n		return self.preposition.getLabels(lan) + ' ' + self.button.getLabels(lan)\n\n	def setPre(self,pre,lan='en'):\n		\"\"\"\n			Updates the current prefix to another one.\n			:param pre: New prefix to hook.\n			:param lan: Language of the new prefix.\n		\"\"\"\n		w_pre = XGDic.getWordSentence(pre,lan)\n		self.preposition = w_pre\n		self.save()\n	\n	def __unicode__(self):\n		return self.getLabels('en')\n	\n\nclass TCC(models.Model):\n	\"\"\"\n		This class stores the MagicIngredients used as complements in the sentences and its prefix.\n		:ivar button: MagicIngredient linked.\n		:ivar preposition: Word object with the prefix uses in the sentence.\n	\"\"\"\n	button = models.ForeignKey(MagicIngredient)\n	preposition = models.ForeignKey(Word)\n\n	@staticmethod\n	def create(mb, pre='', lan='en'):\n		\"\"\"\n			Creates a new TCC object with the passed parameters.\n			:param mb : Used MagicIngredient.\n			:param pre: Prefix of the MagicIngredient in the sentences.\n			:param lan: Language used in the given prefix.\n		\"\"\"\n		# w_pre = Word.create(pre+' '+mb.getLabels(lan),lan)\n		# w_pre.hide(mb.label.word)\n		w_pre = Word.create(pre,lan)\n		obj = TCC(button=mb, preposition=w_pre)\n		obj.save()\n		return obj\n	\n	def getLabels(self,lan='en'):\n		\"\"\"\n			Returns the labels of the MagicIngredient plus its prefix.\n			:param lan: Language defines the obtained label.\n			:return : Label that defines the TCC.\n		\"\"\"\n		return self.preposition.getLabels(lan) + ' ' + self.button.getLabels(lan)\n\n	def setPre(self,pre,lan='en'):\n		\"\"\"\n			Updates the current prefix to another one.\n			:param pre: New prefix to hook.\n			:param lan: Language of the new prefix.\n		\"\"\"\n		w_pre = XGDic.getWordSentence(pre,lan)\n		self.preposition = w_pre\n		self.save()\n	\n	def __unicode__(self):\n		return self.getLabels('en')\n\n\n\n# Read a template file with the buttons and sentences\ndef LoadFileTemplate(path):\n	\"\"\"\n		Loads a file which has in plain text several MagicButtons with its corresponding complements is stored in the DB.\n		For that a speficic syntax is used.\n	\"\"\"\n	try:\n		f = open(path,'r')\n	except:\n		raise Exception('File is not exists.')\n	text = f.read()\n	f.close()\n	for line in text.split('\\n'):\n		# print 'line : ',line\n		if len(line) == 0: continue\n		# print line[0],line[1:]\n		type = line[0]\n		mb,desc,icon,label,unit=None,'',None,'','?'\n		for index,piece in enumerate(line[1:].split('|')):\n			piece = piece.strip()\n			# LABEL\n			if index == 0 : label = piece\n			# DESCRIPTION\n			elif index == 1:\n				if type == 'I':	unit = piece\n				else: desc = piece\n			# ICON and it is the last one\n			elif index == 2: \n				icon = piece\n				if type == 'A': mb = MagicAction.create(label,'en',desc,icon);\n				elif type == 'U': mb = MagicUtensil.create(label,'en',desc,icon);\n				elif type == 'I': mb = MagicIngredient.create(label,'en','',icon,False,unit);\n				print label,desc,icon,mb\n				mb.save()\n			# COMPLEMENTS\n			elif index > 2:\n				if piece == 'BLANK': piece = ''\n				elif piece == 'NONE' : continue\n				elif mb == None: continue\n				\n				if type == 'A':\n					TA = TAction.create(mb)\n					TA.addSuggestion(piece)\n				elif type == 'U':	TUtensil.create(mb,piece)\n				elif type == 'I':	TCC.create(mb,piece)\n			",
 			"file": "/home/ggarri/Project/wikichef/NLG/models.py",
 			"settings":
 			{
-				"buffer_size": 14738,
+				"buffer_size": 14958,
 				"line_ending": "Unix"
 			}
 		}
@@ -140,6 +139,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"receta",
+			"recetas",
+			"PIL",
 			"setT",
 			"site",
 			"step",
@@ -280,8 +282,8 @@
 						"selection":
 						[
 							[
-								9419,
-								9419
+								7471,
+								7475
 							]
 						],
 						"settings":
@@ -290,7 +292,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 3866,
+						"translation.y": 2970,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -307,8 +309,8 @@
 						"selection":
 						[
 							[
-								2830,
-								2833
+								4378,
+								4378
 							]
 						],
 						"settings":
@@ -317,7 +319,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 762,
+						"translation.y": 1220,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -335,7 +337,7 @@
 						[
 							[
 								1783,
-								1786
+								1783
 							]
 						],
 						"settings":
@@ -361,8 +363,8 @@
 						"selection":
 						[
 							[
-								16993,
-								16993
+								287,
+								287
 							]
 						],
 						"settings":
@@ -371,7 +373,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 8346,
+						"translation.y": 8333,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -408,15 +410,15 @@
 					"file": "/home/ggarri/Project/wikichef/NLG/models.py",
 					"settings":
 					{
-						"buffer_size": 14738,
+						"buffer_size": 14958,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3194,
-								3132
+								2493,
+								2493
 							]
 						],
 						"settings":
@@ -424,8 +426,8 @@
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 143,
-						"translation.y": 1248,
+						"translation.x": 0,
+						"translation.y": 912,
 						"zoom_level": 1
 					},
 					"type": "text"

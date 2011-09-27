@@ -33,14 +33,14 @@ I 	PEPPER	| ? |	imgs/pepper.png	|	with
 I 	MILK	| dl |	imgs/milk.png	|	in|of
 I 	WATER	| dl |	imgs/water.png	|	in
 I 	BOILING WATER	| dl |	imgs/boiling_water.png	|	in
+I 	SALT	| gr |	imgs/salt.png	|	with
+I 	FLOUR	| gr |	imgs/flour.png	|	in
 
 I 	ONION	| u |	imgs/onion.png	|	NONE	
 I 	GARLIC	| u |	imgs/garlic.png	|	NONE
 I 	CARROT	| u |	imgs/carrot.png	|	NONE
 I 	EGG	| u |	imgs/egg.png		|	NONE
 I 	BUTTER	| gr |	imgs/butter.png	|	NONE
-I 	FLOUR	| ? |	imgs/flour.png	|	NONE
-I 	SALT	| gr |	imgs/salt.png	|	NONE
 I 	CHEESE	| gr |	imgs/cheese.png	|	NONE
 I 	APPLE	| u |	imgs/apple.png	|	NONE
 I 	CHERRY	| u |	imgs/cherry.png	|	NONE
@@ -50,8 +50,8 @@ I 	TOMATO	| u |	imgs/tomato.png	|	NONE
 I 	PEAS	| kg |	imgs/peas.png	|	NONE
 I 	SAUSAGE	| u |	imgs/sausage.png	|	NONE
 I 	MINCE MEAT	| u |	imgs/mince_meat.png	|	NONE
-I 	CHICKEN MEAT	| u |	imgs/chicken.png	|	NONE
-I 	BEEF MEAT	| u |	imgs/beef.png	|	NONE
+I 	CHICKEN MEAT	| kg |	imgs/chicken.png	|	NONE
+I 	BEEF MEAT	| kg |	imgs/beef.png	|	NONE
 I 	STEAK PIG MEAT	| u |	imgs/steak_pig_meat.png	|	NONE
 I 	SUNFLOWER OIL	| dl |	imgs/sunflower_oil.png	|	NONE
 I 	EGG PLANT	| u |	imgs/eggplant.png	|	NONE

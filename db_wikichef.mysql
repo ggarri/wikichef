@@ -1,0 +1,847 @@
+-- MySQL dump 10.13  Distrib 5.5.16, for Linux (i686)
+--
+-- Host: localhost    Database: db_wikichef
+-- ------------------------------------------------------
+-- Server version	5.5.16-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `MagicController_label`
+--
+
+DROP TABLE IF EXISTS `MagicController_label`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MagicController_label` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `word_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `word_id` (`word_id`),
+  CONSTRAINT `word_id_refs_id_776f8492` FOREIGN KEY (`word_id`) REFERENCES `XGDic_word` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MagicController_label`
+--
+
+LOCK TABLES `MagicController_label` WRITE;
+/*!40000 ALTER TABLE `MagicController_label` DISABLE KEYS */;
+INSERT INTO `MagicController_label` VALUES (65,301),(66,306),(128,307),(67,310),(68,315),(69,317),(70,319),(71,321),(72,323),(73,325),(74,327),(75,329),(76,331),(77,333),(78,335),(79,337),(80,341),(81,346),(82,349),(83,352),(84,355),(85,361),(86,364),(87,367),(88,370),(89,373),(90,379),(91,383),(92,386),(93,390),(94,393),(95,396),(96,399),(97,402),(98,404),(99,406),(100,408),(101,410),(102,412),(103,414),(104,416),(105,418),(106,420),(107,422),(108,424),(109,426),(110,428),(111,430),(112,432),(113,434),(114,436),(115,438),(116,440),(117,442),(118,444),(119,446),(120,448),(121,450),(122,452),(123,456),(124,459),(125,461),(126,463),(127,465),(129,475);
+/*!40000 ALTER TABLE `MagicController_label` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MagicController_magicaction`
+--
+
+DROP TABLE IF EXISTS `MagicController_magicaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MagicController_magicaction` (
+  `magicbutton_ptr_id` int(11) NOT NULL,
+  PRIMARY KEY (`magicbutton_ptr_id`),
+  CONSTRAINT `magicbutton_ptr_id_refs_id_5c12ba4d` FOREIGN KEY (`magicbutton_ptr_id`) REFERENCES `MagicController_magicbutton` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MagicController_magicaction`
+--
+
+LOCK TABLES `MagicController_magicaction` WRITE;
+/*!40000 ALTER TABLE `MagicController_magicaction` DISABLE KEYS */;
+INSERT INTO `MagicController_magicaction` VALUES (67),(68),(69),(70),(71),(72),(73),(74),(75),(76),(77),(78),(79),(80);
+/*!40000 ALTER TABLE `MagicController_magicaction` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MagicController_magicbutton`
+--
+
+DROP TABLE IF EXISTS `MagicController_magicbutton`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MagicController_magicbutton` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description_id` int(11) NOT NULL,
+  `isTemporal` tinyint(1) NOT NULL,
+  `icon` varchar(100) NOT NULL,
+  `label_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MagicController_magicbutton_6fd36975` (`description_id`),
+  KEY `MagicController_magicbutton_63868627` (`label_id`),
+  CONSTRAINT `description_id_refs_id_c663e51` FOREIGN KEY (`description_id`) REFERENCES `XGDic_word` (`id`),
+  CONSTRAINT `label_id_refs_id_1a145d78` FOREIGN KEY (`label_id`) REFERENCES `MagicController_label` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MagicController_magicbutton`
+--
+
+LOCK TABLES `MagicController_magicbutton` WRITE;
+/*!40000 ALTER TABLE `MagicController_magicbutton` DISABLE KEYS */;
+INSERT INTO `MagicController_magicbutton` VALUES (67,302,0,'imgs/mince.png',65),(68,307,0,'imgs/fry.png',66),(69,311,0,'imgs/heat.png',67),(70,316,0,'imgs/coat.png',68),(71,318,0,'imgs/boil.png',69),(72,320,0,'imgs/drain.png',70),(73,322,0,'imgs/combine.png',71),(74,324,0,'imgs/stir.png',72),(75,326,0,'imgs/whisk_A.png',73),(76,328,0,'imgs/bake.png',74),(77,330,0,'imgs/season.png',75),(78,332,0,'imgs/rinse.png',76),(79,334,0,'imgs/cool.png',77),(80,336,0,'imgs/mixer_A.png',78),(81,338,0,'imgs/oven.png',79),(82,342,0,'imgs/spoon.png',80),(83,347,0,'imgs/teaspoon.png',81),(84,350,0,'imgs/cup.png',82),(85,353,0,'imgs/pot.png',83),(86,356,0,'imgs/saucepan.png',84),(87,359,0,'imgs/mixer.png',78),(88,362,0,'imgs/strainer.png',85),(89,365,0,'imgs/fridge.png',86),(90,368,0,'imgs/knife.png',87),(91,371,0,'imgs/fork.png',88),(92,374,0,'imgs/grater.png',89),(93,377,0,'imgs/whisk.png',73),(94,380,0,'imgs/olive_oil.png',90),(95,384,0,'imgs/pepper.png',91),(96,387,0,'imgs/milk.png',92),(97,391,0,'imgs/water.png',93),(98,394,0,'imgs/boiling_water.png',94),(99,397,0,'imgs/salt.png',95),(100,400,0,'imgs/flour.png',96),(101,403,0,'imgs/onion.png',97),(102,405,0,'imgs/garlic.png',98),(103,407,0,'imgs/carrot.png',99),(104,409,0,'imgs/egg.png',100),(105,411,0,'imgs/butter.png',101),(106,413,0,'imgs/cheese.png',102),(107,415,0,'imgs/apple.png',103),(108,417,0,'imgs/cherry.png',104),(109,419,0,'imgs/pasta.png',105),(110,421,0,'imgs/sauce_tomato.png',106),(111,423,0,'imgs/tomato.png',107),(112,425,0,'imgs/peas.png',108),(113,427,0,'imgs/sausage.png',109),(114,429,0,'imgs/mince_meat.png',110),(115,431,0,'imgs/chicken.png',111),(116,433,0,'imgs/beef.png',112),(117,435,0,'imgs/steak_pig_meat.png',113),(118,437,0,'imgs/sunflower_oil.png',114),(119,439,0,'imgs/eggplant.png',115),(120,441,0,'imgs/strawberry.png',116),(121,443,0,'imgs/mushroom.png',117),(122,445,0,'imgs/banana.png',118),(123,447,0,'imgs/potato.png',119),(124,449,0,'imgs/red_pepper.png',120),(125,451,0,'imgs/green_pepper.png',121),(126,453,0,'imgs/cucumber.png',122),(127,457,0,'imgs/default.png',123),(128,460,0,'imgs/default.png',124),(129,462,0,'imgs/default.png',125),(130,464,0,'imgs/default.png',126),(131,466,0,'imgs/default.png',127);
+/*!40000 ALTER TABLE `MagicController_magicbutton` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MagicController_magiccombination`
+--
+
+DROP TABLE IF EXISTS `MagicController_magiccombination`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MagicController_magiccombination` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MagicController_magiccombination`
+--
+
+LOCK TABLES `MagicController_magiccombination` WRITE;
+/*!40000 ALTER TABLE `MagicController_magiccombination` DISABLE KEYS */;
+INSERT INTO `MagicController_magiccombination` VALUES (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12),(13),(14),(15),(16),(17),(18),(19),(20),(21),(22),(23),(24),(25),(26),(27),(28),(29),(30),(31),(32),(33),(34),(35);
+/*!40000 ALTER TABLE `MagicController_magiccombination` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MagicController_magiccombination_MBs`
+--
+
+DROP TABLE IF EXISTS `MagicController_magiccombination_MBs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MagicController_magiccombination_MBs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `magiccombination_id` int(11) NOT NULL,
+  `magicbutton_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `magiccombination_id` (`magiccombination_id`,`magicbutton_id`),
+  KEY `MagicController_magiccombination_MBs_3313c0da` (`magiccombination_id`),
+  KEY `MagicController_magiccombination_MBs_41d0dab2` (`magicbutton_id`),
+  CONSTRAINT `magicbutton_id_refs_id_4d7db7a2` FOREIGN KEY (`magicbutton_id`) REFERENCES `MagicController_magicbutton` (`id`),
+  CONSTRAINT `magiccombination_id_refs_id_299d74f6` FOREIGN KEY (`magiccombination_id`) REFERENCES `MagicController_magiccombination` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MagicController_magiccombination_MBs`
+--
+
+LOCK TABLES `MagicController_magiccombination_MBs` WRITE;
+/*!40000 ALTER TABLE `MagicController_magiccombination_MBs` DISABLE KEYS */;
+INSERT INTO `MagicController_magiccombination_MBs` VALUES (118,30,67),(119,30,90),(120,30,101),(121,30,102),(122,31,69),(124,31,86),(123,31,114),(126,32,69),(128,32,127),(127,32,128),(129,33,71),(131,33,99),(130,33,109),(132,34,73),(133,34,129),(134,34,130);
+/*!40000 ALTER TABLE `MagicController_magiccombination_MBs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MagicController_magicingredient`
+--
+
+DROP TABLE IF EXISTS `MagicController_magicingredient`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MagicController_magicingredient` (
+  `magicbutton_ptr_id` int(11) NOT NULL,
+  `unit` varchar(2) NOT NULL,
+  `isStep` tinyint(1) NOT NULL,
+  PRIMARY KEY (`magicbutton_ptr_id`),
+  CONSTRAINT `magicbutton_ptr_id_refs_id_495e8836` FOREIGN KEY (`magicbutton_ptr_id`) REFERENCES `MagicController_magicbutton` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MagicController_magicingredient`
+--
+
+LOCK TABLES `MagicController_magicingredient` WRITE;
+/*!40000 ALTER TABLE `MagicController_magicingredient` DISABLE KEYS */;
+INSERT INTO `MagicController_magicingredient` VALUES (94,'dl',0),(95,'?',0),(96,'dl',0),(97,'dl',0),(98,'dl',0),(99,'gr',0),(100,'gr',0),(101,'u',0),(102,'u',0),(103,'u',0),(104,'u',0),(105,'gr',0),(106,'gr',0),(107,'u',0),(108,'u',0),(109,'kg',0),(110,'gr',0),(111,'u',0),(112,'kg',0),(113,'u',0),(114,'u',0),(115,'kg',0),(116,'kg',0),(117,'u',0),(118,'dl',0),(119,'u',0),(120,'u',0),(121,'u',0),(122,'u',0),(123,'kg',0),(124,'u',0),(125,'u',0),(126,'u',0),(127,'?',1),(128,'?',1),(129,'?',1),(130,'?',1),(131,'?',1);
+/*!40000 ALTER TABLE `MagicController_magicingredient` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MagicController_magicutensil`
+--
+
+DROP TABLE IF EXISTS `MagicController_magicutensil`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `MagicController_magicutensil` (
+  `magicbutton_ptr_id` int(11) NOT NULL,
+  PRIMARY KEY (`magicbutton_ptr_id`),
+  CONSTRAINT `magicbutton_ptr_id_refs_id_3ee7857c` FOREIGN KEY (`magicbutton_ptr_id`) REFERENCES `MagicController_magicbutton` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MagicController_magicutensil`
+--
+
+LOCK TABLES `MagicController_magicutensil` WRITE;
+/*!40000 ALTER TABLE `MagicController_magicutensil` DISABLE KEYS */;
+INSERT INTO `MagicController_magicutensil` VALUES (81),(82),(83),(84),(85),(86),(87),(88),(89),(90),(91),(92),(93);
+/*!40000 ALTER TABLE `MagicController_magicutensil` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NLG_taction`
+--
+
+DROP TABLE IF EXISTS `NLG_taction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NLG_taction` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `button_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `button_id` (`button_id`),
+  CONSTRAINT `button_id_refs_magicbutton_ptr_id_7d175e46` FOREIGN KEY (`button_id`) REFERENCES `MagicController_magicaction` (`magicbutton_ptr_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NLG_taction`
+--
+
+LOCK TABLES `NLG_taction` WRITE;
+/*!40000 ALTER TABLE `NLG_taction` DISABLE KEYS */;
+INSERT INTO `NLG_taction` VALUES (27,67),(28,68),(29,69),(31,71),(30,73),(32,76);
+/*!40000 ALTER TABLE `NLG_taction` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NLG_taction_suggestion`
+--
+
+DROP TABLE IF EXISTS `NLG_taction_suggestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NLG_taction_suggestion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `taction_id` int(11) NOT NULL,
+  `word_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `taction_id` (`taction_id`,`word_id`),
+  KEY `NLG_taction_suggestion_750ef343` (`taction_id`),
+  KEY `NLG_taction_suggestion_4b95d890` (`word_id`),
+  CONSTRAINT `taction_id_refs_id_6ab33c31` FOREIGN KEY (`taction_id`) REFERENCES `NLG_taction` (`id`),
+  CONSTRAINT `word_id_refs_id_78ecda2` FOREIGN KEY (`word_id`) REFERENCES `XGDic_word` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NLG_taction_suggestion`
+--
+
+LOCK TABLES `NLG_taction_suggestion` WRITE;
+/*!40000 ALTER TABLE `NLG_taction_suggestion` DISABLE KEYS */;
+INSERT INTO `NLG_taction_suggestion` VALUES (1,27,303),(2,27,304),(3,27,305),(4,28,308),(5,28,309),(6,29,312),(7,29,313),(8,29,314);
+/*!40000 ALTER TABLE `NLG_taction_suggestion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NLG_tcc`
+--
+
+DROP TABLE IF EXISTS `NLG_tcc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NLG_tcc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `button_id` int(11) NOT NULL,
+  `preposition_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `NLG_tcc_504613b2` (`button_id`),
+  KEY `NLG_tcc_16e92571` (`preposition_id`),
+  CONSTRAINT `button_id_refs_magicbutton_ptr_id_3a22821d` FOREIGN KEY (`button_id`) REFERENCES `MagicController_magicingredient` (`magicbutton_ptr_id`),
+  CONSTRAINT `preposition_id_refs_id_3f124ee0` FOREIGN KEY (`preposition_id`) REFERENCES `XGDic_word` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NLG_tcc`
+--
+
+LOCK TABLES `NLG_tcc` WRITE;
+/*!40000 ALTER TABLE `NLG_tcc` DISABLE KEYS */;
+INSERT INTO `NLG_tcc` VALUES (43,94,381),(44,94,382),(45,95,385),(46,96,388),(47,96,389),(48,97,392),(49,98,395),(50,99,398),(51,100,401),(52,105,478);
+/*!40000 ALTER TABLE `NLG_tcc` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NLG_template`
+--
+
+DROP TABLE IF EXISTS `NLG_template`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NLG_template` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `action_id` (`action_id`),
+  CONSTRAINT `action_id_refs_id_397ea752` FOREIGN KEY (`action_id`) REFERENCES `NLG_taction` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NLG_template`
+--
+
+LOCK TABLES `NLG_template` WRITE;
+/*!40000 ALTER TABLE `NLG_template` DISABLE KEYS */;
+INSERT INTO `NLG_template` VALUES (25,27),(30,28),(26,29),(27,30),(28,31),(29,32);
+/*!40000 ALTER TABLE `NLG_template` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NLG_template_cc`
+--
+
+DROP TABLE IF EXISTS `NLG_template_cc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NLG_template_cc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `template_id` int(11) NOT NULL,
+  `tcc_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `template_id` (`template_id`,`tcc_id`),
+  KEY `NLG_template_cc_1e0a3f4a` (`template_id`),
+  KEY `NLG_template_cc_77cb75cd` (`tcc_id`),
+  CONSTRAINT `tcc_id_refs_id_66c4e280` FOREIGN KEY (`tcc_id`) REFERENCES `NLG_tcc` (`id`),
+  CONSTRAINT `template_id_refs_id_1f361c55` FOREIGN KEY (`template_id`) REFERENCES `NLG_template` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NLG_template_cc`
+--
+
+LOCK TABLES `NLG_template_cc` WRITE;
+/*!40000 ALTER TABLE `NLG_template_cc` DISABLE KEYS */;
+INSERT INTO `NLG_template_cc` VALUES (13,30,52);
+/*!40000 ALTER TABLE `NLG_template_cc` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NLG_template_utensil`
+--
+
+DROP TABLE IF EXISTS `NLG_template_utensil`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NLG_template_utensil` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `template_id` int(11) NOT NULL,
+  `tutensil_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `template_id` (`template_id`,`tutensil_id`),
+  KEY `NLG_template_utensil_1e0a3f4a` (`template_id`),
+  KEY `NLG_template_utensil_7b1b8d2e` (`tutensil_id`),
+  CONSTRAINT `template_id_refs_id_54aeb890` FOREIGN KEY (`template_id`) REFERENCES `NLG_template` (`id`),
+  CONSTRAINT `tutensil_id_refs_id_2dc2c1ec` FOREIGN KEY (`tutensil_id`) REFERENCES `NLG_tutensil` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NLG_template_utensil`
+--
+
+LOCK TABLES `NLG_template_utensil` WRITE;
+/*!40000 ALTER TABLE `NLG_template_utensil` DISABLE KEYS */;
+INSERT INTO `NLG_template_utensil` VALUES (12,25,111),(13,26,112),(14,29,113);
+/*!40000 ALTER TABLE `NLG_template_utensil` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NLG_tutensil`
+--
+
+DROP TABLE IF EXISTS `NLG_tutensil`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NLG_tutensil` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `button_id` int(11) NOT NULL,
+  `preposition_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `NLG_tutensil_504613b2` (`button_id`),
+  KEY `NLG_tutensil_16e92571` (`preposition_id`),
+  CONSTRAINT `button_id_refs_magicbutton_ptr_id_163157b2` FOREIGN KEY (`button_id`) REFERENCES `MagicController_magicutensil` (`magicbutton_ptr_id`),
+  CONSTRAINT `preposition_id_refs_id_10728363` FOREIGN KEY (`preposition_id`) REFERENCES `XGDic_word` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NLG_tutensil`
+--
+
+LOCK TABLES `NLG_tutensil` WRITE;
+/*!40000 ALTER TABLE `NLG_tutensil` DISABLE KEYS */;
+INSERT INTO `NLG_tutensil` VALUES (93,81,339),(94,81,340),(95,82,343),(96,82,344),(97,82,345),(98,83,348),(99,84,351),(100,85,354),(101,86,357),(102,86,358),(103,87,360),(104,88,363),(105,89,366),(106,90,369),(107,91,372),(108,81,375),(109,81,376),(110,93,378),(111,90,455),(112,86,458),(113,81,477);
+/*!40000 ALTER TABLE `NLG_tutensil` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `RecipeController_amount`
+--
+
+DROP TABLE IF EXISTS `RecipeController_amount`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `RecipeController_amount` (
+  `pk2` varchar(20) NOT NULL,
+  `amount` double NOT NULL,
+  `ingredient_id` int(11) NOT NULL,
+  `step_id` varchar(20) NOT NULL,
+  PRIMARY KEY (`pk2`),
+  UNIQUE KEY `ingredient_id` (`ingredient_id`,`step_id`),
+  KEY `RecipeController_amount_78058839` (`ingredient_id`),
+  KEY `RecipeController_amount_1079ee62` (`step_id`),
+  CONSTRAINT `ingredient_id_refs_magicbutton_ptr_id_43282e2c` FOREIGN KEY (`ingredient_id`) REFERENCES `MagicController_magicingredient` (`magicbutton_ptr_id`),
+  CONSTRAINT `step_id_refs_pk2_1b75be2d` FOREIGN KEY (`step_id`) REFERENCES `RecipeController_step` (`pk2`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RecipeController_amount`
+--
+
+LOCK TABLES `RecipeController_amount` WRITE;
+/*!40000 ALTER TABLE `RecipeController_amount` DISABLE KEYS */;
+INSERT INTO `RecipeController_amount` VALUES ('12-30-101',3,101,'12-30'),('12-30-102',3,102,'12-30'),('12-31-114',3,114,'12-31'),('12-32-127',100,127,'12-32'),('12-32-128',100,128,'12-32'),('12-33-109',3,109,'12-33'),('12-33-99',3,99,'12-33'),('12-34-129',100,129,'12-34'),('12-34-130',100,130,'12-34');
+/*!40000 ALTER TABLE `RecipeController_amount` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `RecipeController_recipe`
+--
+
+DROP TABLE IF EXISTS `RecipeController_recipe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `RecipeController_recipe` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `language` varchar(2) NOT NULL,
+  `description_id` int(11) NOT NULL,
+  `time` int(10) unsigned NOT NULL,
+  `difficult` varchar(20) NOT NULL,
+  `nPerson` int(10) unsigned NOT NULL,
+  `img` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `RecipeController_recipe_6fd36975` (`description_id`),
+  CONSTRAINT `description_id_refs_id_105d8c3` FOREIGN KEY (`description_id`) REFERENCES `XGDic_word` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RecipeController_recipe`
+--
+
+LOCK TABLES `RecipeController_recipe` WRITE;
+/*!40000 ALTER TABLE `RecipeController_recipe` DISABLE KEYS */;
+INSERT INTO `RecipeController_recipe` VALUES (12,'Pasta Boloñesa','es',307,30,'EASY',4,'imgs/Penne_Bolognese_2.jpg');
+/*!40000 ALTER TABLE `RecipeController_recipe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `RecipeController_step`
+--
+
+DROP TABLE IF EXISTS `RecipeController_step`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `RecipeController_step` (
+  `pk2` varchar(20) NOT NULL,
+  `phase` int(11) NOT NULL,
+  `combination_id` int(11) NOT NULL,
+  `recipe_id` int(11) NOT NULL,
+  `time` int(10) unsigned NOT NULL,
+  `comments_id` int(11) NOT NULL,
+  PRIMARY KEY (`pk2`),
+  UNIQUE KEY `phase` (`phase`,`recipe_id`),
+  KEY `RecipeController_step_5e8c4cd2` (`combination_id`),
+  KEY `RecipeController_step_3aaddec4` (`recipe_id`),
+  KEY `RecipeController_step_e7c9d12` (`comments_id`),
+  CONSTRAINT `combination_id_refs_id_f19fd3f` FOREIGN KEY (`combination_id`) REFERENCES `MagicController_magiccombination` (`id`),
+  CONSTRAINT `comments_id_refs_id_4f81d1cd` FOREIGN KEY (`comments_id`) REFERENCES `XGDic_word` (`id`),
+  CONSTRAINT `recipe_id_refs_id_6b0277e3` FOREIGN KEY (`recipe_id`) REFERENCES `RecipeController_recipe` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `RecipeController_step`
+--
+
+LOCK TABLES `RecipeController_step` WRITE;
+/*!40000 ALTER TABLE `RecipeController_step` DISABLE KEYS */;
+INSERT INTO `RecipeController_step` VALUES ('12-30',0,30,12,30,467),('12-31',1,31,12,30,468),('12-32',2,32,12,30,469),('12-33',3,33,12,30,470),('12-34',4,34,12,30,471);
+/*!40000 ALTER TABLE `RecipeController_step` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `XGDic_word`
+--
+
+DROP TABLE IF EXISTS `XGDic_word`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `XGDic_word` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `en` varchar(500) NOT NULL,
+  `es` varchar(500) NOT NULL,
+  `de` varchar(500) NOT NULL,
+  `fr` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=479 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `XGDic_word`
+--
+
+LOCK TABLES `XGDic_word` WRITE;
+/*!40000 ALTER TABLE `XGDic_word` DISABLE KEYS */;
+INSERT INTO `XGDic_word` VALUES (301,'mince','picar','mund','hacher'),(302,'chop up','despedazar','zerkleinern','hacher'),(303,'small slices','pequeños sectores','kleine segmente','petites tranches'),(304,'medium slices','sectores medianos','mittlere scheiben','tranches moyennes'),(305,'big slices','grandes sectores','große scheiben','grandes tranches'),(306,'fry','freír','braten','frire'),(307,'','','',''),(308,'a little oil','un poco de aceite','ein wenig öl','un peu d\'huile'),(309,'quite much oil','bastante mucho petróleo','ganz viel öl','assez d\'huile'),(310,'heat','calentar','hitze','chaleur'),(311,'','','',''),(312,'at a low heat','en un fuego lento','bei schwacher hitze','à feu doux'),(313,'at a medium heat','a fuego medio','bei mittlerer hitze','à un feu moyen'),(314,'at a high heat','en un alto calor','bei einer hohen hitze','à une chaleur élevée'),(315,'coat','recubrir','mantel','enduire'),(316,'','','',''),(317,'boil','hervir','kochen','bouillir'),(318,'','','',''),(319,'drain','drenar','entwässern','drainer'),(320,'','','',''),(321,'combine','combinar','kombinieren','combiner'),(322,'','','',''),(323,'stir','revolver','rühren','remuer'),(324,'','','',''),(325,'whisk','trabajar','drink','fouetter'),(326,'','','',''),(327,'bake','hornear','backen','cuire'),(328,'','','',''),(329,'season','temporada','saison','saison'),(330,'','','',''),(331,'rinse','enjuagar','spülen','rincer'),(332,'','','',''),(333,'cool','enfriar','abkühlen','refroidir'),(334,'','','',''),(335,'mixer','mezclador','mischpult','mélangeur'),(336,'','','',''),(337,'oven','horno','ofen','four'),(338,'','','',''),(339,'in','en','in','dans'),(340,'','','',''),(341,'spoon','cuchara','löffel','cuillère'),(342,'','','',''),(343,'with','con','mit','avec'),(344,'a','un','ein','un'),(345,'','','',''),(346,'tea spoon','cuchara de té','teelöffel','cuillère de thé'),(347,'','','',''),(348,'a','un','ein','un'),(349,'cup','copa','tasse','coupe'),(350,'','','',''),(351,'a','un','ein','un'),(352,'pot','bote','pot','pot'),(353,'','','',''),(354,'in a','en un','in einer','dans un'),(355,'saucepan','sartén','topf','casserole'),(356,'','','',''),(357,'in a','en un','in einer','dans un'),(358,'with a','con un','mit einer','avec un'),(359,'','','',''),(360,'with the','con la','mit der','avec la'),(361,'strainer','colador','schmutzfänger','passoire'),(362,'','','',''),(363,'with the','con la','mit der','avec la'),(364,'fridge','nevera','kühlschrank','réfrigérateur'),(365,'','','',''),(366,'in','en','in','dans'),(367,'knife','cuchillo','messer','couteau'),(368,'','','',''),(369,'with the','con la','mit der','avec la'),(370,'fork','horquilla','gabel','fourche'),(371,'','','',''),(372,'with a','con un','mit einer','avec un'),(373,'grater','rallador','reibe','râpe'),(374,'','','',''),(375,'in','en','in','dans'),(376,'','','',''),(377,'','','',''),(378,'with the','con la','mit der','avec la'),(379,'olive oil','aceite de oliva','olivenöl','huile d\'olive'),(380,'','','',''),(381,'with','con','mit','avec'),(382,'in','en','in','dans'),(383,'pepper','pimienta','pfeffer','poivre'),(384,'','','',''),(385,'with','con','mit','avec'),(386,'milk','leche','milch','lait'),(387,'','','',''),(388,'in','en','in','dans'),(389,'of','de','der','de'),(390,'water','agua','wasser','eau'),(391,'','','',''),(392,'in','en','in','dans'),(393,'boiling water','agua hirviendo','kochendes wasser','l\'eau bouillante'),(394,'','','',''),(395,'in','en','in','dans'),(396,'salt','sal','salz','sel'),(397,'','','',''),(398,'with','con','mit','avec'),(399,'flour','harina','mehl','farine'),(400,'','','',''),(401,'in','en','in','dans'),(402,'onion','cebolla','zwiebel','oignon'),(403,'','','',''),(404,'garlic','ajo','knoblauch','ail'),(405,'','','',''),(406,'carrot','zanahoria','möhre','carotte'),(407,'','','',''),(408,'egg','huevo','ei','œuf'),(409,'','','',''),(410,'butter','mantequilla','butter','beurre'),(411,'','','',''),(412,'cheese','queso','käse','fromage'),(413,'','','',''),(414,'apple','apple','apple','apple'),(415,'','','',''),(416,'cherry','cherry','kirsche','cherry'),(417,'','','',''),(418,'pasta','pasta','teigwaren','pâtes'),(419,'','','',''),(420,'tomato sauce','salsa de tomate','tomatensauce','sauce tomate'),(421,'','','',''),(422,'tomato','tomate','tomaten','tomate'),(423,'','','',''),(424,'peas','guisantes','erbsen','pois'),(425,'','','',''),(426,'sausage','salchicha','wurst','saucisse'),(427,'','','',''),(428,'mince meat','carne picada','hackfleisch','viande hachis'),(429,'','','',''),(430,'chicken meat','carne de pollo','hühnerfleisch','viande de poulet'),(431,'','','',''),(432,'beef meat','carne de vacuno','rindfleisch','viande de boeuf'),(433,'','','',''),(434,'steak pig meat','carne de cerdo steak','schweinefleisch steak','viande de porc de steak'),(435,'','','',''),(436,'sunflower oil','aceite de girasol','sonnenblumenöl','huile de tournesol'),(437,'','','',''),(438,'egg plant','planta de huevo','aubergine','aubergine'),(439,'','','',''),(440,'strawberry','fresa','erdbeere','fraise'),(441,'','','',''),(442,'mushroom','seta','pilz','champignon'),(443,'','','',''),(444,'banana','banana','banane','banane'),(445,'','','',''),(446,'potato','patata','kartoffel','pomme de terre'),(447,'','','',''),(448,'red pepper','pimiento rojo','paprika','poivron rouge'),(449,'','','',''),(450,'green pepper','pimienta verde','grüner pfeffer','poivre vert'),(451,'','','',''),(452,'cucumber','pepino','gurke','concombre'),(453,'','','',''),(454,'and','y','und','et'),(455,'with the','con el','mit der','avec la'),(456,'step1','paso 1','schritt 1','étape'),(457,'','','',''),(458,'with the','con la','mit der','avec la'),(459,'step2','paso 2','schritt 2','step2'),(460,'','','',''),(461,'step3','paso 3','schritt 3','step3'),(462,'','','',''),(463,'step4','paso4','schritt 4','step4'),(464,'','','',''),(465,'step5','step5','schritt 5','step5'),(466,'','','',''),(467,'','','',''),(468,'','','',''),(469,'','','',''),(470,'','','',''),(471,'','','',''),(472,'for 30 minutes','durante 30 minutos','für 30 minuten','pendant 30 minutes'),(473,'pasta bolognese','pasta boloñesa','teigwaren bolognese','pâtes bolognese'),(474,'','','',''),(475,'move','mover','verschieben','déménagement'),(476,'','','',''),(477,'in','en el','in der','dans la'),(478,'with','con','mit','avec');
+/*!40000 ALTER TABLE `XGDic_word` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `group_id` (`group_id`,`permission_id`),
+  KEY `auth_group_permissions_425ae3c4` (`group_id`),
+  KEY `auth_group_permissions_1e014c8f` (`permission_id`),
+  CONSTRAINT `group_id_refs_id_3cea63fe` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `permission_id_refs_id_5886d21f` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_message`
+--
+
+DROP TABLE IF EXISTS `auth_message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `message` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `auth_message_403f60f` (`user_id`),
+  CONSTRAINT `user_id_refs_id_650f49a6` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_message`
+--
+
+LOCK TABLES `auth_message` WRITE;
+/*!40000 ALTER TABLE `auth_message` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_message` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
+  KEY `auth_permission_1bb8f392` (`content_type_id`),
+  CONSTRAINT `content_type_id_refs_id_728de91f` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add permission',1,'add_permission'),(2,'Can change permission',1,'change_permission'),(3,'Can delete permission',1,'delete_permission'),(4,'Can add group',2,'add_group'),(5,'Can change group',2,'change_group'),(6,'Can delete group',2,'delete_group'),(7,'Can add user',3,'add_user'),(8,'Can change user',3,'change_user'),(9,'Can delete user',3,'delete_user'),(10,'Can add message',4,'add_message'),(11,'Can change message',4,'change_message'),(12,'Can delete message',4,'delete_message'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can add session',6,'add_session'),(17,'Can change session',6,'change_session'),(18,'Can delete session',6,'delete_session'),(19,'Can add site',7,'add_site'),(20,'Can change site',7,'change_site'),(21,'Can delete site',7,'delete_site'),(22,'Can add log entry',8,'add_logentry'),(23,'Can change log entry',8,'change_logentry'),(24,'Can delete log entry',8,'delete_logentry'),(25,'Can add recipe',9,'add_recipe'),(26,'Can change recipe',9,'change_recipe'),(27,'Can delete recipe',9,'delete_recipe'),(28,'Can add step',10,'add_step'),(29,'Can change step',10,'change_step'),(30,'Can delete step',10,'delete_step'),(31,'Can add amount',11,'add_amount'),(32,'Can change amount',11,'change_amount'),(33,'Can delete amount',11,'delete_amount'),(34,'Can add label',12,'add_label'),(35,'Can change label',12,'change_label'),(36,'Can delete label',12,'delete_label'),(37,'Can add Magic Button',13,'add_magicbutton'),(38,'Can change Magic Button',13,'change_magicbutton'),(39,'Can delete Magic Button',13,'delete_magicbutton'),(40,'Can add magic utensil',14,'add_magicutensil'),(41,'Can change magic utensil',14,'change_magicutensil'),(42,'Can delete magic utensil',14,'delete_magicutensil'),(43,'Can add magic action',15,'add_magicaction'),(44,'Can change magic action',15,'change_magicaction'),(45,'Can delete magic action',15,'delete_magicaction'),(46,'Can add magic ingredient',16,'add_magicingredient'),(47,'Can change magic ingredient',16,'change_magicingredient'),(48,'Can delete magic ingredient',16,'delete_magicingredient'),(49,'Can add Magic Combination',17,'add_magiccombination'),(50,'Can change Magic Combination',17,'change_magiccombination'),(51,'Can delete Magic Combination',17,'delete_magiccombination'),(52,'Can add template',18,'add_template'),(53,'Can change template',18,'change_template'),(54,'Can delete template',18,'delete_template'),(55,'Can add t action',19,'add_taction'),(56,'Can change t action',19,'change_taction'),(57,'Can delete t action',19,'delete_taction'),(58,'Can add t utensil',20,'add_tutensil'),(59,'Can change t utensil',20,'change_tutensil'),(60,'Can delete t utensil',20,'delete_tutensil'),(61,'Can add tcc',21,'add_tcc'),(62,'Can change tcc',21,'change_tcc'),(63,'Can delete tcc',21,'delete_tcc'),(64,'Can add word',22,'add_word'),(65,'Can change word',22,'change_word'),(66,'Can delete word',22,'delete_word');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user`
+--
+
+DROP TABLE IF EXISTS `auth_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `email` varchar(75) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `last_login` datetime NOT NULL,
+  `date_joined` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` VALUES (1,'ggarri','','','ggarri@gmail.com','sha1$22ebb$40c78e444d38223023a494eced0582a9bf037284',1,1,1,'2011-09-21 14:12:12','2011-09-21 14:12:12');
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_groups`
+--
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`group_id`),
+  KEY `auth_user_groups_403f60f` (`user_id`),
+  KEY `auth_user_groups_425ae3c4` (`group_id`),
+  CONSTRAINT `group_id_refs_id_f116770` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `user_id_refs_id_7ceef80f` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+LOCK TABLES `auth_user_groups` WRITE;
+/*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permissions_403f60f` (`user_id`),
+  KEY `auth_user_user_permissions_1e014c8f` (`permission_id`),
+  CONSTRAINT `permission_id_refs_id_67e79cb` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `user_id_refs_id_dfbab7d` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+LOCK TABLES `auth_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_time` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `content_type_id` int(11) DEFAULT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint(5) unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_403f60f` (`user_id`),
+  KEY `django_admin_log_1bb8f392` (`content_type_id`),
+  CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_content_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `app_label` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (1,'permission','auth','permission'),(2,'group','auth','group'),(3,'user','auth','user'),(4,'message','auth','message'),(5,'content type','contenttypes','contenttype'),(6,'session','sessions','session'),(7,'site','sites','site'),(8,'log entry','admin','logentry'),(9,'recipe','RecipeController','recipe'),(10,'step','RecipeController','step'),(11,'amount','RecipeController','amount'),(12,'label','MagicController','label'),(13,'Magic Button','MagicController','magicbutton'),(14,'magic utensil','MagicController','magicutensil'),(15,'magic action','MagicController','magicaction'),(16,'magic ingredient','MagicController','magicingredient'),(17,'Magic Combination','MagicController','magiccombination'),(18,'template','NLG','template'),(19,'t action','NLG','taction'),(20,'t utensil','NLG','tutensil'),(21,'tcc','NLG','tcc'),(22,'word','XGDic','word');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_3da3d3d8` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('422815be1f64258e7418b8240f2ef2a5','N2U4ZWU2YWU1MmE2NzgwYjQ3MWQ3Nzg1MjcwMjc5YTAwODNkMjhjZTqAAn1xAShVA2xhbnECVQJl\nbnEDVQ9kamFuZ29fbGFuZ3VhZ2VxBGgDVQdsYW5MaXN0cQVdcQYoVQJkZXEHVQZHZXJtYW5xCIZx\nCWgDVQdFbmdsaXNocQqGcQtVAmZycQxVBkZyZW5jaHENhnEOVQJlc3EPVQdTcGFuaXNocRCGcRFl\nVQVzdGF0ZXESVQdpbml0aWFscRN1Lg==\n','2011-10-09 21:20:05'),('44fa5b05801b608def55692e26973594','Y2E0NWQyNmMxZDI2ZWFjYjE1Y2M5MTFiYzgwNDkxODg4NGRkYTJjYTqAAn1xAShVA2xhblgCAAAA\nZXNxAlUMc3RyZWFtUmVjaXBlY2RqYW5nby5kYi5tb2RlbHMuYmFzZQptb2RlbF91bnBpY2tsZQpx\nA2NSZWNpcGVDb250cm9sbGVyLm1vZGVscwpSZWNpcGUKcQRdY2RqYW5nby5kYi5tb2RlbHMuYmFz\nZQpzaW1wbGVfY2xhc3NfZmFjdG9yeQpxBYdScQZ9cQcoVQNpbWdxCFUWaW1ncy9kZWZhdWx0UmVj\naXBlLnBuZ1UIbGFuZ3VhZ2VxCVgCAAAAZW5VBXRpdGxlcQpYBQAAAFByb29mVQ5kZXNjcmlwdGlv\nbl9pZHELigEHVRJfZGVzY3JpcHRpb25fY2FjaGVxDGgDY1hHRGljLm1vZGVscwpXb3JkCnENXWgF\nh1JxDn1xDyhVAmZycRBYAAAAAFUCZW5xEVgAAAAAVQJkZXESWAAAAABVBl9zdGF0ZXETY2RqYW5n\nby5kYi5tb2RlbHMuYmFzZQpNb2RlbFN0YXRlCnEUKYFxFX1xFihVBmFkZGluZ3EXiVUCZGJxGFUH\nZGVmYXVsdHEZdWJVAmlkcRqKAQdVAmVzcRtYAAAAAHViaBNoFCmBcRx9cR0oaBeJaBhoGXViVQR0\naW1lcR5LHlUHblBlcnNvbnEfSwRoGk5VCWRpZmZpY3VsdHEgWAwAAABJTlRFUk1FRElBVEV1YlUH\nbGFuTGlzdF1xIShVAmRlVQZHZXJtYW6GcSJVAmVuVQdFbmdsaXNohnEjVQJmclUGRnJlbmNohnEk\nVQJlc1UHU3BhbmlzaIZxJWVVCW1zZ19lcnJvclUAVQVzdGF0ZVUHcHJvY2Vzc1UTaW5ncmVkaWVu\ndHNTZWxlY3RlZF1xJihoA2NNYWdpY0NvbnRyb2xsZXIubW9kZWxzCk1hZ2ljSW5ncmVkaWVudApx\nJ11oBYdScSh9cSkoVRJtYWdpY2J1dHRvbl9wdHJfaWRxKooBIWgLigFgaBNoFCmBcSt9cSwoaBeJ\naBhVB2RlZmF1bHR1YlUKaXNUZW1wb3JhbHEtiVUIbGFiZWxfaWRxLooBH1UGaXNTdGVwcS+JaBqK\nASFVBHVuaXRxMFgBAAAAdVUEaWNvbnExWA8AAABpbWdzL2dhcmxpYy5wbmd1YmgDaCddaAWHUnEy\nfXEzKGgqigEgaAuKAV5oE2gUKYFxNH1xNShoF4loGFUHZGVmYXVsdHViaC2JaC6KAR5oL4loGooB\nIGgwWAEAAAB1aDFYDgAAAGltZ3Mvb25pb24ucG5ndWJoA2gnXWgFh1JxNn1xNyhoKooBL2gLigF8\naBNoFCmBcTh9cTkoaBeJaBhVB2RlZmF1bHR1YmgtiWguigEtaC+JaBqKAS9oMFgBAAAAdWgxWBMA\nAABpbWdzL21pbmNlX21lYXQucG5ndWJoA2gnXWgFh1JxOn1xOyhoKooBKmgLigFyaBNoFCmBcTx9\ncT0oaBeJaBhVB2RlZmF1bHR1YmgtiWguigEoaC+JaBqKASpoMFgCAAAAa2doMVgOAAAAaW1ncy9w\nYXN0YS5wbmd1YmVVD2RqYW5nb19sYW5ndWFnZWgCVQhtc2dfaW5mb1UAdS4=\n','2011-10-11 01:07:26'),('4c8934fb73a1e72236421f3bf76622f9','OWQ5NTkyZDQ4YjgyNTA1MjdkNmEyZjIxZDQ2MjdhY2I1ODAxMTM1NzqAAn1xAShVA2xhblgCAAAA\nZGVxAlUMc3RyZWFtUmVjaXBlY2RqYW5nby5kYi5tb2RlbHMuYmFzZQptb2RlbF91bnBpY2tsZQpx\nA2NSZWNpcGVDb250cm9sbGVyLm1vZGVscwpSZWNpcGUKcQRdY2RqYW5nby5kYi5tb2RlbHMuYmFz\nZQpzaW1wbGVfY2xhc3NfZmFjdG9yeQpxBYdScQZ9cQcoVQNpbWdxCFUWaW1ncy9kZWZhdWx0UmVj\naXBlLnBuZ1UIbGFuZ3VhZ2VxCVgCAAAAZXNVBXRpdGxlcQpYAwAAAGFzZFUOZGVzY3JpcHRpb25f\naWRxC4oBB1USX2Rlc2NyaXB0aW9uX2NhY2hlcQxoA2NYR0RpYy5tb2RlbHMKV29yZApxDV1oBYdS\ncQ59cQ8oVQJmcnEQWAAAAABVAmVucRFYAAAAAFUCZGVxElgAAAAAVQZfc3RhdGVxE2NkamFuZ28u\nZGIubW9kZWxzLmJhc2UKTW9kZWxTdGF0ZQpxFCmBcRV9cRYoVQZhZGRpbmdxF4lVAmRicRhVB2Rl\nZmF1bHRxGXViVQJpZHEaigEHVQJlc3EbWAAAAAB1YmgTaBQpgXEcfXEdKGgXiWgYaBl1YlUEdGlt\nZXEeSx5VB25QZXJzb25xH0sEaBpOVQlkaWZmaWN1bHRxIFgLAAAASU5URVJNRURBVEV1YlUHbGFu\nTGlzdF1xIShVAmRlVQZHZXJtYW6GcSJVAmVuVQdFbmdsaXNohnEjVQJmclUGRnJlbmNohnEkVQJl\nc1UHU3BhbmlzaIZxJWVVD2RqYW5nb19sYW5ndWFnZWgCVQVzdGF0ZVUHcHJvY2Vzc1ULcHJvY2Vz\nc1N0ZXBoA2NNYWdpY0NvbnRyb2xsZXIubW9kZWxzCk1hZ2ljQ29tYmluYXRpb24KcSZdaAWHUnEn\nfXEoKGgTaBQpgXEpfXEqKGgXiWgYVQdkZWZhdWx0dWJoGooBE3ViVRNpbmdyZWRpZW50c1NlbGVj\ndGVkXXErKGgDY01hZ2ljQ29udHJvbGxlci5tb2RlbHMKTWFnaWNJbmdyZWRpZW50CnEsXWgFh1Jx\nLX1xLihVEm1hZ2ljYnV0dG9uX3B0cl9pZHEvigEgaAuKAV5oE2gUKYFxMH1xMShoF4loGFUHZGVm\nYXVsdHViVQppc1RlbXBvcmFscTKJVQhsYWJlbF9pZHEzigEeVQZpc1N0ZXBxNIloGooBIFUEdW5p\ndHE1WAEAAAB1VQRpY29ucTZYDgAAAGltZ3Mvb25pb24ucG5ndWJoA2gsXWgFh1JxN31xOChoL4oB\nLGgLigF2aBNoFCmBcTl9cTooaBeJaBhVB2RlZmF1bHR1YmgyiWgzigEqaDSJaBqKASxoNVgBAAAA\ndWg2WA8AAABpbWdzL3RvbWF0by5wbmd1YmVVCW1zZ19lcnJvclUAVQhtc2dfaW5mb1UAdS4=\n','2011-10-06 02:22:41'),('62222ee47ac545323d903709ed5cc32c','Y2VkMmVkOThhN2VkZTIwMjU5MzVhNjQ0MWM3MGYxZDg2YzQzNDM1NjqAAn1xAShVA2xhblgCAAAA\nZXNxAlUMc3RyZWFtUmVjaXBlY2RqYW5nby5kYi5tb2RlbHMuYmFzZQptb2RlbF91bnBpY2tsZQpx\nA2NSZWNpcGVDb250cm9sbGVyLm1vZGVscwpSZWNpcGUKcQRdY2RqYW5nby5kYi5tb2RlbHMuYmFz\nZQpzaW1wbGVfY2xhc3NfZmFjdG9yeQpxBYdScQZ9cQcoVQNpbWdxCFUPaW1ncy9hY2NlcHQucG5n\nVQhsYW5ndWFnZXEJWAIAAABlblUFdGl0bGVxClgDAAAAYXNkVQ5kZXNjcmlwdGlvbl9pZHELigEH\nVRJfZGVzY3JpcHRpb25fY2FjaGVxDGgDY1hHRGljLm1vZGVscwpXb3JkCnENXWgFh1JxDn1xDyhV\nAmZycRBYAAAAAFUCZW5xEVgAAAAAVQJkZXESWAAAAABVBl9zdGF0ZXETY2RqYW5nby5kYi5tb2Rl\nbHMuYmFzZQpNb2RlbFN0YXRlCnEUKYFxFX1xFihVBmFkZGluZ3EXiVUCZGJxGFUHZGVmYXVsdHEZ\ndWJVAmlkcRqKAQdVAmVzcRtYAAAAAHViaBNoFCmBcRx9cR0oaBeJaBhoGXViVQR0aW1lcR5LHlUH\nblBlcnNvbnEfSwRoGk5VCWRpZmZpY3VsdHEgWAwAAABJTlRFUk1FRElBVEV1YlUHbGFuTGlzdF1x\nIShVAmRlVQZHZXJtYW6GcSJVAmVuVQdFbmdsaXNohnEjVQJmclUGRnJlbmNohnEkVQJlc1UHU3Bh\nbmlzaIZxJWVVD2RqYW5nb19sYW5ndWFnZWgCVQVzdGF0ZVUHcHJvY2Vzc1UTaW5ncmVkaWVudHNT\nZWxlY3RlZF1VCW1zZ19lcnJvclUAVQhtc2dfaW5mb1UAdS4=\n','2011-10-11 03:24:02'),('a5b6bf277b5f15a5090a3babe27ee2a3','NDY5NGJlYjYwZGMwYmNmNjgyZTQyMWEzNjI2ZTI2NGJkYWE0Yzk3NDqAAn1xAShVA2xhblUCZW5x\nAlUMc3RyZWFtUmVjaXBlY2RqYW5nby5kYi5tb2RlbHMuYmFzZQptb2RlbF91bnBpY2tsZQpxA2NS\nZWNpcGVDb250cm9sbGVyLm1vZGVscwpSZWNpcGUKcQRdY2RqYW5nby5kYi5tb2RlbHMuYmFzZQpz\naW1wbGVfY2xhc3NfZmFjdG9yeQpxBYdScQZ9cQcoVQNpbWdxCFUWaW1ncy9kZWZhdWx0UmVjaXBl\nLnBuZ1UIbGFuZ3VhZ2VxCVgCAAAAZW5VBXRpdGxlcQpYAwAAAGFzZFUOZGVzY3JpcHRpb25faWRx\nC4oBB1USX2Rlc2NyaXB0aW9uX2NhY2hlcQxoA2NYR0RpYy5tb2RlbHMKV29yZApxDV1oBYdScQ59\ncQ8oVQJmcnEQWAAAAABVAmVucRFYAAAAAFUCZGVxElgAAAAAVQZfc3RhdGVxE2NkamFuZ28uZGIu\nbW9kZWxzLmJhc2UKTW9kZWxTdGF0ZQpxFCmBcRV9cRYoVQZhZGRpbmdxF4lVAmRicRhVB2RlZmF1\nbHRxGXViVQJpZHEaigEHVQJlc3EbWAAAAAB1YmgTaBQpgXEcfXEdKGgXiWgYaBl1YlUEdGltZXEe\nSx5VB25QZXJzb25xH0sEaBpOVQlkaWZmaWN1bHRxIFgMAAAASU5URVJNRURJQVRFdWJVB2xhbkxp\nc3RdcSEoVQJkZVUGR2VybWFuhnEiaAJVB0VuZ2xpc2iGcSNVAmZyVQZGcmVuY2iGcSRVAmVzVQdT\ncGFuaXNohnElZVUFc3RhdGVVB3Byb2Nlc3NVC3Byb2Nlc3NTdGVwaANjTWFnaWNDb250cm9sbGVy\nLm1vZGVscwpNYWdpY0NvbWJpbmF0aW9uCnEmXWgFh1JxJ31xKChoE2gUKYFxKX1xKihoF4loGFUH\nZGVmYXVsdHViaBqKARx1YlUPZGphbmdvX2xhbmd1YWdlaAJ1Lg==\n','2011-10-11 14:49:44'),('ab790b14786626f2d6ef737fc23b88aa','ZTM4MjA2OWJhNmVjMWM2ZWRmZTI4NjJiOGExYWExZTVjZWYwZmEzMDqAAn1xAShVA2xhblgCAAAA\nZXNxAlUMc3RyZWFtUmVjaXBlY2RqYW5nby5kYi5tb2RlbHMuYmFzZQptb2RlbF91bnBpY2tsZQpx\nA2NSZWNpcGVDb250cm9sbGVyLm1vZGVscwpSZWNpcGUKcQRdY2RqYW5nby5kYi5tb2RlbHMuYmFz\nZQpzaW1wbGVfY2xhc3NfZmFjdG9yeQpxBYdScQZ9cQcoVQNpbWdxCFUWaW1ncy9kZWZhdWx0UmVj\naXBlLnBuZ1UIbGFuZ3VhZ2VxCVgCAAAAZW5VBXRpdGxlcQpYEwAAAFNwYWdoZXR0aSBCb2xvZ25l\nc2VVDmRlc2NyaXB0aW9uX2lkcQuKAQdVEl9kZXNjcmlwdGlvbl9jYWNoZXEMaANjWEdEaWMubW9k\nZWxzCldvcmQKcQ1daAWHUnEOfXEPKFUCZnJxEFgAAAAAVQJlbnERWAAAAABVAmRlcRJYAAAAAFUG\nX3N0YXRlcRNjZGphbmdvLmRiLm1vZGVscy5iYXNlCk1vZGVsU3RhdGUKcRQpgXEVfXEWKFUGYWRk\naW5ncReJVQJkYnEYVQdkZWZhdWx0cRl1YlUCaWRxGooBB1UCZXNxG1gAAAAAdWJoE2gUKYFxHH1x\nHShoF4loGGgZdWJVBHRpbWVxHkseVQduUGVyc29ucR9LBGgaTlUJZGlmZmljdWx0cSBYDAAAAElO\nVEVSTUVESUFURXViVQdsYW5MaXN0XXEhKFUCZGVVBkdlcm1hboZxIlUCZW5VB0VuZ2xpc2iGcSNV\nAmZyVQZGcmVuY2iGcSRVAmVzVQdTcGFuaXNohnElZVUJbXNnX2Vycm9yVQBVBXN0YXRlVQdwcm9j\nZXNzVQtwcm9jZXNzU3RlcGgDY01hZ2ljQ29udHJvbGxlci5tb2RlbHMKTWFnaWNDb21iaW5hdGlv\nbgpxJl1oBYdScSd9cSgoaBNoFCmBcSl9cSooaBeJaBhVB2RlZmF1bHR1YmgaigEVdWJVE2luZ3Jl\nZGllbnRzU2VsZWN0ZWRdcStoA2NNYWdpY0NvbnRyb2xsZXIubW9kZWxzCk1hZ2ljSW5ncmVkaWVu\ndApxLF1oBYdScS19cS4oVRJtYWdpY2J1dHRvbl9wdHJfaWRxL4oBIGgLigFeaBNoFCmBcTB9cTEo\naBeJaBhVB2RlZmF1bHR1YlUKaXNUZW1wb3JhbHEyiVUIbGFiZWxfaWRxM4oBHlUGaXNTdGVwcTSJ\naBqKASBVBHVuaXRxNVgBAAAAdVUEaWNvbnE2WA4AAABpbWdzL29uaW9uLnBuZ3ViYVUPZGphbmdv\nX2xhbmd1YWdlaAJVCG1zZ19pbmZvVQB1Lg==\n','2011-10-09 19:05:51'),('c588d90ddd92f272a415c20928a4b332','MDRhMDliOWM3MTdiNDMxMThlY2VjZWNmOTcwZDc1ZjJmNGU2Yjc0NjqAAn1xAShVA2xhblgCAAAA\nZW5xAlUMc3RyZWFtUmVjaXBlY2RqYW5nby5kYi5tb2RlbHMuYmFzZQptb2RlbF91bnBpY2tsZQpx\nA2NSZWNpcGVDb250cm9sbGVyLm1vZGVscwpSZWNpcGUKcQRdY2RqYW5nby5kYi5tb2RlbHMuYmFz\nZQpzaW1wbGVfY2xhc3NfZmFjdG9yeQpxBYdScQZ9cQcoVQNpbWdxCFUWaW1ncy9kZWZhdWx0UmVj\naXBlLnBuZ1UIbGFuZ3VhZ2VxCVgCAAAAZXNVBXRpdGxlcQpYBgAAAGFzZGFkc1UOZGVzY3JpcHRp\nb25faWRxC4oCMwFVEl9kZXNjcmlwdGlvbl9jYWNoZWgDY1hHRGljLm1vZGVscwpXb3JkCnEMXWgF\nh1JxDX1xDihVAmZycQ9YAAAAAFUCZW5xEFgAAAAAVQJkZXERWAAAAABVBl9zdGF0ZXESY2RqYW5n\nby5kYi5tb2RlbHMuYmFzZQpNb2RlbFN0YXRlCnETKYFxFH1xFShVBmFkZGluZ3EWiVUCZGJxF1UH\nZGVmYXVsdHEYdWJVAmlkcRmKAjMBVQJlc3EaWAAAAAB1YmgSaBMpgXEbfXEcKGgWiWgXaBh1YlUE\ndGltZXEdSx5VB25QZXJzb25xHksEaBlOVQlkaWZmaWN1bHRxH1gMAAAASU5URVJNRURJQVRFdWJV\nB2xhbkxpc3RdcSAoVQJkZVUGR2VybWFuhnEhVQJlblUHRW5nbGlzaIZxIlUCZnJVBkZyZW5jaIZx\nI1UCZXNVB1NwYW5pc2iGcSRlVQ9kamFuZ29fbGFuZ3VhZ2VoAlUFc3RhdGVVB3Byb2Nlc3NVC3By\nb2Nlc3NTdGVwaANjTWFnaWNDb250cm9sbGVyLm1vZGVscwpNYWdpY0NvbWJpbmF0aW9uCnElXWgF\nh1JxJn1xJyhoEmgTKYFxKH1xKShoFoloF1UHZGVmYXVsdHViaBmKASN1YlUTaW5ncmVkaWVudHNT\nZWxlY3RlZF1VCW1zZ19lcnJvclUAVQhtc2dfaW5mb1UAdS4=\n','2011-10-11 20:56:27'),('f9a097024001046b1d1f109369cb62b3','ODI1MDc0NDhkY2MyNDcxNGUyZTI2NmY4OTI3NTE3YTExMGZmNzgzZjqAAn1xAShVA2xhblgCAAAA\nZnJxAlUMc3RyZWFtUmVjaXBlY2RqYW5nby5kYi5tb2RlbHMuYmFzZQptb2RlbF91bnBpY2tsZQpx\nA2NSZWNpcGVDb250cm9sbGVyLm1vZGVscwpSZWNpcGUKcQRdY2RqYW5nby5kYi5tb2RlbHMuYmFz\nZQpzaW1wbGVfY2xhc3NfZmFjdG9yeQpxBYdScQZ9cQcoVQNpbWdxCFUWaW1ncy9kZWZhdWx0UmVj\naXBlLnBuZ1UIbGFuZ3VhZ2VxCVgCAAAAZW5VBXRpdGxlcQpYAwAAAGFzZFUOZGVzY3JpcHRpb25f\naWRxC4oBB1USX2Rlc2NyaXB0aW9uX2NhY2hlcQxoA2NYR0RpYy5tb2RlbHMKV29yZApxDV1oBYdS\ncQ59cQ8oVQJmcnEQWAAAAABVAmVucRFYAAAAAFUCZGVxElgAAAAAVQZfc3RhdGVxE2NkamFuZ28u\nZGIubW9kZWxzLmJhc2UKTW9kZWxTdGF0ZQpxFCmBcRV9cRYoVQZhZGRpbmdxF4lVAmRicRhVB2Rl\nZmF1bHRxGXViVQJpZHEaigEHVQJlc3EbWAAAAAB1YmgTaBQpgXEcfXEdKGgXiWgYaBl1YlUEdGlt\nZXEeSx5VB25QZXJzb25xH0sEaBpOVQlkaWZmaWN1bHRxIFgLAAAASU5URVJNRURBVEV1YlUHbGFu\nTGlzdF1xIShVAmRlVQZHZXJtYW6GcSJVAmVuVQdFbmdsaXNohnEjVQJmclUGRnJlbmNohnEkVQJl\nc1UHU3BhbmlzaIZxJWVVCW1zZ19lcnJvclUAVQVzdGF0ZVUHcHJvY2Vzc1UTaW5ncmVkaWVudHNT\nZWxlY3RlZF1VD2RqYW5nb19sYW5ndWFnZWgCVQhtc2dfaW5mb1UAdS4=\n','2011-10-08 14:01:50');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_site`
+--
+
+DROP TABLE IF EXISTS `django_site`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_site` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `domain` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_site`
+--
+
+LOCK TABLES `django_site` WRITE;
+/*!40000 ALTER TABLE `django_site` DISABLE KEYS */;
+INSERT INTO `django_site` VALUES (1,'example.com','example.com');
+/*!40000 ALTER TABLE `django_site` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2011-09-27 20:57:14

@@ -13,11 +13,11 @@ function setTag(id, value){
         data: {"id":id,"value":value},
         beforeSubmit: function(){},
         success: function(data) {
-        	showInfoPanel(gettext('That button was changed correctly.') );
+        	showInfoPanel(htmlMsg12);
         	updateCurrentStep();
         },
         error: function(data){
-        	showInfoPanel(gettext('That button could not be changed correctly. Try it again.') );
+        	showInfoPanel(htmlMsg20);
         }
 	})
 }
@@ -39,16 +39,16 @@ $(function(){
 		var type = $(this).parents('.box').attr('id')
 		var category;
 		if( type == 'box_action'){
-			type = 'Action'
+			type = gettext('Action')
 			category = 'A';}
 		else if( type == 'box_utensil'){
-			type='Utensil'
+			type= gettext('Utensil')
 			category = 'U';}
 		else if( type == 'box_ingredient'){
-			type='Ingredient'
+			type= gettext('Ingredient')
 			category = 'I'}
 		// Updating the form header and category
-		$('#mbForm h1').html('NEW - '+type.toUpperCase());
+		$('#mbForm h1').html(type.toUpperCase());
 		$('#mbForm #category').val(category);
 		$('#formMB #category').trigger('change');
 		// CENTER DINAMIC SHIFT
@@ -63,10 +63,10 @@ $(function(){
 	        success: function(data) {
 	        	if (data.state==true){
 	        		updateUsedSteps();
-	        		showInfoPanel(gettext('Step deleted correctly') );
+	        		showInfoPanel(htmlMsg21);
 	        	}
 	        	else
-	        		showInfoPanel(gettext('It was imposible to delete the last Step') );
+	        		showInfoPanel(htmlMsg22);
 	        }
 		});
 	});
@@ -99,14 +99,15 @@ $(function(){
 
   	$('#acceptRecipe').click(function(){
   	  $('#loadingPage').fadeIn();
-  	  console.log($('#loadingPage'));
+  	  // console.log($('#loadingPage'));
       $.ajax({
         url:'upload_recipe',
         async:true,
         dataType: "json",
         success: function(data){
+        	$('#loadingPage').fadeOut();
         	if (data.state == true){
-	        	alert(gettext('Recipe saved correctly.') );
+	        	alert(htmlMsg23);
 	        	$('#cancelRecipe').trigger('click');
 	        	// window.location.href=window.location.href
 	        }
@@ -114,10 +115,11 @@ $(function(){
 	        	showInfoPanel(data.msg);	
         },
         error: function(){
-        	showInfoPanel(gettext('It is imposible without steps.') );	
+        	$('#loadingPage').fadeOut();
+        	showInfoPanel(htmlMsg24 );	
         }
       });
-      $('#loadingPage').fadeOut();
+      
   	});
 });
 

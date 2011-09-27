@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-25 16:37+0200\n"
+"POT-Creation-Date: 2011-09-27 20:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,79 +18,151 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: media/js/browser.js:5
-msgid "List of Ingredients"
-msgstr "Liste der zutaten"
+#: media/js/htmlMessages.js:1
+msgid "The recipe must have a title"
+msgstr "Das rezept muss einen titel"
 
-#: media/js/browser.js:6
-msgid "Decription"
-msgstr "Decription"
+#: media/js/htmlMessages.js:2
+msgid "Description has not more than 500 characters"
+msgstr "Beschreibung darf nicht mehr als 500 zeichen"
 
-#: media/js/browser.js:48
-msgid "Error while loading Recipes"
-msgstr "Fehler beim laden der rezepte"
+#: media/js/htmlMessages.js:3
+msgid "Name of image file too much long"
+msgstr "Name der bilddatei, die viel zu lange"
 
-#: media/js/browser.js:77
-msgid "Error while loading the ingredients selected"
-msgstr "Fehler beim laden der zutaten ausgewählt"
+#: media/js/htmlMessages.js:4
+msgid "Format of image file incorrect"
+msgstr "Format der bilddatei, die falsche"
 
-#: media/js/browser.js:99
-msgid "step"
-msgstr "Schritt"
+#: media/js/htmlMessages.js:5
+msgid "Must have a Name"
+msgstr "Muss einen namen haben"
 
-#: media/js/browser.js:129 media/js/browser.js.py:150
-msgid "Error while adding the ingredient."
-msgstr "Fehler beim hinzufügen der zutat."
+#: media/js/htmlMessages.js:6
+msgid "Step added Correctly"
+msgstr "Schritt korrekt hinzugefügt"
 
-#: media/js/browser.js:138
-msgid "Element was already added"
-msgstr "Element wurde bereits hinzugefügt."
+#: media/js/htmlMessages.js:7
+msgid "Error during uploading step"
+msgstr "Fehler beim hochladen der schritt"
 
-#: media/js/browser.js:189
-msgid "Error while loading recipe datas"
-msgstr "Fehler beim laden der rezept-daten"
+#: media/js/htmlMessages.js:8
+msgid "Thanks for you colaboration"
+msgstr "Vielen dank für sie mitarbeit"
 
-#: media/js/interactiveBall.js:33
+#: media/js/htmlMessages.js:9
+msgid "Error during uploading sentence"
+msgstr "Fehler beim hochladen der satz"
+
+#: media/js/htmlMessages.js:10
+msgid "There are not selected option"
+msgstr "Es gibt nicht ausgewählte option"
+
+#: media/js/htmlMessages.js:11
+msgid "Sentence updated correctly Thanks"
+msgstr "Satz aktualisiert richtig dank"
+
+#: media/js/htmlMessages.js:12
+msgid "That button was changed correctly"
+msgstr "Diese schaltfläche wurde korrekt geändert."
+
+#: media/js/htmlMessages.js:13
+msgid "Error while connected with the Templates"
+msgstr "Fehler bei verbindung mit den vorlagen"
+
+#: media/js/htmlMessages.js:14
 msgid "Error loading Step"
 msgstr "Fehler-laden-schritt"
 
-#: media/js/interactiveBall.js:43
+#: media/js/htmlMessages.js:15
 msgid "Current step in process"
 msgstr "Aktuellen schritt im prozess"
 
-#: media/js/interactiveBall.js:48
-msgid "Error while got the current step."
-msgstr "Fehler während den aktuellen schritt zu bekommen."
+#: media/js/htmlMessages.js:16
+msgid "Error while got the current step"
+msgstr "Fehler während den aktuellen schritt"
 
-#: media/js/interactiveBall.js:222
+#: media/js/htmlMessages.js:17
+msgid "Added correctly"
+msgstr "Korrekt hinzugefügt"
+
+#: media/js/htmlMessages.js:18
+msgid "Deleted correctly"
+msgstr "Korrekt gelöscht"
+
+#: media/js/htmlMessages.js:19
 msgid "Step is not ready yet"
 msgstr "Schritt ist noch nicht bereit"
 
-#: media/js/interface.js:58
-msgid "Deleting session had a error"
-msgstr "Löschen von sitzung hatte einen fehler"
+#: media/js/htmlMessages.js:20
+msgid "That button could not be changed correctly Try it again"
+msgstr "Diese schaltfläche konnte nicht geändert werden korrekt versuchen sie es erneut"
 
-#: media/js/newRecipe.js:16
-msgid "That button was changed correctly."
-msgstr "Diese schaltfläche wurde korrekt geändert."
-
-#: media/js/newRecipe.js:20
-msgid "That button could not be changed correctly. Try it again."
-msgstr "Diese schaltfläche konnte nicht ordnungsgemäß geändert werden. versuchen sie es erneut."
-
-#: media/js/newRecipe.js:59
+#: media/js/htmlMessages.js:21
 msgid "Step deleted correctly"
 msgstr "Schritt korrekt gelöscht"
 
-#: media/js/newRecipe.js:62
+#: media/js/htmlMessages.js:22
 msgid "It was imposible to delete the last Step"
 msgstr "Es war imposible zu letzt löschen"
 
-#: media/js/newRecipe.js:102
-msgid "Recipe saved correctly."
-msgstr "Rezept korrekt gespeichert."
+#: media/js/htmlMessages.js:23
+msgid "Recipe saved correctly"
+msgstr "Rezept korrekt gespeichert"
 
-#: media/js/newRecipe.js:110
-msgid "It is imposible without steps."
-msgstr "Es ist imposible stufenlos."
+#: media/js/htmlMessages.js:24
+msgid "It is imposible without steps"
+msgstr "Es ist imposible stufenlos"
+
+#: media/js/htmlMessages.js:25
+msgid "Deleting session"
+msgstr "Sitzung löschen"
+
+#: media/js/htmlMessages.js:26
+msgid "List of Ingredients"
+msgstr "Liste der zutaten"
+
+#: media/js/htmlMessages.js:27
+msgid "Decription"
+msgstr "Decription"
+
+#: media/js/htmlMessages.js:28
+msgid "There are not any recipe with this ingredients"
+msgstr "Es gibt keines rezept mit dieser zutaten"
+
+#: media/js/htmlMessages.js:29
+msgid "Error while loading Recipes"
+msgstr "Fehler beim laden der rezepte"
+
+#: media/js/htmlMessages.js:30
+msgid "Error while loading the ingredients selected"
+msgstr "Fehler beim laden der zutaten ausgewählt"
+
+#: media/js/htmlMessages.js:31
+msgid "step"
+msgstr "Schritt"
+
+#: media/js/htmlMessages.js:32 media/js/htmlMessages.js.py:34
+msgid "Error while adding the ingredient"
+msgstr "Fehler beim hinzufügen des bestandteil"
+
+#: media/js/htmlMessages.js:33
+msgid "Element was already added"
+msgstr "Element wurde bereits hinzugefügt."
+
+#: media/js/htmlMessages.js:35
+msgid "Error while loading recipe datas"
+msgstr "Fehler beim laden der rezept-daten"
+
+#: media/js/newRecipe.js:42
+msgid "Action"
+msgstr "Aktion"
+
+#: media/js/newRecipe.js:45
+msgid "Utensil"
+msgstr "Utensil"
+
+#: media/js/newRecipe.js:48
+msgid "Ingredient"
+msgstr "Zutaten"
 

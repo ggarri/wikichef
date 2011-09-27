@@ -28,13 +28,13 @@ function updateCurrentStep(){
 		success: function(data){
 			// console.debug(data);
 			if (data.state == true){
-				console.debug(data)
+				// console.debug(data)
 				if (data.msg.length == 1){
 					showCurrentStep(data.msg);
 					$('#currentStep').data('isOK',0);
 				}
 				else if(data.msg.length == 0){
-					$('#currentStep').html(gettext('Error loading Step') );
+					$('#currentStep').html(htmlMsg14);
 					$('#currentStep').data('isOK',-1);
 				}
 				else{
@@ -44,12 +44,12 @@ function updateCurrentStep(){
 				}
 			}
 			else{
-				$('#currentStep').html(gettext('Current step in process'));
+				$('#currentStep').html(htmlMsg15);
 				$('#currentStep').data('isOK',-1);
 			}
 		},
 		error: function(){
-			showInfoPanel(gettext('Error while got the current step.'))
+			showInfoPanel(htmlMsg16)
 		}
 	});
 	$('#loadingPage').fadeOut();
@@ -79,6 +79,7 @@ function updateBallContainer(){
 		      // label = $('#'+id).children('p').html()
 		      addButtonSelected(id,label,icon);
 		    }
+		    containerBallResize();
 		  }
 		}
 	});
@@ -104,7 +105,6 @@ function updateUsedSteps(){
 					step = data.msg[i]
 					addStepUsed(step.id,step.label,step.tag,step.icon)
 				}
-				containerBallResize();
 				updateCurrentStep();
 				updateBallContainer();
 				updateBoxFloat($('#box_step .box_float'))
@@ -125,6 +125,7 @@ function containerBallResize(){
 }
 
 function addMBtoStep(id){
+	$('#loadingPage').fadeIn();
 	$.ajax({
 		url:'add_mb_to_step',
 		type:'GET',
@@ -132,20 +133,24 @@ function addMBtoStep(id){
 		dataType:'json',
 		data:{'id':id},
 		success: function(data){ 
-			strAdd = gettext('Button added correctly');
+			$('#loadingPage').fadeOut();
 			if(data.state == true){
 				updateCurrentStep();
 				updateBallContainer();
-				showInfoPanel(strAdd);
+				showInfoPanel(htmlMsg17);
 			}
 			else{
-				showInfoPanel(data.msg)
+				showInfoPanel(data.msg);
 			}
+		},
+		error: function(data){
+			$('#loadingPage').fadeOut();
 		}
 	});
 }
 
 function delMBtoStep(id){
+	$('#loadingPage').fadeIn();
 	$.ajax({
 		url:'del_mb_to_step',
 		type:'GET',
@@ -153,12 +158,11 @@ function delMBtoStep(id){
 		datatype:'json',
 		data:{'id':id},
 		success: function(data){
-			strDel = gettext('Button deleted correctly');
-			console.debug(data.state,id);
+			$('#loadingPage').fadeOut();
 			if (data.state == true){
 				updateCurrentStep();
 				updateBallContainer();
-				showInfoPanel(strDel);
+				showInfoPanel(htmlMsg18);
 			}
 			else{
 				showInfoPanel(data.msg);
@@ -169,6 +173,7 @@ function delMBtoStep(id){
 
 function setSentenceStep(sentence){
 	$('#loadingPage').fadeIn();
+	// console.log(sentence)
 	$.ajax({
 		url:'set_current_step',
 		async:true,
@@ -176,16 +181,17 @@ function setSentenceStep(sentence){
 		type:'GET',
 		data:{'sentence':sentence},
 		success: function(data){
+			$('#loadingPage').fadeOut();
 			if (data.state == true)
-				showInfoPanel(gettext( 'Sentence Step updated correctly for next time. Thank for you collaboration') );
+				showInfoPanel(htmlMsg11);
 			else
 				showInfoPanel(data.msg);
 		},
 		error: function(){
-			showInfoPanel(gettext('Error while connected with the Templates') );
+			$('#loadingPage').fadeOut();
+			showInfoPanel(htmlMsg13);
 		}
 	});
-	$('#loadingPage').fadeOut();
 }
 
 
@@ -224,7 +230,7 @@ $(function() {
 
 	$('#ballButton').click(function(){
 		if ($('#currentStep').data('isOK') == -1)
-			showInfoPanel(gettext('Step is not ready yet') )
+			showInfoPanel(htmlMsg19)
 		else{
 			$('#formStep .step').html($('#currentStep').html().toUpperCase())
 			updateIngredientSection()

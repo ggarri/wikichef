@@ -6,7 +6,8 @@
 {% endblock %}
 
 {% block contentForm%}
-<form id='formMB' action='set_new_mb' method='POST' enctype="multipart/form-data">
+<form id='formMB' action='set_new_mb' method='POST' enctype="multipart/form-data"
+onsubmit="return validateMBForm()">
   <fieldset>
     <input type='hidden' name='category' id='category'/>
     <p> {% trans "Button Name" %} </p>
@@ -22,6 +23,31 @@
 </form>
 
 <script type='text/javascript'>
+function validateMBForm(){
+  if ($('#formMB #label').val() == ""){
+    showInfoPanel(htmlMsg5);
+    return false;
+  }
+  if ($('#formMB #description').val().length > 499){
+    showInfoPanel(htmlMsg2);
+    return false;
+  }
+
+  var file = $('#formMB #path').val();
+  if (file.length > 0){
+    if (file.length > 100){
+      showInfoPanel(htmlMsg3);
+      return false;
+    }
+    if (file.match('png')==null && file.match('jpg')==null && file.match('jpg')==null){
+      showInfoPanel(htmlMsg4);
+      return false; 
+    }
+  }
+  
+  return true;
+}
+
 $(function(){
     if ( $('#formMB #unit option').length == 0 ){
         $.ajax({
@@ -45,7 +71,7 @@ $(function(){
     }
 
     $('#formMB #category').live('change',function(){
-        console.log('change category');
+        // console.log('change category');
         if ($(this).val() == 'I'){
             $('#mbForm').find('#unit').show();
             $('#mbForm').find('#unitLabel').show();  

@@ -6,7 +6,8 @@
 {% endblock %}
 
 {%block contentForm %}
-<form id='formRecipe' action='set_recipe_data' method='POST' enctype="multipart/form-data"> {% csrf_token %}
+<form id='formRecipe' action='set_recipe_data' method='POST' 
+onsubmit="return validateRecipeForm()"  enctype="multipart/form-data"> {% csrf_token %}
   <fieldset>
     <!-- <p contenteditable="true" id='title2'>Insert Title</p> -->
     <input type='text' id='title' name='form-0-title' placeholder='{% trans "Insert Title" %}'/>
@@ -41,8 +42,32 @@
 </form>
 
 <script type='text/javascript'>
+function validateRecipeForm(){
+  if ($('#formRecipe #title').val() == ""){
+    showInfoPanel(htmlMsg1);
+    return false;
+  }
+  if ($('#formRecipe #description').val().length > 499){
+    showInfoPanel(htmlMsg2);
+    return false;
+  }
+
+  var file = $('#formRecipe #img').val();
+  if (file.length > 0){
+    if (file.length > 100){
+      showInfoPanel(htmlMsg3);
+      return false;
+    }
+    if (file.match('png')==null && file.match('jpg')==null && file.match('jpg')==null){
+      showInfoPanel(htmlMsg4);
+      return false; 
+    }
+  }
+  
+  return true;
+}
   $(function(){
-    addSlider('nPers',0,10,4);
+    addSlider('nPers',1,10,4);
     addSlider('timeRecipe',0,360,30);
     $('#recipeForm #cancelForm').hide();
     $('#recipeForm #acceptForm').click(function(){

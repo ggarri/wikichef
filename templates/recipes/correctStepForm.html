@@ -20,8 +20,8 @@
 function selectCorrectStep(radio) {
 	var key = $(radio).val();
 	var custom = $('#customCorrectStep').val();
-	$('#loadingPage').fadeIn();
 	if (key != null){
+		$('#loadingPage').fadeIn();
 		$.ajax({
 			url:"save_stream_step",
 	        type:"GET",
@@ -29,20 +29,25 @@ function selectCorrectStep(radio) {
 	        dataType: "json",
 	        data: {"key":key,'custom':custom},
 	        success: function(data) {	        	
+	        	$('#loadingPage').fadeOut();
 	        	if (data.state){
 	        		shiftBoxDinamic('#interactiveBall');
-	        		showInfoPanel('Thanks for you colaboration.');
+	        		showInfoPanel(htmlMsg8);
 	        		updateCurrentStep();
 					updateBallContainer();
 	        	}
 	        	else
 	        		showInfoPanel(data.msg);
 	        },
+	        error: function(data){ 
+	        	showInfoPanel(htmlMsg9);
+		        $('#loadingPage').fadeOut(); 
+		    }
 		});
 	}
 	else
-		showInfoPanel('There are not selected option.');
-	$('#loadingPage').fadeOut();
+		showInfoPanel(htmlMsg10);
+
 }
 $(function(){
     $('#correctStepForm #acceptForm').click(function(){

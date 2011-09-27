@@ -62,6 +62,7 @@ $(function(){
     updateIngredientSection()
 
     $('#stepForm #acceptForm').click(function(){
+        $('#loadingPage').fadeIn();
         $.ajax({
           url:"upload_stream_step",
           type:"POST",
@@ -69,16 +70,18 @@ $(function(){
           dataType: "json",
           data: $('#formStep').serialize(),
           success: function(data) {
+            $('#loadingPage').fadeOut();
             if (data.state == true){
-              showInfoPanel('SUCCESS: ' + 'Step added Correctly');
+              showInfoPanel(htmlMsg6);
               updateUsedSteps();
               shiftBoxDinamic($('#interactiveBall'));
             }
             else
-              showInfoPanel('ERROR: ' + data.msg);
+              showInfoPanel(data.msg);
           },
           error: function(data){
-            showInfoPanel('Error during uploading step');
+            $('#loadingPage').fadeOut();
+            showInfoPanel(htmlMsg7);
           }
             
       });

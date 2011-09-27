@@ -3,12 +3,13 @@
 <head> 
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <title>{% trans "New Recipe" %}</title> 
-    
+    <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+      <script type='text/javascript' src='{{MEDIA_URL}}js/htmlMessages.js'> </script> 
       <script type="text/javascript" src="{{MEDIA_URL}}js/jquery-1.6.2.min.js"></script>
       <script type="text/javascript" src="{{MEDIA_URL}}js/jquery-ui-1.8.16.custom.min.js">
       </script>
-      <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
       <script type='text/javascript' src='{{MEDIA_URL}}js/interface.js'> </script> 
+
     {% block js %}{%endblock%}
     <link type="text/css" href="{{MEDIA_URL}}css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />   
     {% block style %} {% endblock %}

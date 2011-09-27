@@ -60,12 +60,18 @@ class Template(models.Model):
 			Gets a new Template from the passed sentence. For that it is deffined the language and if the goal is replacing or creating a template. 
 			:param sentence: Sentence analyzes to get the Template.
 			:param lan: Language uses in the sentence.
-			:param only: Define if the templase must be created(False) or modified(True).
+			:param only: Define if the templase must be used in the original language(TRUE) or every language(FALSE).
 		"""
+		def standard(sentence):
+			sentence = sentence.replace('&nbsp;',' ')
+			sentence = sentence.lower()
+			sentence2 = ''
+			for w in sentence.split(): sentence2 += w + ' '
+			return sentence2.strip()
+
 		from operator import itemgetter, attrgetter
 
-		# sentence = standard(sentence)
-		sentence = sentence.lower().strip()
+		sentence = standard(sentence)
 		# Gather all the stored buttons
 		listA,listU,listI,listCC = dict(),dict(),dict(),dict()
 		for A in MagicAction.objects.all(): listA[A.getLabels(lan)] = A
@@ -98,7 +104,7 @@ class Template(models.Model):
 			if n != -1 and not wordI in listCC.keys(): 
 				posMB.append( (n,('I',listI[wordI],wordI) ) )
 
-		print sorted(posMB, key=itemgetter(0))
+		# print sorted(posMB, key=itemgetter(0))
 		
 
 		for mark in sorted(posMB, key=itemgetter(0)): # step format is (pos,(type,mb))
@@ -107,10 +113,11 @@ class Template(models.Model):
 			pre = sentence[:pos].strip()
 			if typ   == 'U': t.addUtensil(mb,pre,lan,only)
 			elif typ == 'CC': t.addCC(mb,pre,lan,only)
+			elif typ == 'I' and pre != '' : t.addCC(mb,pre,lan,only)
 			# Delete from start up to its position more itseft
 			sentence = sentence[pos+len(w):].strip()	
-			print sentence
-		print 'Template : ',t
+			# print sentence
+		# print 'Template : ',t
 
 
 		# A   = [ {'mb':listA[wordA],'w':wordA}   for wordA in listA.keys() if sentence.find(wordA) != -1]
@@ -146,7 +153,7 @@ class Template(models.Model):
 			except:	# If it was used in any other template.
 				wordsU = [tu for tu in TUtensil.objects.filter(button=U)]
 			if len(wordsU) == 0: # Else, creates a list with default prefixs.
-				print 'Using default prefixs'
+				# print 'Using default prefixs'
 				wordsU.append(TUtensil.create(U,'in the'))
 				wordsU.append(TUtensil.create(U,'with the'))
 				wordsU.append(TUtensil.create(U,'onto'))
@@ -173,7 +180,7 @@ class Template(models.Model):
 
 		# Creates dictionary with all the languages
 		dic = dict()
-		print sentencesMB
+		# print sentencesMB
 		for lan in XGDic.getLanguages().keys():
 			dic[lan],acum = list(),set()
 			for sentence in sentencesMB:
@@ -198,7 +205,7 @@ class Template(models.Model):
 			if not only: u.setPre(pre,lan)
 			else: u.preposition.setLabel(pre,lan)
 		except:
-			print 'Creating Utensil : ',pre,mb.getLabels('en')
+			# print 'Creating Utensil : ',pre,mb.getLabels('en')
 			self.utensil.add(TUtensil.create(mb,pre,lan))
 		
 	def addCC(self, mb, pre,lan='en',only=False):
@@ -214,7 +221,7 @@ class Template(models.Model):
 			if not only: c.setPre(pre,lan)
 			else: c.preposition.setLabel(pre,lan)
 		except:
-			print 'Creating CC : ',pre,mb.getLabels('en')
+			# print 'Creating CC : ',pre,mb.getLabels('en')
 			self.cc.add(TCC.create(mb,pre,lan))
 	
 	def getAction(self):

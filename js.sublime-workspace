@@ -11,7 +11,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/newRecipe.js",
 			"settings":
 			{
-				"buffer_size": 3422,
+				"buffer_size": 3270,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +19,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/interface.js",
 			"settings":
 			{
-				"buffer_size": 4100,
+				"buffer_size": 4083,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +35,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/browser.js",
 			"settings":
 			{
-				"buffer_size": 7101,
+				"buffer_size": 6807,
 				"line_ending": "Unix"
 			}
 		},
@@ -43,7 +43,15 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 			"settings":
 			{
-				"buffer_size": 6268,
+				"buffer_size": 6168,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ggarri/Project/wikichef/media/js/htmlMessages.js",
+			"settings":
+			{
+				"buffer_size": 1991,
 				"line_ending": "Unix"
 			}
 		}
@@ -122,6 +130,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".",
+			"htmlM",
+			"fill",
+			"updateBallContainer",
+			"console",
 			"setSentenceStep",
 			"formCorrectStep",
 			"select",
@@ -204,6 +217,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			"'#currentStep'",
 			"application/json",
 			"processStep",
@@ -220,7 +234,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -228,15 +242,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/newRecipe.js",
 					"settings":
 					{
-						"buffer_size": 3422,
+						"buffer_size": 3270,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2153,
-								2153
+								1319,
+								1319
 							]
 						],
 						"settings":
@@ -244,8 +258,8 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0,
-						"translation.y": 1079,
+						"translation.x": 7,
+						"translation.y": 281,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -255,15 +269,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/interface.js",
 					"settings":
 					{
-						"buffer_size": 4100,
+						"buffer_size": 4083,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								325,
-								331
+								1533,
+								1533
 							]
 						],
 						"settings":
@@ -272,7 +286,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 0,
+						"translation.y": 625,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -309,15 +323,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/browser.js",
 					"settings":
 					{
-						"buffer_size": 7101,
+						"buffer_size": 6807,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4221,
-								4221
+								6391,
+								6391
 							]
 						],
 						"settings":
@@ -327,7 +341,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 1440,
+						"translation.y": 1865,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -337,15 +351,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 					"settings":
 					{
-						"buffer_size": 6268,
+						"buffer_size": 6168,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4439,
-								4439
+								4351,
+								4351
 							]
 						],
 						"settings":
@@ -354,7 +368,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 2539,
+						"translation.y": 624,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/ggarri/Project/wikichef/media/js/htmlMessages.js",
+					"settings":
+					{
+						"buffer_size": 1991,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1991,
+								1991
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0,
+						"translation.y": 384,
 						"zoom_level": 1
 					},
 					"type": "text"

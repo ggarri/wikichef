@@ -52,7 +52,7 @@ def translateToTuple(label, lan_from, lan_to=None):
 			return resul
 	except:			
 		try:
-			print "WARNING : XBing could not translate correctly : ",label
+			# print "WARNING : XBing could not translate correctly : ",label
 			if lan_to == None:
 				en = XGoogle.translate(label,lan_from,'en')
 				es = XGoogle.translate(label,lan_from,'es')
@@ -63,7 +63,7 @@ def translateToTuple(label, lan_from, lan_to=None):
 				resul = XGoogle.translate(label,lan_from,lan_to)
 				return resul
 		except:
-			print "ERROR connection with the translate server"
+			# print "ERROR connection with the translate server"
 			if lan_to == None:	return label,label,label,label
 			else:	return label
 
@@ -130,7 +130,7 @@ class XGDic():
 			raise Exception ("ERROR: Language doesn't allowed")
 		if isVerb and lan_from == 'en': label = 'to ' + label
 		resul = translateToTuple(label,lan_from,lan_to)
-		print 'Translate : ',resul
+		# print 'Translate : ',resul
 		if isVerb and lan_from == 'en': resul = standard(resul)
 		return resul
 
@@ -176,8 +176,8 @@ class Word(models.Model):
 		en,es,de,fr = translateToTuple(label,lan)
 		if verb and lan == 'en': en = standard(en); de = standard(de); es = standard(es); fr = standard(fr)
 
-		if en == es == de == fr : print "WARNING : Possible mistake in the original word : ",en," ",es," ",de," ",fr
-		print "CREATING WORD : ",en,' ',es,' ',de,' ',fr
+		# if en == es == de == fr : print "WARNING : Possible mistake in the original word : ",en," ",es," ",de," ",fr
+		# print "CREATING WORD : ",en,' ',es,' ',de,' ',fr
 		w = Word(en=en,es=es,de=de,fr=fr)
 		w.save()
 		return w
@@ -223,7 +223,7 @@ class Word(models.Model):
 		elif lan == 'es' : self.es = label.lower()
 		elif lan == 'de' : self.de = label.lower()
 		elif lan == 'fr' : self.fr = label.lower()
-		print 'Word Updated : ',self
+		# print 'Word Updated : ',self
 		self.save()
 
 	

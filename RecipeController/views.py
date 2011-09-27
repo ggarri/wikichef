@@ -51,7 +51,7 @@ def starting(request):
 		pers = _('pers')
 		result['title'] = request.session['streamRecipe'].title + ' ('+str(request.session['streamRecipe'].nPerson)+pers+')'
 	else: request.session['state'] = 'initial'
-	print request.session['state']
+	# print request.session['state']
 
 	return render_to_response('recipes/addRecipe.html', result , context_instance=RequestContext(request) )
 
@@ -296,7 +296,7 @@ def uploadStreamStep(request):
 			amounts = dict()
 			for I in LI : amounts[str(I.id)] = int(request.POST['I'+str(I.id)])
 			request.session['usedSteps'].append({'mc':mc,'time':time,'amounts':amounts,'desc':desc})
-			print 'usedStep : ',request.session['usedSteps']
+			# print 'usedStep : ',request.session['usedSteps']
 			tag = 'Step'+str(len(request.session['usedSteps']))
 			MagicIngredient.create(tag,'en','',None,False,'?',True)
 
@@ -361,7 +361,7 @@ def setRecipeData(request):
 			request.session.modified = True
 		else: 
 			msg = str(formset.errors[0]); state = False
-			print formset.errors[0]
+			print 'ERROR : ',formset.errors[0]
 
 	return HttpResponseRedirect(reverse('RecipeController.views.starting', kwargs={} ))
 
@@ -380,7 +380,7 @@ def uploadRecipe(request):
 				comment = stepData['desc']
 				step = Step.create(newRecipe, mc, phase, time, comment)
 				for I in mc.getMBs('I') : 
-					print mc.getMBs('I'),stepData['amounts'],I.id
+					# print mc.getMBs('I'),stepData['amounts'],I.id
 					step.addIngredient(I,stepData['amounts'][str(I.id)] )
 	else: state = False; msg=_('Session incorrect')
 

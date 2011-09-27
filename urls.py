@@ -10,13 +10,13 @@ js_info_dict = {
 
 urlpatterns = patterns('',
 	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    (r'^i18n/', include('django.conf.urls.i18n')),
 	# Add the local recipe urls
     (r'^recipes/', include('RecipeController.urls')),
     # Add the local recipe urls
     # (r'^magic/', include('MagicController.urls')),
     (r'^language', 'XGDic.views.languageChooser'),
-    (r'^i18n/', include('django.conf.urls.i18n')),
-    (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),

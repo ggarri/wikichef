@@ -115,7 +115,7 @@ class Recipe(models.Model):
 		
 		if len(ingredients) == 0: return Recipe.objects.all()
 		listRecipes = [recipe for recipe in Recipe.objects.all() if getLevelSimilarity(recipe) >= float(levelSimilarity)]
-		print levelSimilarity,listRecipes
+		# print levelSimilarity,listRecipes
 		return listRecipes
 
 	# @staticmethod

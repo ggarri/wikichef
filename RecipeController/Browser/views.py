@@ -32,7 +32,7 @@ def getBriefRecipes(request):
 		recipes = Recipe.objects.all()
 		ids = [ I.id for I in request.session['ingredientsSelected'] ]
 		level = request.GET['level']
-		print 'this:',level,ids
+		# print 'this:',level,ids
 		msg = list()
 		# print Recipe.searchByIngredient(level,ids)
 		for r in Recipe.searchByIngredient(level,ids):
@@ -54,7 +54,7 @@ def getIngredientsSelected(request):
 	state = True; msg=''
 	if 'ingredientsSelected' in request.session and request.is_ajax():
 	 	lan = request.session['lan']
-	 	print request.session['ingredientsSelected']
+	 	# print request.session['ingredientsSelected']
 	 	msg = [ {'id':I.id,'label':I.getLabels(lan),'icon':str(I.icon)} for I in request.session['ingredientsSelected'] ]
 	else: state=False; msg=_('Session error.')
 
@@ -136,7 +136,7 @@ def getRecipe(request):
 			subdic['LI'] = [ {'label':A.ingredient.getLabels(lan),'amount':A.amount, 'unit':A.ingredient.getUnit()} for A in step.amount_set.all()]
 			dic['steps'].append(subdic)
 		msg = dic
-		print msg
+		# print msg
 	else: state = False; msg=_('Session incorrect')
 	result = simplejson.dumps({'state':state,'msg':msg})
 	return HttpResponse(result,mimetype='application/json')
