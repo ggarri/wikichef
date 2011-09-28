@@ -63,7 +63,10 @@ class Template(models.Model):
 			:param only: Define if the templase must be used in the original language(TRUE) or every language(FALSE).
 		"""
 		def standard(sentence):
+			w_and = XGDic.getWordSentence('and','en')
 			sentence = sentence.replace('&nbsp;',' ')
+			sentence = sentence.replace(',',' ')
+			sentence = sentence.replace(w_and.getLabels(lan),' ')
 			sentence = sentence.lower()
 			sentence2 = ''
 			for w in sentence.split(): sentence2 += w + ' '
@@ -79,12 +82,13 @@ class Template(models.Model):
 		for I in MagicIngredient.objects.all(): listI[I.getLabels(lan)] = I
 		for CC in TCC.objects.all(): listCC[CC.button.getLabels(lan)] = CC.button
 		
-		A,posMB = None,list()
+		A,posMB,listPos = None,list(),list()
 		for wordA in listA.keys():
 			n = sentence.find(wordA)
 			if n == 0: 
 				A = listA[wordA]
 				posMB.append( ( n,('A',A,wordA) ) )
+				listPos.append(n)
 		
 		# Use just one ACTION
 	 	if A == None:	return _("ERROR : A action must be in the first position of the sentence")
@@ -92,16 +96,19 @@ class Template(models.Model):
 				
 		for wordU in listU.keys():
 			n = sentence.find(wordU)
-			if n != -1: 
+			if n != -1 and not n in listPos: 
 				posMB.append( (n,('U',listU[wordU],wordU) ) )
+				listPos.append(n)
 
 		for wordCC in listCC.keys():
 			n = sentence.find(wordCC)
-			if n != -1: posMB.append( (n,('CC',listCC[wordCC],wordCC) ) )
+			if n != -1 and not n in listPos: 
+				posMB.append( (n,('CC',listCC[wordCC],wordCC) ) )
+				listPos.append(n)
 		
 		for wordI in listI.keys():
 			n = sentence.find(wordI)
-			if n != -1 and not wordI in listCC.keys(): 
+			if n != -1 and not wordI in listCC.keys() and not n in listPos: 
 				posMB.append( (n,('I',listI[wordI],wordI) ) )
 
 		# print sorted(posMB, key=itemgetter(0))
@@ -112,8 +119,11 @@ class Template(models.Model):
 			pos = sentence.find(w)
 			pre = sentence[:pos].strip()
 			if typ   == 'U': t.addUtensil(mb,pre,lan,only)
-			elif typ == 'CC': t.addCC(mb,pre,lan,only)
-			elif typ == 'I' and pre != '' : t.addCC(mb,pre,lan,only)
+			if typ == 'CC' or typ == 'I':
+				if pre == '' and typ == 'CC': t.delCC(mb)
+				elif pre != '': t.addCC(mb,pre,lan,only)
+				# elif typ == 'CC': t.addCC(mb,pre,lan,only)
+				# elif typ == 'I': t.addCC(mb,pre,lan,only)
 			# Delete from start up to its position more itseft
 			sentence = sentence[pos+len(w):].strip()	
 			# print sentence
@@ -224,6 +234,13 @@ class Template(models.Model):
 			# print 'Creating CC : ',pre,mb.getLabels('en')
 			self.cc.add(TCC.create(mb,pre,lan))
 	
+	def delCC(self,mb):
+		try:
+			c = self.cc.get(button=mb)
+			c.delete()
+		except:
+			pass
+
 	def getAction(self):
 		"""
 			:return : TAction object.

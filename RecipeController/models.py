@@ -106,8 +106,8 @@ class Recipe(models.Model):
 		def getLevelSimilarity(recipe):
 			from NLG.models import TCC
 			right = 0
-			noValid = [ cc.button.id for cc in TCC.objects.all() ]
-			listI = [ I[0].id for I in recipe.getIngredients() if not I[0].id in noValid]
+			#noValid = [ cc.button.id for cc in TCC.objects.all() ]
+			listI = [ I[0].id for I in recipe.getIngredients() ]# if not I[0].id in noValid]
 			if len(listI) == 0 : return -1.0
 			for idsSend in ingredients:
 				if idsSend in listI: right +=1
@@ -117,6 +117,11 @@ class Recipe(models.Model):
 		listRecipes = [recipe for recipe in Recipe.objects.all() if getLevelSimilarity(recipe) >= float(levelSimilarity)]
 		# print levelSimilarity,listRecipes
 		return listRecipes
+
+
+	def setLanguage(self, lan):
+		self.language = lan
+		self.save()
 
 	# @staticmethod
 	# def searchByPattern(pattern,threshold, lan='en'):
@@ -282,13 +287,13 @@ class Step(models.Model):
 			self.pk2 = str(self.recipe.id) + '-' + str(self.combination.id)
 			super(Step,self).save(*args,**kwargs)
 			#	The ingredients are got from the combination used in the Step.
-			listIngredient = self.combination.getIngredients()
-			if listIngredient != None:
-				for i in listIngredient:
-					ingr = MagicIngredient.objects.get(pk=i.id)
-					# Intialized amount to 0 
-					newAmount = Amount.create(self,ingr,0)
-					newAmount.save()
+			# listIngredient = self.combination.getIngredients()
+			# if listIngredient != None:
+			# 	for i in listIngredient:
+			# 		ingr = MagicIngredient.objects.get(pk=i.id)
+			# 		# Intialized amount to 0 
+			# 		newAmount = Amount.create(self,ingr,0)
+			# 		newAmount.save()
 			
 	class Meta:
 		"""

@@ -81,7 +81,7 @@ def searchingMBI(request):
 		lan = request.session['lan']
 		buttons = MagicButton.searchByPattern(category, pattern, threshold,lan)
 		dic = [{'id':b.pk, 'icon':str(b.icon), 'label':b.getLabels(lan)} for b in buttons]
-		print dic
+		# print dic
 		result = simplejson.dumps(list(dic))
 		
 	return HttpResponse(result,mimetype='application/json')
@@ -194,6 +194,8 @@ def getCurrentStep(request):
 		if len(request.session['processStep'].MBs.all()) == 0: state = False
 		else:
 			labels = request.session['processStep'].getLabels(lan)
+			if len(labels) == 1:
+				request.session['processStep'].addTemplate(labels[0],lan)
 			if labels.__class__ != list: labels = [labels]
 			msg = labels
 	else: state = False; msg=_('There is not process in performance')
@@ -221,7 +223,6 @@ def setCurrentStep(request):
 	return HttpResponse(result,mimetype='application/json')	
 
 
-
 @csrf_exempt
 def getSelectedButtons(request):
 	state = True
@@ -242,9 +243,9 @@ def getCurrentIngredient(request):
 	ids = None
 	if 'processStep' in request.session:
 		lan = request.session['lan']
-		mbs = request.session['processStep'].getMBs('I')
-		if len(mbs) == 0: state=False
-		else: ids = [{'id':mb.id,'name':mb.getLabels(lan),'unit':mb.getUnit(),'isStep':mb.isStep} for mb in mbs]
+		mbsI = request.session['processStep'].getIngredientsNoCC()
+		if len(mbsI) == 0: state=False
+		else: ids = [{'id':mb.id,'name':mb.getLabels(lan),'unit':mb.getUnit(),'isStep':mb.isStep} for mb in mbsI]
 	else: state=False
 	result = simplejson.dumps({'state':state,'msg':ids})
 	return HttpResponse(result,mimetype='application/json')
@@ -294,6 +295,7 @@ def uploadStreamStep(request):
 			time = request.POST['time']
 			desc = request.POST['desc']
 			amounts = dict()
+			LI = request.session['processStep'].getIngredientsNoCC()
 			for I in LI : amounts[str(I.id)] = int(request.POST['I'+str(I.id)])
 			request.session['usedSteps'].append({'mc':mc,'time':time,'amounts':amounts,'desc':desc})
 			# print 'usedStep : ',request.session['usedSteps']
@@ -379,9 +381,9 @@ def uploadRecipe(request):
 				time = stepData['time']
 				comment = stepData['desc']
 				step = Step.create(newRecipe, mc, phase, time, comment)
-				for I in mc.getMBs('I') : 
-					# print mc.getMBs('I'),stepData['amounts'],I.id
+				for I in mc.getIngredientsNoCC() : 
 					step.addIngredient(I,stepData['amounts'][str(I.id)] )
+
 	else: state = False; msg=_('Session incorrect')
 
 	result = simplejson.dumps({'state':state,'msg':msg})

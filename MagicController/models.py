@@ -556,6 +556,14 @@ class MagicCombination(models.Model):
 		"""
 		if cat == None: return self.MBs.all()
 		else:	return MagicButton.spread(self.MBs.all())[cat]
+	
+	def getIngredientsNoCC(self):
+		from NLG.models import Template
+		A  = self.getMBs('A')
+		t = Template.create(A)
+		Icc = [ cc.button for cc in t.cc.all() ]
+		LI = [ I for I in self.getMBs('I') if I not in Icc]
+		return LI
 
 	def isMB(self,mb):
 		"""

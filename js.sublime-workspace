@@ -43,7 +43,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 			"settings":
 			{
-				"buffer_size": 6168,
+				"buffer_size": 6169,
 				"line_ending": "Unix"
 			}
 		},
@@ -234,7 +234,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -351,15 +351,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 					"settings":
 					{
-						"buffer_size": 6168,
+						"buffer_size": 6169,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4351,
-								4351
+								4298,
+								4298
 							]
 						],
 						"settings":
@@ -368,7 +368,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 624,
+						"translation.y": 2304,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -385,8 +385,8 @@
 						"selection":
 						[
 							[
-								1991,
-								1991
+								0,
+								0
 							]
 						],
 						"settings":
@@ -394,7 +394,7 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0,
-						"translation.y": 384,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"

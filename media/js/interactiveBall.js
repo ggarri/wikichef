@@ -182,6 +182,7 @@ function setSentenceStep(sentence){
 		data:{'sentence':sentence},
 		success: function(data){
 			$('#loadingPage').fadeOut();
+			updateCurrentStep();
 			if (data.state == true)
 				showInfoPanel(htmlMsg11);
 			else
@@ -234,7 +235,6 @@ $(function() {
 		else{
 			$('#formStep .step').html($('#currentStep').html().toUpperCase())
 			updateIngredientSection()
-			shiftBoxDinamic('#stepForm');
 		}
 	});
 

@@ -51,6 +51,7 @@ function updateIngredientSection(){
               addSlider('slider'+data.msg[i].id.toString(),0,100,100); 
             }
           }
+        shiftBoxDinamic('#stepForm');
       }
     })
 }
@@ -59,7 +60,7 @@ $(function(){
 
     addSlider('timeStep',0,240,30);
     $('#formStep .step').html($('#currentStep').html().toUpperCase())
-    updateIngredientSection()
+    // updateIngredientSection()
 
     $('#stepForm #acceptForm').click(function(){
         $('#loadingPage').fadeIn();
