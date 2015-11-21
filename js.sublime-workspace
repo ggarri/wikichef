@@ -43,7 +43,7 @@
 			"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 			"settings":
 			{
-				"buffer_size": 6169,
+				"buffer_size": 6160,
 				"line_ending": "Unix"
 			}
 		},
@@ -130,6 +130,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"StepForm",
+			"#StepForm",
+			"StepForm",
+			"stepForm",
+			"upl",
+			"uploadingStep",
+			"updateCu",
+			"updateIngredientSection",
 			".",
 			"htmlM",
 			"fill",
@@ -234,7 +242,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -249,8 +257,8 @@
 						"selection":
 						[
 							[
-								1319,
-								1319
+								557,
+								557
 							]
 						],
 						"settings":
@@ -259,7 +267,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 7,
-						"translation.y": 281,
+						"translation.y": 240,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -276,8 +284,8 @@
 						"selection":
 						[
 							[
-								1533,
-								1533
+								0,
+								0
 							]
 						],
 						"settings":
@@ -286,7 +294,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 625,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -351,15 +359,15 @@
 					"file": "/home/ggarri/Project/wikichef/media/js/interactiveBall.js",
 					"settings":
 					{
-						"buffer_size": 6169,
+						"buffer_size": 6160,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4298,
-								4298
+								1276,
+								1284
 							]
 						],
 						"settings":
@@ -368,7 +376,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 2304,
+						"translation.y": 480,
 						"zoom_level": 1
 					},
 					"type": "text"

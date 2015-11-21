@@ -59,7 +59,7 @@
 			"file": "/home/ggarri/Project/wikichef/templates/recipes/stepForm.html",
 			"settings":
 			{
-				"buffer_size": 2808,
+				"buffer_size": 2849,
 				"line_ending": "Unix"
 			}
 		},
@@ -164,6 +164,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"updateIngredientSection",
 			"console",
 			"consolse",
 			"showIn",
@@ -217,7 +218,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -260,8 +261,8 @@
 						"selection":
 						[
 							[
-								4604,
-								4607
+								4002,
+								4010
 							]
 						],
 						"settings":
@@ -271,7 +272,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 2848,
+						"translation.y": 1568,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -299,7 +300,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 1024,
+						"translation.y": 64,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -316,8 +317,8 @@
 						"selection":
 						[
 							[
-								1568,
-								1568
+								2343,
+								2345
 							]
 						],
 						"settings":
@@ -327,7 +328,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 480,
+						"translation.y": 943,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -391,15 +392,15 @@
 					"file": "/home/ggarri/Project/wikichef/templates/recipes/stepForm.html",
 					"settings":
 					{
-						"buffer_size": 2808,
+						"buffer_size": 2849,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2264,
-								2264
+								1972,
+								1947
 							]
 						],
 						"settings":
@@ -409,7 +410,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0,
-						"translation.y": 47,
+						"translation.y": 862,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -436,7 +437,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 144,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"

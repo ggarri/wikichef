@@ -11,7 +11,7 @@
 			"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
 			"settings":
 			{
-				"buffer_size": 14277,
+				"buffer_size": 14393,
 				"line_ending": "Unix"
 			}
 		},
@@ -24,10 +24,18 @@
 			}
 		},
 		{
+			"file": "/home/ggarri/Project/wikichef/XGDic/views.py",
+			"settings":
+			{
+				"buffer_size": 937,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
 			"settings":
 			{
-				"buffer_size": 12343,
+				"buffer_size": 12428,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +43,7 @@
 			"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
 			"settings":
 			{
-				"buffer_size": 18046,
+				"buffer_size": 18271,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +59,7 @@
 			"file": "/home/ggarri/Project/wikichef/NLG/models.py",
 			"settings":
 			{
-				"buffer_size": 15348,
+				"buffer_size": 15497,
 				"line_ending": "Unix"
 			}
 		}
@@ -139,6 +147,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print",
+			"save",
+			"uploadingStep",
+			"NoCC",
+			"checkCustomSentence",
+			"NLG",
 			"step",
 			"print",
 			"LOCALE_PATHS ",
@@ -281,7 +295,7 @@
 					"file": "/home/ggarri/Project/wikichef/RecipeController/views.py",
 					"settings":
 					{
-						"buffer_size": 14277,
+						"buffer_size": 14393,
 						"regions":
 						{
 						},
@@ -297,8 +311,8 @@
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 15,
-						"translation.y": 4986,
+						"translation.x": 0,
+						"translation.y": 5322,
 						"zoom_level": 1
 					},
 					"type": "text"
@@ -315,8 +329,8 @@
 						"selection":
 						[
 							[
-								2029,
-								2029
+								4988,
+								4988
 							]
 						],
 						"settings":
@@ -332,18 +346,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
+					"file": "/home/ggarri/Project/wikichef/XGDic/views.py",
 					"settings":
 					{
-						"buffer_size": 12343,
+						"buffer_size": 937,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6361,
-								6365
+								813,
+								813
 							]
 						],
 						"settings":
@@ -352,25 +366,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 3210,
+						"translation.y": 0,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
+					"file": "/home/ggarri/Project/wikichef/RecipeController/models.py",
 					"settings":
 					{
-						"buffer_size": 18046,
+						"buffer_size": 12428,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1197,
-								1202
+								4086,
+								4091
 							]
 						],
 						"settings":
@@ -379,13 +393,40 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0,
-						"translation.y": 410,
+						"translation.y": 1018,
 						"zoom_level": 1
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "/home/ggarri/Project/wikichef/MagicController/models.py",
+					"settings":
+					{
+						"buffer_size": 18271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7538,
+								7543
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0,
+						"translation.y": 3306,
+						"zoom_level": 1
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "/home/ggarri/Project/wikichef/XGDic/models.py",
 					"settings":
 					{
@@ -412,19 +453,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "/home/ggarri/Project/wikichef/NLG/models.py",
 					"settings":
 					{
-						"buffer_size": 15348,
+						"buffer_size": 15497,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4654,
-								4654
+								4803,
+								4782
 							]
 						],
 						"settings":

@@ -1,0 +1,378 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"time",
+				"timeLine"
+			],
+			[
+				"show",
+				"showCoordinate"
+			],
+			[
+				"cre",
+				"createFirstPolyLine"
+			],
+			[
+				"an",
+				"animationMakers"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"markes",
+				"markersArray"
+			],
+			[
+				"add",
+				"addingMarkers"
+			],
+			[
+				"my",
+				"myLatlng"
+			],
+			[
+				"la",
+				"LatLng"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"type",
+				"typeof"
+			],
+			[
+				"mes",
+				"messages"
+			],
+			[
+				"get",
+				"getter"
+			],
+			[
+				"opti",
+				"options"
+			],
+			[
+				"op",
+				"options"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "MagicController/views.py",
+			"settings":
+			{
+				"buffer_size": 7533,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "settings.py",
+			"settings":
+			{
+				"buffer_size": 5465,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ggarri/Developing/myapps/wikichef/templates/browser/searchRecipe.html",
+		"/home/ggarri/Developing/myapps/wikichef/templates/recipes/mbForm.html",
+		"/home/ggarri/Developing/myapps/wikichef/templates/oldest/search.html",
+		"/home/ggarri/Developing/myapps/wikichef/media/js/browser.js",
+		"/home/ggarri/Developing/myapps/wikichef/media/js/newRecipe.js",
+		"/home/ggarri/Developing/myapps/wikichef/templates/recipes/baseForm.html",
+		"/home/ggarri/Developing/myapps/wikichef/templates/recipes/interactiveBall.html",
+		"/home/ggarri/Developing/myapps/wikichef/templates/base.html",
+		"/home/ggarri/Developing/myapps/wikichef/RecipeController/models.py",
+		"/home/ggarri/Developing/myapps/wikichef/RecipeController/views.py",
+		"/home/ggarri/Developing/myapps/wikichef/RecipeController/admin.py",
+		"/home/ggarri/Developing/myapps/wikichef/MagicController/admin.py",
+		"/home/ggarri/Developing/myapps/wikichef/RecipeController/urls.py",
+		"/home/ggarri/Developing/myapps/wikichef/urls.py",
+		"/home/ggarri/Developing/myapps/wikichef/MagicController/views.py",
+		"/home/ggarri/Developing/myapps/wikichef/settings.py",
+		"/home/ggarri/Developing/myapps/wikichef/templates/recipes/correctStepForm.html",
+		"/home/ggarri/Developing/myapps/wikichef/templates/recipes/addRecipe.html",
+		"/home/ggarri/Developing/myapps/widget/index.html",
+		"/home/ggarri/Developing/myapps/wikichef/templates/recipes/stepForm.html",
+		"/home/ggarri/Developing/myapps/Final Project/wikichef/settings.py",
+		"/home/ggarri/Developing/myapps/panoramio/main.js",
+		"/home/ggarri/Developing/myapps/panoramio/index.html",
+		"/home/ggarri/Developing/myapps/panoramio/layer-panoramio.html",
+		"/home/ggarri/Developing/myapps/mapStart/main.js",
+		"/home/ggarri/Developing/myapps/panoramioLibrary/index.html",
+		"/home/ggarri/Developing/myapps/panoramioLibrary/main.js",
+		"/home/ggarri/Developing/myapps/sanValentine/index.html",
+		"/home/ggarri/Developing/myapps/sanValentine/main.css",
+		"/home/ggarri/Developing/myapps/sanValentine/main.js",
+		"/home/ggarri/Developing/myapps/sanValentine/mensajes.js",
+		"/home/ggarri/Developing/myapps/sanValentine/coordinates.js",
+		"/home/ggarri/Developing/myapps/sanValentine/places.js",
+		"/home/ggarri/Developing/myapps/sanValentine/timeline.js",
+		"/home/ggarri/Developing/myapps/customLayerGmaps/custom-layer-gmaps-read-only/customLayer.kml",
+		"/home/ggarri/Developing/myapps/customLayerGmaps/custom-layer-gmaps-read-only/index.html",
+		"/home/ggarri/Developing/myapps/customLayerGmaps/custom-layer-gmaps-read-only/index2.html",
+		"/home/ggarri/Developing/myapps/customLayerGmaps/custom-layer-gmaps-read-only/KML_Samples.kml",
+		"/home/ggarri/Developing/myapps/widget/main.css",
+		"/home/ggarri/Developing/myapps/widget/main.js",
+		"/home/ggarri/TID/GUSER/validator.js",
+		"/home/ggarri/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/ggarri/.config/sublime-text-2/Packages/Default/Global.sublime-settings",
+		"/home/ggarri/.config/sublime-text-2/Packages/User/Global.sublime-settings",
+		"/home/ggarri/Developing/myapps/widget/jquery-1.7.1.min.js",
+		"/home/ggarri/Developing/myapps/mapStart/index.html",
+		"/home/ggarri/Developing/myapps/mapStart/main.css",
+		"/home/ggarri/Developing/myapps/mapsStart/index.html",
+		"/home/ggarri/Developing/myapps/mapsStart/starting.js",
+		"/var/lib/tomcat6/webapps/myapps/mapsStart/starting.js",
+		"/var/lib/tomcat6/webapps/myapps/mapsStart/index.html",
+		"/home/ggarri/Developing/Attemps Maps/starting.js",
+		"/home/ggarri/Developing/Attemps Maps/template.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"reverse",
+			"save",
+			"objects",
+			"{% for lan in request.session.",
+			"seri",
+			"files",
+			"type",
+			"object",
+			"for",
+			"json",
+			"for",
+			"fror",
+			"json",
+			"POST",
+			"static",
+			"template",
+			"PROJECT_DIR",
+			"template",
+			"TEMPLATE",
+			"TEMPLATE_DIRS",
+			"templates",
+			"primary",
+			"all",
+			"True",
+			"path",
+			"images/",
+			"Berlin",
+			"Estocolmo",
+			"Berlin",
+			"Portugal",
+			"Londres",
+			"Irlanda",
+			"Oslo",
+			"Caños",
+			"icon",
+			"infow",
+			"infoWi",
+			"var infoWindow",
+			"infowin",
+			"addingMarkers",
+			"addingEditablePolygon",
+			"toggleBounce",
+			" () {",
+			"function",
+			"_("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"../images/",
+			"Francia",
+			"Suecia",
+			"Marruecos",
+			"Estocolmo",
+			"Estonia",
+			"Berlin",
+			"Portugal",
+			"Londres",
+			"Eslovaquia",
+			"Austria",
+			"Irlanda",
+			"Corazon",
+			"Oslo",
+			"addingZoomPolygon",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "MagicController/views.py",
+					"settings":
+					{
+						"buffer_size": 7533,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2149,
+								2057
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 304.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "settings.py",
+					"settings":
+					{
+						"buffer_size": 5465,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4006,
+								4006
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 998.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 148.0,
+	"status_bar_visible": true
+}

@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-27 20:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@liorg>\n"
+"Language: \n"
+"MIME-Version: 10\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: media/js/htmlMessages.js:1
+msgid "The recipe must have a title"
+msgstr "La receta debe tener un título"
+
+#: media/js/htmlMessages.js:2
+msgid "Description has not more than 500 characters"
+msgstr "Descripción tiene no más de 500 caracteres"
+
+#: media/js/htmlMessages.js:3
+msgid "Name of image file too much long"
+msgstr "Nombre de archivo de imagen demasiado largo"
+
+#: media/js/htmlMessages.js:4
+msgid "Format of image file incorrect"
+msgstr "Formato de archivo de imagen incorrecta"
+
+#: media/js/htmlMessages.js:5
+#, fuzzy
+msgid "Must have a Name"
+msgstr "Elemento debe tener un nombre"
+
+#: media/js/htmlMessages.js:6
+#, fuzzy
+msgid "Step added Correctly"
+msgstr "Éxito: paso agregado correctamente"
+
+#: media/js/htmlMessages.js:7
+#, fuzzy
+msgid "Error during uploading step"
+msgstr "Error durante la carga de paso"
+
+#: media/js/htmlMessages.js:8
+msgid "Thanks for you colaboration"
+msgstr "Gracias por la colaboración de ustedes"
+
+#: media/js/htmlMessages.js:9
+#, fuzzy
+msgid "Error during uploading sentence"
+msgstr "Error durante la carga de oración"
+
+#: media/js/htmlMessages.js:10
+msgid "There are not selected option"
+msgstr "No hay opción seleccionada"
+
+#: media/js/htmlMessages.js:11
+msgid "Sentence updated correctly Thanks"
+msgstr "Frase subida correctalmente Gracias"
+
+#: media/js/htmlMessages.js:12
+msgid "That button was changed correctly"
+msgstr "Ese botón se cambió correctamente"
+
+#: media/js/htmlMessages.js:13
+#, fuzzy
+msgid "Error while connected with the Templates"
+msgstr "Error mientras está conectado con las plantillas"
+
+#: media/js/htmlMessages.js:14
+msgid "Error loading Step"
+msgstr "Paso de carga de error"
+
+#: media/js/htmlMessages.js:15
+msgid "Current step in process"
+msgstr "Paso actual en proceso"
+
+#: media/js/htmlMessages.js:16
+msgid "Error while got the current step"
+msgstr "Error mientras tuvo el paso actual"
+
+#: media/js/htmlMessages.js:17
+#, fuzzy
+msgid "Added correctly"
+msgstr "Agregado correctamente"
+
+#: media/js/htmlMessages.js:18
+#, fuzzy
+msgid "Deleted correctly"
+msgstr "Eliminado correctamente"
+
+#: media/js/htmlMessages.js:19
+msgid "Step is not ready yet"
+msgstr "Paso no está listo todavía"
+
+#: media/js/htmlMessages.js:20
+msgid "That button could not be changed correctly Try it again"
+msgstr "No se pudo cambiar correctamente ese botón vuelva a intentarlo"
+
+#: media/js/htmlMessages.js:21
+msgid "Step deleted correctly"
+msgstr "Paso eliminado correctamente"
+
+#: media/js/htmlMessages.js:22
+msgid "It was imposible to delete the last Step"
+msgstr "Fue imposible para eliminar el último paso"
+
+#: media/js/htmlMessages.js:23
+msgid "Recipe saved correctly"
+msgstr "Receta guarda correctamente"
+
+#: media/js/htmlMessages.js:24
+msgid "It is imposible without steps"
+msgstr "Es imposible sin pasos"
+
+#: media/js/htmlMessages.js:25
+msgid "Deleting session"
+msgstr "Eliminando la sesión"
+
+#: media/js/htmlMessages.js:26
+msgid "List of Ingredients"
+msgstr "Lista de ingredientes"
+
+#: media/js/htmlMessages.js:27
+msgid "Decription"
+msgstr "Descripción"
+
+#: media/js/htmlMessages.js:28
+msgid "There are not any recipe with this ingredients"
+msgstr "No hay ninguna receta con este ingredientes"
+
+#: media/js/htmlMessages.js:29
+msgid "Error while loading Recipes"
+msgstr "Error al cargar recetas"
+
+#: media/js/htmlMessages.js:30
+msgid "Error while loading the ingredients selected"
+msgstr "Error al cargar los ingredientes seleccionados"
+
+#: media/js/htmlMessages.js:31
+msgid "step"
+msgstr "Paso"
+
+#: media/js/htmlMessages.js:32 media/js/htmlMessages.js.py:34
+msgid "Error while adding the ingredient"
+msgstr "Error al agregar el ingrediente"
+
+#: media/js/htmlMessages.js:33
+msgid "Element was already added"
+msgstr "Ya ha agregado el elemento"
+
+#: media/js/htmlMessages.js:35
+msgid "Error while loading recipe datas"
+msgstr "Error al cargar datos de receta"
+
+#: media/js/newRecipe.js:42
+#, fuzzy
+msgid "Action"
+msgstr "Acción"
+
+#: media/js/newRecipe.js:45
+msgid "Utensil"
+msgstr "Utensilio"
+
+#: media/js/newRecipe.js:48
+#, fuzzy
+msgid "Ingredient"
+msgstr "Ingrediente"
